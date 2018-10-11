@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df5974bc-c3f9-446f-9047-35e5f8cce737" name="Default Changelist" comment="">
+    <list default="true" id="df5974bc-c3f9-446f-9047-35e5f8cce737" name="Default Changelist" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
+    <list id="0f4d4ce1-6cfa-41fd-81eb-1e8854824475" name="package.json updated" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/code-comments.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,16 +32,28 @@
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.delete.local" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="txt" value="6" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="6" />
+        </counts>
+      </usages-collector>
     </session>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="blog" />
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -47,6 +63,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
@@ -81,12 +100,213 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path" value="$PROJECT_DIR$/../../bin/nodejs/node-v8/node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.editorconfig</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.env.example</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gitattributes</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gitignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Console/Kernel.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Exceptions/Handler.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Controllers/Controller.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Kernel.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Middleware/Authenticate.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Middleware/CheckForMaintenanceMode.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Providers/AppServiceProvider.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Providers/AuthServiceProvider.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Providers/EventServiceProvider.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Providers/RouteServiceProvider.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/User.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/artisan</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bootstrap/app.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/bootstrap/cache/.gitignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/composer.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/composer.lock</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/config/app.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/config/auth.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/config/broadcasting.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/config/cache.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/config/database.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/config/filesystems.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/config/hashing.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/config/logging.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/config/mail.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/config/queue.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/config/services.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/config/session.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/config/view.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/database/.gitignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/database/factories/UserFactory.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/database/seeds/DatabaseSeeder.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/phpunit.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/.htaccess</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/css/app.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/favicon.ico</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/index.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/js/app.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/robots.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/svg/403.svg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/svg/404.svg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/svg/500.svg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/svg/503.svg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/js/app.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/js/bootstrap.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/js/components/ExampleComponent.vue</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/en/auth.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/en/pagination.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/en/passwords.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/en/validation.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/sass/_variables.scss</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/sass/app.scss</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/welcome.blade.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/routes/api.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/routes/channels.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/routes/console.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/routes/web.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/server.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/storage/app/.gitignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/storage/app/public/.gitignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/storage/framework/.gitignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/storage/framework/cache/.gitignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/storage/framework/cache/data/.gitignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/storage/framework/sessions/.gitignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/storage/framework/testing/.gitignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/storage/framework/views/.gitignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/storage/logs/.gitignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/tests/CreatesApplication.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/tests/Feature/ExampleTest.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/tests/TestCase.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/tests/Unit/ExampleTest.php</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/webpack.mix.js</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -115,35 +335,71 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1422000" />
+    <option name="totallyTimeSpent" value="2138000" />
+  </component>
+  <component name="TodoView" selected-index="3">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+      <is-preview-enabled value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="23" width="1550" height="848" extended-state="6" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Code comment" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" weight="0.6219686" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49811321" visible="true" weight="0.24966443" />
+      <window_info id="Structure" order="1" sideWeight="0.50212765" side_tool="true" weight="0.24966443" />
+      <window_info id="Favorites" order="2" sideWeight="0.5018868" side_tool="true" weight="0.24966443" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31906077" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49934897" weight="0.32872927" />
+      <window_info anchor="bottom" id="Code comment" order="7" weight="0.32952926" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32952926" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932885" weight="0.6219686" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50067115" side_tool="true" weight="0.6219686" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />

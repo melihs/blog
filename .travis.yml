@@ -1,0 +1,13 @@
+language: php
+sudo: required
+php :
+  - 7.1
+  - 7.2
+node_js:
+    -8
+
+
+  branches:
+    only:
+    - master
+install: true

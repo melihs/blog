@@ -100,6 +100,6 @@ fabric.properties
 modules.xml
 .idea/misc.xml
 *.ipr
-
+.idea/workspace.xml
 
 # End of https://www.gitignore.io/api/laravel,phpstorm+all

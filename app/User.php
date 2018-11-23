@@ -29,4 +29,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    //kullanıcıya ait yazıları bulmak için
+    public function posts()
+    {
+        $this->belongsTo('App\Post','user_id');
+    }
 }

@@ -33,6 +33,7 @@ class User extends Authenticatable
     //kullanıcıya ait yazıları bulmak için
     public function posts()
     {
-        $this->belongsTo('App\Post','user_id');
+        $this->hasMany('App\Post','user_id','id');
     }
+
 }

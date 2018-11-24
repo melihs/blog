@@ -1,8 +1,11 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Category;
+use App\User;
+use App\Post;
 
-$factory->define(App\Post::class, function (Faker $faker) {
+$factory->define(Post::class, function (Faker $faker) {
     $title=$faker->sentence;
     return [
         'title' => $title,

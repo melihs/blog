@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/yeni','HomeController@index');
+Route::get('/test','HomeController@index');
 
 Route::resource('iletisim','ContactController');

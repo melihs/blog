@@ -33,7 +33,18 @@ class User extends Authenticatable
     //kullanıcıya ait yazıları bulmak için
     public function posts()
     {
-        $this->hasMany('App\Post','user_id','id');
+//       return $this->hasMany('App\Post','user_id','id');
+         return $this->hasMany('App\Post');
+    }
+
+    public function details(  )
+    {
+        return $this->hasOne('App\Detail','user_id','id ');
+    }
+
+    public function roles(  )
+    {
+        return $this->belongsToMany('App\Role');
     }
 
 }

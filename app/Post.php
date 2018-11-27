@@ -14,7 +14,7 @@ class Post extends Model
         //içeriğin hangi kategoriye ait olduğunu belirtiyoruz
         return $this->belongsTo('App\Category','category_id');
     }
-        //Bir kullanıcının birden fazla yazısı olması durumumda döngüye sokmak için kullanılır
+        //Yazının kime ait oldğunu belirlemek için
     public function user()
     {
         return $this->belongsTo('App\User','user_id');

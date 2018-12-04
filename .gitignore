@@ -103,3 +103,6 @@ modules.xml
 .idea/workspace.xml
 
 # End of https://www.gitignore.io/api/laravel,phpstorm+all
+
+#template
+public/admin/

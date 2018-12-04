@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test','HomeController@index');
+Route::group(['prefix'=>'yonetim'],function (){
+    Route::get('/','AdminController@index')->name('admin.index');
+});
+
+//Route::get('/test','HomeController@index');
 
 Route::resource('iletisim','ContactController');

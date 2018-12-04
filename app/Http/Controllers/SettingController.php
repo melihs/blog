@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Hamcrest\Core\Set;
 use Illuminate\Http\Request;
+use App\Setting;
 
-class settingController extends Controller
+class SettingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class settingController extends Controller
      */
     public function index()
     {
-        //
+        $settings = Setting::find(1);
+        return view('admin.settings.create',compact('settings'));
     }
 
     /**

@@ -105,11 +105,15 @@ class SettingController extends Controller
 
         if ($setting->save())
         {
-            alert()->success('Başarılı', 'güncelleme yapıldı');
+            alert()->success('Başarılı', 'işlem başarılı')
+                   ->showCloseButton()
+                   ->autoClose('2000');
             return back();
         }else
         {
-            alert()->error('Başarısız','güncelleme yapılamadı');
+            alert()->error('Hata','işlem başarısız')
+                   ->showConfirmButton()
+                   ->autoClose('2000');
             return back();
         }
     }

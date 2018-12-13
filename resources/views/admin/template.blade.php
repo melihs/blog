@@ -19,6 +19,7 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
     <![endif]-->
     @yield('css')
 </head>
@@ -201,6 +202,8 @@
 <script src="/admin/assets/libs/flot/jquery.flot.stack.js"></script>
 <script src="/admin/assets/libs/flot/jquery.flot.crosshair.js"></script>
 <script src="/admin/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
+@include('sweetalert::alert')
 @yield('js')
 </body>
 </html>

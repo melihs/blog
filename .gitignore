@@ -106,3 +106,6 @@ modules.xml
 
 #template
 public/admin/
+
+#upload files
+public/uploads/

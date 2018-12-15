@@ -28,7 +28,7 @@
                     <div class="form-group row">
                         <label for="desc" class="col-sm-3 text-right control-label col-form-label">Site Açıklama</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="desc" name="description" value="{{$settings->description}}">
+                            <input type="text" class="form-control" id="description" name="description" value="{{$settings->description}}">
                         </div>
                     </div>
                     <div class="form-group row">

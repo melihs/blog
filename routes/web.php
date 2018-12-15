@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::group(['prefix'=>'yonetim'],function (){
     Route::get('/','AdminController@index')->name('admin.index');
     Route::resource('ayarlar','SettingController');
+    Route::resource('kategoriler','CategoryController');
 });
 
 //Route::get('/test','HomeController@index');

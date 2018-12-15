@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use function Sodium\compare;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -24,7 +25,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::whereRaw('up_id','=',null)->get();
+
+        return view('admin.categories.create',compact('categories'));
     }
 
     /**

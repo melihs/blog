@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreatePostsTable extends Migration
 {
+    // todo: category relations was canceled.It will be add
     /**
      * Run the migrations.
      *
@@ -17,12 +18,12 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('content');
-            $table->integer('category_id')->unsigned();
+//            $table->integer('category_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->string('image')->nullable();
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('categories')->ondelete('cascade');
+//            $table->foreign('category_id')->references('id')->on('categories')->ondelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
         });
     }

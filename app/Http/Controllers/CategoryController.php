@@ -15,18 +15,15 @@ class CategoryController extends Controller
      */
     public function index()
     {
-
+        return view('admin.categories.index');
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
-        $categories = Category::whereRaw('up_id','=',null)->get();
-
+        $categories = Category::where('up_id',null)->get();
         return view('admin.categories.create',compact('categories'));
     }
 
@@ -38,7 +35,26 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'up_id' => 'integer|nullable',
+            'title' => 'string|required',
+            'description' => 'string|required'
+        ]);
+
+        $category = new  Category();
+        $category->title = $request->title;
+        $category->description = $request->description;
+        $category->slug = str_slug($request->title);
+        $category->up_id = $request->up_id;
+
+        if (!$category->save())
+        {
+            alert()->error('Hata','işlem başarısız')->autoClose('2000');
+            return back();
+        }
+        alert()->success('Başarılı', 'işlem başarılı')->autoClose('2000');
+        return back();
+
     }
 
     /**

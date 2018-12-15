@@ -77,21 +77,21 @@ class SettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate(request(),[
+        $this->validate($request,[
             'title' =>'required',
             'description' =>'required',
             'email' =>'email|nullable',
         ]);
 
         $setting = Setting::find(1);
-        $setting->title = request('title');
-        $setting->description = request('description');
-        $setting->email = request('email');
+        $setting->title = $request->title;
+        $setting->description = $request->description;
+        $setting->email = $request->email;
 
-        if (request()->hasFile('logo'))
+        if ($request->hasFile('logo'))
         {
             $this->validate( request(), [ 'logo' => 'image|mimes:png,jpg,jpeg,gif|max:2048' ]);
-            $image = request('logo');
+            $image = $request->logo;
             $file_name = 'logo-' . time() . '.' . $image->extension();
 
             if ($image->isValid())
@@ -103,19 +103,13 @@ class SettingController extends Controller
             }
         }
 
-        if ($setting->save())
+        if (!$setting->save())
         {
-            alert()->success('Başarılı', 'işlem başarılı')
-                   ->showCloseButton()
-                   ->autoClose('2000');
-            return back();
-        }else
-        {
-            alert()->error('Hata','işlem başarısız')
-                   ->showConfirmButton()
-                   ->autoClose('2000');
+            alert()->error('Hata','işlem başarısız')->autoClose('2000');
             return back();
         }
+        alert()->success('Başarılı', 'işlem başarılı')->autoClose('2000');
+        return back();
     }
 
     /**

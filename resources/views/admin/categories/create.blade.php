@@ -23,9 +23,12 @@
                     <label for="logo" class="col-sm-3 text-right control-label col-form-label">Üst Kategori</label>
                     <div class="col-sm-9">
                         <select class="form-control" name="up_id" id="">
-                            @foreach( $categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->title }}</option>
-                                @endforeach
+                            <option value="" selected>Üst kategori</option>
+
+                        @foreach( $categories as $category)
+                             <option value="{{ $category->id }}">{{ $category->title }}</option>
+                        @endforeach
+
                         </select>
                     </div>
                 </div>

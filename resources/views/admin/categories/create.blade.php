@@ -7,8 +7,8 @@
                     <div class="ml-auto text-right">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href='{{route('admin.index')}}'>Anasayfa</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Ayarlar</li>
+                                <li class="breadcrumb-item"><a href='{{route('kategoriler.index')}}'>Kategoriler</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Ekle</li>
                             </ol>
                         </nav>
                     </div>
@@ -55,8 +55,9 @@
     </div>
 @endsection
 @section('css')
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
 @endsection
 @section('js')
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
+    @include('sweetalert::alert')
 @endsection

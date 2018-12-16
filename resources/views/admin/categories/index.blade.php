@@ -43,10 +43,11 @@
                                                         <td>{{ $category->description }}</td>
                                                         <td><a href="{{ route('kategoriler.edit',$category->id) }}"  class="btn btn-warning">Düzenle</a></td>
                                                         {!! Form::model($category, ['route' => ['kategoriler.destroy', $category->id ], 'method' => 'delete']) !!}
-                                                        <td><button class="btn btn-danger btn-sm">Sil</button></td>
+"                                                        <td><button type="submit" class="btn btn-danger btn-sm">Sil</button></td>
                                                         {!! Form::close() !!}
                                                     </tr>
                                                 @endforeach
+
                                                 </tbody>
                                             </table>
                                         </div>

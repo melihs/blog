@@ -117,8 +117,11 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        Category::destroy($id);
+
+        alert()->success('Başarılı','Kategori silindi')->autoClose('2000');
+        return redirect()->route('kategoriler.index');
     }
 }

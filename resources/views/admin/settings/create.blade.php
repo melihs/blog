@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="card">
-                {!! Form::model( $settings , [ 'route' => [ 'ayarlar.update', 1 ],'method' => 'PUT', 'files' => 'true', 'class' => 'form-horizontal']) !!}
+                {!! Form::model( $settings , [ 'route' => [ 'ayarlar.update', 1 ],'method' => 'PUT', 'files' => 'true', 'class' => 'form-horizontal'] ) !!}
                 <div class="card-body">
                     <h4 class="card-title">Site Ayarları</h4>
                     <div class="form-group row">

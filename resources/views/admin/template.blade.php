@@ -127,7 +127,7 @@
                 <ul id="sidebarnav" class="p-t-30">
                     <li class="sidebar-item active"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.index')}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Yönetici Paneli</span></a></li>
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('ayarlar.index')}}" aria-expanded="false"><i class="mdi mdi-pencil"></i><span class="hide-menu">Site Ayarları</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('kategoriler.index')}}" aria-expanded="false"><i class="mdi mdi-format-list-bulleted"></i><span class="hide-menu">Kategoriler</span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('kategoriler.index')}}" aria-expanded="false"><i class="mdi mdi-format-list-bulleted"></i><span class="hide-menu">Kategori Yönetimi</span></a></li>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->
@@ -140,13 +140,13 @@
         <!-- Bread crumb and right sidebar toggle -->
         <!-- End Bread crumb and right sidebar toggle -->
         <!-- Container fluid  -->
-<div class="container-fluid">
-@yield('content')
-</div>
+        <div class="container-fluid">
+            @yield('content')
+        </div>
         <!-- End Container fluid  -->
         <!-- footer -->
         <footer class="footer text-center">
-            Laravel 5.7 blog app <a href="https://melihsahin.com">Melih Şahin</a>
+            Laravel 5.7 blog app <a href="https://melihsahin.com">Melih Şahin</a>.
         </footer>
         <!-- End footer -->
     </div>

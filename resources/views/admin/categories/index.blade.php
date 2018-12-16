@@ -20,6 +20,7 @@
                 <div class="card">
                     <div class="card">
                         <div class="card-body">
+                            <div style="margin:15px 0px 10px; float:right;"><a href="{{ route('kategoriler.create') }}" class="btn btn-success">Kategori Ekle</a></div>
                             <div class="table-responsive">
                                 <div id="zero_config_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                                     <div class="row">

@@ -15,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.categories.index');
+        $categories = Category::all();
+        return view('admin.categories.index',compact('categories'));
     }
 
     /**
@@ -26,7 +27,6 @@ class CategoryController extends Controller
         $categories = Category::where('up_id',null)->get();
         return view('admin.categories.create',compact('categories'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -52,7 +52,7 @@ class CategoryController extends Controller
             alert()->error('Hata','işlem başarısız')->autoClose('2000');
             return back();
         }
-        alert()->success('Başarılı', 'işlem başarılı')->autoClose('2000');
+        alert()->success('Başarılı', 'Kategori eklendi')->autoClose('2000');
         return back();
 
     }
@@ -74,9 +74,12 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+         $category = Category::find($id);
+         $all_categories = Category::all();
+
+        return view('admin.categories.edit',compact('category','all_categories'));
     }
 
     /**
@@ -86,9 +89,26 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'up_id' => 'integer|nullable',
+            'title' => 'string|required',
+            'description' => 'string|required'
+        ]);
+
+        $category = Category::find($id);
+        $category->up_id = $request->up_id;
+        $category->title = $request->title;
+        $category->description = $request->description;
+
+        if(!$category->save())
+        {
+            alert()->error('Hata','işlem başarısız')->autoClose('2000');
+            return back();
+        }
+        alert()->success('Başarılı','Kategori güncellendi')->autoClose('2000');
+        return redirect()->route('kategoriler.index');
     }
 
     /**

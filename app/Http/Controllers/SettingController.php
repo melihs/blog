@@ -17,11 +17,6 @@ class SettingController extends Controller
     public function index()
     {
         $settings = Setting::find(1);
-//        $s1 = Setting::get()->where('id',1);
-//        $s1 = Setting::get();
-//        dd($s1);
-//        $s2 = Setting::where('id',1)->pluck();
-//        dd($s2);
         return view('admin.settings.create',compact('settings'));
     }
 

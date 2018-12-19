@@ -23,7 +23,7 @@
                     <label for="logo" class="col-sm-3 text-right control-label col-form-label">Üst Kategori</label>
                     <div class="col-sm-9">
                         <select class="form-control" name="up_id" id="">
-                            <option value=""> Ana Kategori Yap</option>
+                            <option value="" style="font-weight:bold; color:green;">Ana Kategori</option>
                             @foreach( $all_categories as $all_category)
                                 <option value="{{ $all_category->id }}" {{ $all_category->id == old('up_id',$category->up_id) ? 'selected' : '' }}> {{ $all_category->title }}</option>
                             @endforeach

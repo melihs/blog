@@ -12,13 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
 
 Route::group(['prefix'=>'yonetim'],function (){
     Route::get('/','AdminController@index')->name('admin.index');
     Route::resource('ayarlar','SettingController');
     Route::resource('kategoriler','CategoryController');
+    Route::resource('yazilar','PostController');
 });
 
 //Route::get('/test','HomeController@index');

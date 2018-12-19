@@ -16,9 +16,9 @@
             </div>
         </div>
         <div class="card">
-            {!! Form::open( [ 'route' => 'yazilar.store','method' => 'POST', 'class' => 'form-horizontal']) !!}
+            {!! Form::open( [ 'route' => 'yazilar.store','method' => 'POST', 'class' => 'form-horizontal', 'files' => 'true']) !!}
             <div class="card-body">
-                <h4 class="card-title">Kategoriler</h4>
+                <h4 class="card-title">İçerik Ekle</h4>
                 <div class="form-group row">
                     <label for="logo" class="col-sm-3 text-right control-label col-form-label">Kategori Seçin</label>
                     <div class="col-sm-9">
@@ -33,15 +33,21 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="title" class="col-sm-3 text-right control-label col-form-label">Kategori Başlık</label>
+                    <label for="title" class="col-sm-3 text-right control-label col-form-label">İçerik Başlık</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" id="title" name="title">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="desc" class="col-sm-3 text-right control-label col-form-label">Kategori Açıklama</label>
+                    <label for="title" class="col-sm-3 text-right control-label col-form-label">İçerik Resmi</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="description" name="description">
+                        <input type="file" class="form-control" id="image" name="image">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="desc" class="col-sm-3 text-right control-label col-form-label">İçerik</label>
+                    <div class="col-sm-9">
+                        <textarea type="text" class="form-control" id="editor" name="content"></textarea>
                     </div>
                 </div>
             </div>
@@ -55,9 +61,10 @@
     </div>
 @endsection
 @section('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
+
 @endsection
 @section('js')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
-    @include('sweetalert::alert')
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/translations/tr.js"></script>
+    <script src="/js/editor.js"></script>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Category;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -24,7 +25,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('admin.posts.create',compact('categories')) ;
     }
 
     /**
@@ -35,7 +37,38 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(),[
+            'title' => 'required',
+            'content' => 'required',
+            'category_id' => 'required'
+        ]);
+
+        $post = new Post();
+        $post->title = request('title');
+        $post->content = request('content');
+        $post->user_id = 1;
+        $post->category_id = request('up_id');
+
+        if ($request->hasFile('image'))
+        {
+            $this->validate( request(), [ 'image' => 'image|mimes:png,jpg,jpeg,gif|max:2048' ]);
+            $image = $request->image;
+            $file_name = 'image-' . time() . '.' . $image->extension();
+
+            if ($image->isValid())
+            {
+                $target_directory = 'uploads/files';
+                $file_path = $target_directory . '/' .$file_name;
+                $image->move($target_directory , $file_name);
+                $post->image = $file_path;
+            }
+            if (!$post->save())
+            {
+                alert()->error('Hata','işlem başarısız')->autoClose('2000');
+                return back();
+            }
+            alert()->success('Başarılı', 'içerik kaydedildi')->autoClose('2000');return back();
+        }
     }
 
     /**

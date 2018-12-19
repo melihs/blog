@@ -38,12 +38,12 @@ class UpdateBlogSetting extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'başlık alanı boş bırakalımaz!',
-            'description.required'  => 'açıklama alanı boş bırakalımaz!',
-            'email.email'  => 'email alanı formatı example@gmail.com şeklinde olmalı',
-            'logo.image' => 'Sadece resim dosyaları kaydedilir',
-            'logo.mimes' => ' Dosya formatı geçerli değil.Desteklenen formatlar jpg,jpeg,png,gif',
-            'logo.max' => 'Dosya boyutu maksimum 2mb olmalı',
+            'title.required' => 'başlık alanı boş bırakılamaz !',
+            'description.required'  => 'açıklama alanı boş bırakılamaz !',
+            'email.email'  => 'email alanı formatı example@gmail.com şeklinde olmalı !',
+            'logo.image' => 'Sadece resim dosyaları kaydedilir !',
+            'logo.mimes' => ' Dosya formatı geçerli değil.Desteklenen formatlar jpg,jpeg,png,gif !',
+            'logo.max' => 'Dosya boyutu maksimum 2mb olmalı !',
         ];
     }
 }

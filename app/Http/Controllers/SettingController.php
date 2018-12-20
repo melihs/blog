@@ -28,12 +28,24 @@ class SettingController extends Controller
         $validated = $request->validated();
         $setting = Setting::find(1);
         $setting->fill($validated);
-        if(!$setting->save())
-        {
-            return back();
-        }
-        alert()->success('Başarılı', 'işlem başarılı')->autoClose('2000');
+        $this->logo($setting);
+        $setting->save();
+        alert()->success('Başarılı', 'ayarlar güncellendi')->autoClose('2000');
         return back();
+    }
+    /**
+     * @param $setting
+     */
+    public function logo( $setting )
+    {
+        if ( request()->hasFile('logo') ) {
+            $image = request('logo');
+            $file_name = 'logo-' . time() . '.' . $image->extension();
+            $target_directory = 'uploads/files';
+            $file_path = $target_directory . '/' . $file_name;
+            $image->move($target_directory, $file_name);
+            $setting->logo = $file_path;
+        }
     }
 
 }

@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use function Sodium\compare;
 use Illuminate\Http\Request;
+use App\Http\Requests\BlogCategory;
 
 class CategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Show the aplication dashboard to the categories
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -27,45 +27,21 @@ class CategoryController extends Controller
         $categories = Category::where('up_id',null)->get();
         return view('admin.categories.create',compact('categories'));
     }
+
     /**
-     * Store a newly created resource in storage.
+     * @param StoreBlogCategory $request
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(BlogCategory $request)
     {
-        $this->validate($request,[
-            'up_id' => 'integer|nullable',
-            'title' => 'string|required',
-            'description' => 'string|required'
-        ]);
-
-        $category = new  Category();
-        $category->title = $request->title;
-        $category->description = $request->description;
+        $validated = $request->validated();
+        $category = new Category();
+        $category->fill($validated);
         $category->slug = str_slug($request->title);
-        $category->up_id = $request->up_id;
-
-        if (!$category->save())
-        {
-            alert()->error('Hata','işlem başarısız')->autoClose('2000');
-            return back();
-        }
+        $category->save();
         alert()->success('Başarılı', 'Kategori eklendi')->autoClose('2000');
         return back();
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Category $category)
-    {
-        //
     }
 
     /**
@@ -78,7 +54,6 @@ class CategoryController extends Controller
     {
          $category = Category::find($id);
          $all_categories = Category::all();
-
         return view('admin.categories.edit',compact('category','all_categories'));
     }
 
@@ -89,24 +64,12 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BlogCategory $request, $id)
     {
-        $this->validate($request,[
-            'up_id' => 'integer|nullable',
-            'title' => 'string|required',
-            'description' => 'string|required'
-        ]);
-
+        $validated = $request->validated();
         $category = Category::find($id);
-        $category->up_id = $request->up_id;
-        $category->title = $request->title;
-        $category->description = $request->description;
-
-        if(!$category->save())
-        {
-            alert()->error('Hata','işlem başarısız')->autoClose('2000');
-            return back();
-        }
+        $category->fill($validated);
+        $category->save();
         alert()->success('Başarılı','Kategori güncellendi')->autoClose('2000');
         return redirect()->route('kategoriler.index');
     }
@@ -120,7 +83,6 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         Category::destroy($id);
-
         alert()->success('Başarılı','Kategori silindi')->autoClose('2000');
         return redirect()->route('kategoriler.index');
     }

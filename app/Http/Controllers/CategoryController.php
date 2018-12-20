@@ -29,7 +29,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * @param StoreBlogCategory $request
+     * @param BlogCategory $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -58,11 +58,10 @@ class CategoryController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * @param BlogCategory $request
+     * @param $id
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(BlogCategory $request, $id)
     {

@@ -33,6 +33,7 @@ class SettingController extends Controller
         alert()->success('Başarılı', 'ayarlar güncellendi')->autoClose('2000');
         return back();
     }
+
     /**
      * @param $setting
      */

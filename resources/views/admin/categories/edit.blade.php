@@ -16,6 +16,15 @@
                 </div>
             </div>
         </div>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="card">
             {!! Form::model( $category ,[ 'route' => ['kategoriler.update',$category->id ],'method' => 'PUT', 'class' => 'form-horizontal'] ) !!}
             <div class="card-body">

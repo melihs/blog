@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UpdateBlogSetting;
 use Illuminate\Http\Request;
 use App\Setting;
+use App\Http\Requests\UpdateBlogSetting;
 
 class SettingController extends Controller
 {
@@ -28,7 +28,7 @@ class SettingController extends Controller
         $validated = $request->validated();
         $setting = Setting::find(1);
         $setting->fill($validated);
-        $this->logo($setting);
+        $this->logo($setting,'logo');
         $setting->save();
         alert()->success('Başarılı', 'ayarlar güncellendi')->autoClose('2000');
         return back();
@@ -37,15 +37,15 @@ class SettingController extends Controller
     /**
      * @param $setting
      */
-    public function logo( $setting )
+    public function logo( $setting,$key)
     {
-        if ( request()->hasFile('logo') ) {
-            $image = request('logo');
-            $file_name = 'logo-' . time() . '.' . $image->extension();
+        if ( request()->hasFile($key) ) {
+            $image = request($key);
+            $file_name = "$key-" . time() . '.' . $image->extension();
             $target_directory = 'uploads/files';
             $file_path = $target_directory . '/' . $file_name;
             $image->move($target_directory, $file_name);
-            $setting->logo = $file_path;
+            $setting->$key = $file_path;
         }
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\BlogPost;
 
 class PostController extends Controller
 {
@@ -30,45 +31,22 @@ class PostController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @param BlogPost $request
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(BlogPost $request)
     {
-        $this->validate(request(),[
-            'title' => 'required',
-            'content' => 'required',
-            'category_id' => 'required'
-        ]);
-
-        $post = new Post();
-        $post->title = request('title');
-        $post->content = request('content');
+        $validated = $request->validated();
+        $post =new Post();
         $post->user_id = 1;
-        $post->category_id = request('up_id');
+        $post->fill($validated);
 
-        if ($request->hasFile('image'))
-        {
-            $this->validate( request(), [ 'image' => 'image|mimes:png,jpg,jpeg,gif|max:2048' ]);
-            $image = $request->image;
-            $file_name = 'image-' . time() . '.' . $image->extension();
-
-            if ($image->isValid())
-            {
-                $target_directory = 'uploads/files';
-                $file_path = $target_directory . '/' .$file_name;
-                $image->move($target_directory , $file_name);
-                $post->image = $file_path;
-            }
-            if (!$post->save())
-            {
-                alert()->error('Hata','işlem başarısız')->autoClose('2000');
-                return back();
-            }
-            alert()->success('Başarılı', 'içerik kaydedildi')->autoClose('2000');return back();
-        }
+        $image_valid = new  SettingController();
+        $image_valid->logo($post,'image');
+        $post->save();
+        alert()->success('Başarılı', 'içerik kaydedildi')->autoClose('2000');
+        return back();
     }
 
     /**

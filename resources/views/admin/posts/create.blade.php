@@ -15,6 +15,15 @@
                 </div>
             </div>
         </div>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="card">
             {!! Form::open( [ 'route' => 'yazilar.store','method' => 'POST', 'class' => 'form-horizontal', 'files' => 'true']) !!}
             <div class="card-body">
@@ -22,10 +31,11 @@
                 <div class="form-group row">
                     <label for="logo" class="col-sm-3 text-right control-label col-form-label">Kategori Seçin</label>
                     <div class="col-sm-9">
-                        <select class="form-control" name="up_id" id="">
+                        <select class="form-control" name="category_id" id="">
                             <option value="" selected>Kategori Seçin</option>
 
                             @foreach( $categories as $category)
+
                                 <option value="{{ $category->id }}">{{ $category->title }}</option>
                             @endforeach
 

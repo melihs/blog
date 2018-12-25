@@ -16,13 +16,15 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+
+        return view('admin.posts.index',compact('posts'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return  Response
      */
     public function create()
     {
@@ -33,7 +35,7 @@ class PostController extends Controller
     /**
      * @param BlogPost $request
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function store(BlogPost $request)
     {

@@ -8,4 +8,12 @@ class Category extends Model
 {
     protected $table = 'categories';
     protected $guarded = [];
+
+    /**
+     * @return HasMany relations
+     */
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
 }

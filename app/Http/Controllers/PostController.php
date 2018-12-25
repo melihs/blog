@@ -10,21 +10,19 @@ use App\Http\Requests\BlogPost;
 class PostController extends Controller
 {
     /**
-     * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return view posts list
      */
     public function index()
     {
         $posts = Post::all();
-
         return view('admin.posts.index',compact('posts'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the post create form
      *
-     * @return  Response
+     * @return  admin.post.create
      */
     public function create()
     {
@@ -35,7 +33,7 @@ class PostController extends Controller
     /**
      * @param BlogPost $request
      *
-     * @return RedirectResponse
+     * @return RedirectResponse alert
      */
     public function store(BlogPost $request)
     {
@@ -63,14 +61,16 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the post edit page
      *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param   $post
+     * @return admin.post.edit
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        $categories = Category::all();
+        return view('admin.posts.edit',compact('post','categories'));
     }
 
     /**
@@ -80,9 +80,17 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(BlogPost $request, $id)
     {
-        //
+        $validated = $request->validated();
+        $post = Post::find($id);
+        $post->fill($validated);
+
+        $image_valid = new  SettingController();
+        $image_valid->logo($post,'image');
+        $post->save();
+        alert()->success('Başarılı', 'içerik güncellendi')->autoClose('2000');
+        return redirect()->route('yazilar.index');
     }
 
     /**

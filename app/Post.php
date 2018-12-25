@@ -9,14 +9,19 @@ class Post extends Model
     protected $table = 'posts';
     protected $guarded = [];
 
+    /**
+     * @return belongs to relations
+     */
     public function category()
     {
-        //içeriğin hangi kategoriye ait olduğunu belirtiyoruz
-        return $this->belongsTo('App\Category','category_id');
+        return $this->belongsTo('App\Category');
     }
-        //Yazının kime ait oldğunu belirlemek için
+
+    /**
+     * @return belongs to relations
+     */
     public function user()
     {
-        return $this->belongsTo('App\User','user_id');
+        return $this->belongsTo('App\User');
     }
 }

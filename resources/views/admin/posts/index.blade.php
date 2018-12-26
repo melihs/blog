@@ -20,7 +20,8 @@
                 <div class="card">
                     <div class="card">
                         <div class="card-body">
-                            <div style="margin:15px 0px 10px; float:right;"><a href="{{ route('yazilar.create') }}" class="btn btn-success">İçerik Ekle</a></div>
+                            <h4 class="card-title">İçerik Yönetimi</h4>
+                            <div style="margin:15px 20px 10px; float:right;"><a href="{{ route('yazilar.create') }}" class="btn btn-success">İçerik Ekle</a></div>
                             <div class="table-responsive">
                                 <div id="zero_config_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                                     <div class="row">
@@ -31,8 +32,8 @@
                                                     <th class="sorting_asc" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 177px;">Yazı Başlık</th>
                                                     <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 282.6px;">Kategori</th>
                                                     <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 135.4px;">Yazar</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 30px;">Düzenle</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 20px;">Sil</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 5%;">Düzenle</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 5%;">Sil</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>

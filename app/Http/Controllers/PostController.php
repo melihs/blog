@@ -49,16 +49,6 @@ class PostController extends Controller
         return back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        //
-    }
 
     /**
      * Show the post edit page
@@ -99,8 +89,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
-        //
+        Post::destroy($id);
+        alert()->success('Başarılı', 'içerik silindi')->autoClose('2000');
+        return redirect()->route('yazilar.index');
     }
 }

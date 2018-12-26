@@ -61,7 +61,7 @@ class CategoryController extends Controller
      * @param BlogCategory $request
      * @param $id
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse alert
      */
     public function update(BlogCategory $request, $id)
     {

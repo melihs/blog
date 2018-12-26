@@ -38,13 +38,10 @@
             <div class="navbar-header" data-logobg="skin5">
                 <!-- This is for the sidebar toggle which is visible on mobile only -->
                 <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
-                <!-- ============================================================== -->
                 <!-- Logo -->
-                <!-- ============================================================== -->
                 <a class="navbar-brand" href="{{ route('admin.index') }}">
                     <!-- Logo icon -->
-                    <b class="logo-icon p-l-10">
-                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                    <b class="logo-icon p-l-10">-->
                         <!-- Dark Logo icon -->
                         <img src="/admin/assets/images/logo-icon.png" alt="homepage" class="light-logo" />
 
@@ -127,8 +124,9 @@
             <nav class="sidebar-nav">
                 <ul id="sidebarnav" class="p-t-30">
                     <li class="sidebar-item active"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.index')}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Yönetici Paneli</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('ayarlar.index')}}" aria-expanded="false"><i class="mdi mdi-pencil"></i><span class="hide-menu">Site Ayarları</span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('ayarlar.index')}}" aria-expanded="false"><i class="mdi mdi-wrench"></i><span class="hide-menu">Site Ayarları</span></a></li>
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('kategoriler.index')}}" aria-expanded="false"><i class="mdi mdi-format-list-bulleted"></i><span class="hide-menu">Kategori Yönetimi</span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('yazilar.index')}}" aria-expanded="false"><i class="mdi mdi-border-color"></i><span class="hide-menu">İçerik Yönetimi</span></a></li>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->

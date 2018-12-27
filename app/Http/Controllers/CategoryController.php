@@ -4,15 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
-use App\Http\Requests\BlogCategory;
+use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
     /**
-     * Show the aplication dashboard to the categories
-     *
-     * @return Response
+     * @return  category index view, array categories
      */
+
     public function index()
     {
         $categories = Category::all();
@@ -22,6 +21,7 @@ class CategoryController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
+
     public function create()
     {
         $categories = Category::where('up_id',null)->get();
@@ -29,11 +29,12 @@ class CategoryController extends Controller
     }
 
     /**
-     * @param BlogCategory $request
+     * @param CategoryRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(BlogCategory $request)
+
+    public function store(CategoryRequest $request)
     {
         $validated = $request->validated();
         $category = new Category();
@@ -45,11 +46,10 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Category  $category
+     * @param  \App\Category  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
          $category = Category::find($id);
@@ -58,12 +58,13 @@ class CategoryController extends Controller
     }
 
     /**
-     * @param BlogCategory $request
+     * @param CategoryRequest $request
      * @param $id
      *
      * @return RedirectResponse alert
      */
-    public function update(BlogCategory $request, $id)
+
+    public function update(CategoryRequest $request, $id)
     {
         $validated = $request->validated();
         $category = Category::find($id);
@@ -74,11 +75,10 @@ class CategoryController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Category  $category
+     * @param  \App\Category  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
         Category::destroy($id);

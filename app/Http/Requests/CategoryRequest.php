@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BlogCategory extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,6 +24,7 @@ class BlogCategory extends FormRequest
     public function rules()
     {
         return [
+            'up_id' => 'nullable',
             'title' => 'required',
             'description' => 'required'
         ];
@@ -34,8 +35,7 @@ class BlogCategory extends FormRequest
      */
     public function messages()
     {
-        return
-            [
+        return [
                 'title.required' => 'başlık bölümü boş bırakılamaz !',
                 'description.required' => 'açıklama bölümü boş bırakılamaz !'
             ];

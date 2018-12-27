@@ -15,23 +15,14 @@
                 </div>
             </div>
         </div>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         <div class="card">
             {!! Form::open( [ 'route' => 'yazilar.store','method' => 'POST', 'class' => 'form-horizontal', 'files' => 'true']) !!}
             <div class="card-body">
                 <h4 class="card-title">İçerik Ekle</h4>
                 <div class="form-group row">
-                    <label for="logo" class="col-sm-3 text-right control-label col-form-label">Kategori Seçin</label>
+                    <label for="category" class="col-sm-3 text-right control-label col-form-label">Kategori Seçin</label>
                     <div class="col-sm-9">
-                        <select class="form-control" name="category_id" id="">
+                        <select class="form-control{{ $errors->has('category_id') ? ' is-invalid' : '' }}" name="category_id" id="category" value="{{ old('category_id') }}" >
                             <option value="" selected>Kategori Seçin</option>
 
                             @foreach( $categories as $category)
@@ -40,24 +31,52 @@
                             @endforeach
 
                         </select>
+
+                        @if ($errors->has('title'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('title') }}</strong>
+                            </span>
+                        @endif
+
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="title" class="col-sm-3 text-right control-label col-form-label">İçerik Başlık</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="title" name="title">
+                        <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" id="titlw" value="{{ old('title') }}" >
+
+                        @if ($errors->has('title'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('title') }}</strong>
+                            </span>
+                        @endif
+
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="title" class="col-sm-3 text-right control-label col-form-label">İçerik Resmi</label>
+                    <label for="image" class="col-sm-3 text-right control-label col-form-label">İçerik Resmi</label>
                     <div class="col-sm-9">
-                        <input type="file" class="form-control" id="image" name="image">
+                        <input type="file" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="image" name="image">
+
+                        @if ($errors->has('image'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('image') }}</strong>
+                            </span>
+                        @endif
+
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="desc" class="col-sm-3 text-right control-label col-form-label">İçerik</label>
+                    <label for="editor" class="col-sm-3 text-right control-label col-form-label">İçerik</label>
                     <div class="col-sm-9">
-                        <textarea type="text" class="form-control" id="editor" name="content"></textarea>
+                        <textarea type="text" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" name="content" id="editor" value="{{ old('content') }}"></textarea>
+
+                        @if ($errors->has('content'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('content') }}</strong>
+                            </span>
+                        @endif
+
                     </div>
                 </div>
             </div>
@@ -69,6 +88,7 @@
             {!! Form::close() !!}
         </div>
     </div>
+
 @endsection
 @section('css')
 

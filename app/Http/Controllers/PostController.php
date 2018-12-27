@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Category;
 use Illuminate\Http\Request;
-use App\Http\Requests\BlogPost;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
     /**
-     *
-     * @return view posts list
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
+
     public function index()
     {
         $posts = Post::all();
@@ -20,10 +20,9 @@ class PostController extends Controller
     }
 
     /**
-     * Show the post create form
-     *
-     * @return  admin.post.create
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
+
     public function create()
     {
         $categories = Category::all();
@@ -31,11 +30,12 @@ class PostController extends Controller
     }
 
     /**
-     * @param BlogPost $request
+     * @param PostRequest $request
      *
-     * @return RedirectResponse alert
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(BlogPost $request)
+
+    public function store(PostRequest $request)
     {
         $validated = $request->validated();
         $post =new Post();
@@ -49,13 +49,12 @@ class PostController extends Controller
         return back();
     }
 
-
     /**
-     * Show the post edit page
+     * @param $id
      *
-     * @param   $post
-     * @return admin.post.edit
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
+
     public function edit($id)
     {
         $post = Post::find($id);
@@ -64,13 +63,13 @@ class PostController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * @param PostRequest $request
+     * @param $id
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(BlogPost $request, $id)
+
+    public function update(PostRequest $request, $id)
     {
         $validated = $request->validated();
         $post = Post::find($id);
@@ -84,11 +83,11 @@ class PostController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * @param $id
      *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
+
     public function destroy($id)
     {
         Post::destroy($id);

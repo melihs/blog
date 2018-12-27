@@ -13,23 +13,25 @@ class User extends Authenticatable
     /**
      * @var array
      */
-    protected $fillable = [ 'name', 'email', 'password'];
+
+    protected $fillable = [ 'name','role','email', 'password','admin'];
 
     /**
      * @var array
      */
+
     protected $guarded = [ ];
 
     /**
-     * The attributes that should be hidden for arrays.
-     *
      * @var array
      */
+
     protected $hidden = [ 'password', 'remember_token'];
 
     /**
      * @return HasMany relations
      */
+
     public function posts()
     {
          return $this->hasMany('App\Post');

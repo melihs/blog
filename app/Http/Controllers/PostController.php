@@ -47,7 +47,7 @@ class PostController extends Controller
         $post->save();
         alert()->success('Başarılı', 'içerik kaydedildi')->autoClose('2000');
         return back();
-    }
+}
 
     /**
      * @param $id

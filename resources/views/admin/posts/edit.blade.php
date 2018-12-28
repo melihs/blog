@@ -15,15 +15,7 @@
                 </div>
             </div>
         </div>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+
         <div class="card">
             {!! Form::model($post,['route' => ['yazilar.update',$post->id],'method' =>'PUT','files' =>'true','class' => 'form-horizontal']) !!}
             <div class="card-body">
@@ -44,7 +36,14 @@
                 <div class="form-group row">
                     <label for="title" class="col-sm-3 text-right control-label col-form-label">İçerik Başlık</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="title" name="title" value="{{ $post->title }}">
+                        <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" value="{{ $post->title }}">
+
+                        @if ($errors->has('title'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('title') }}</strong>
+                            </span>
+                        @endif
+
                     </div>
                 </div>
                 <div class="form-group row">
@@ -56,15 +55,29 @@
                                     <a href="/{{ $post->image }}" data-lightbox="{{ $post->image }}" data-title="">
                                         <img src="/{{ $post->image }}" class="rounded img-fluid m-2" width="200" height="200" alt="">
                                     </a>
-                                    <input type="file" class="form-control" id="image" name="image" >
+                                    <input type="file" class="form-control{{ $errors->has('image') ? ' is-invalid' : '' }}" id="image" name="image" >
+
+                                    @if ($errors->has('image'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('image') }}</strong>
+                                        </span>
+                                    @endif
+
                                 </div>
                             </div>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="desc" class="col-sm-3 text-right control-label col-form-label">İçerik</label>
+                    <label for="editor" class="col-sm-3 text-right control-label col-form-label">İçerik</label>
                     <div class="col-sm-9">
-                        <textarea type="text" class="form-control" id="editor" name="content">{{ $post->content }}</textarea>
+                        <textarea type="text" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" id="editor" name="content">{{$post->content}}</textarea>
+
+                        @if ($errors->has('content'))
+                            <span class="invalid-feedback" role="alert">
+                               <strong>{{ $errors->first('content') }}</strong>
+                            </span>
+                        @endif
+
                     </div>
                 </div>
             </div>

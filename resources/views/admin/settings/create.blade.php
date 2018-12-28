@@ -15,15 +15,6 @@
                 </div>
             </div>
         </div>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         <div class="card">
                 {!! Form::model( $settings , [ 'route' => [ 'ayarlar.update', 1 ],'method' => 'PUT', 'files' => 'true', 'class' => 'form-horizontal'] ) !!}
                 <div class="card-body">
@@ -31,25 +22,53 @@
                     <div class="form-group row">
                         <label for="title" class="col-sm-3 text-right control-label col-form-label">Site Başlık</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="title" name="title" value="{{$settings->title}}">
+                            <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" id="title" value="{{$settings->title}}">
+
+                            @if ($errors->has('title'))
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('title') }}</strong>
+                            </span>
+                            @endif
+
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="desc" class="col-sm-3 text-right control-label col-form-label">Site Açıklama</label>
+                        <label for="description" class="col-sm-3 text-right control-label col-form-label">Site Açıklama</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="description" name="description" value="{{$settings->description}}">
+                            <input type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" id="description" name="description" value="{{$settings->description}}">
+
+                            @if ($errors->has('description'))
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('description') }}</strong>
+                            </span>
+                            @endif
+
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="email" class="col-sm-3 text-right control-label col-form-label">e-posta</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="email" name="email" value="{{$settings->email}}">
+                            <input type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" id="email" name="email" value="{{$settings->email}}">
+
+                            @if ($errors->has('email'))
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                            @endif
+
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="logo" class="col-sm-3 text-right control-label col-form-label">Site Logo</label>
                         <div class="col-sm-9">
-                            <input type="file" class="form-control" id="logo" name="logo">
+                            <input type="file" class="form-control{{ $errors->has('logo') ? ' is-invalid' : '' }}" id="logo" name="logo">
+
+                            @if ($errors->has('logo'))
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('logo') }}</strong>
+                            </span>
+                            @endif
+
                         </div>
                     </div>
                 </div>

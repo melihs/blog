@@ -4,13 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateBlogSetting extends FormRequest
+class SettingRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
     public function authorize()
     {
         return true;
@@ -18,9 +13,9 @@ class UpdateBlogSetting extends FormRequest
 
     /**
      * Get the validation rules that apply to the update.
-     *
      * @return array
      */
+
     public function rules()
     {
         return [
@@ -34,6 +29,7 @@ class UpdateBlogSetting extends FormRequest
     /**
      * @return array
      */
+
     public function messages()
     {
         return [

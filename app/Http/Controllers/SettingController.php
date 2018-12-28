@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Setting;
-use App\Http\Requests\UpdateBlogSetting;
+use App\Http\Requests\SettingRequest;
 
 class SettingController extends Controller
 {
@@ -13,6 +13,7 @@ class SettingController extends Controller
      *
      * @return Response
      */
+
     public function index()
     {
         $settings = Setting::find(1);
@@ -20,10 +21,13 @@ class SettingController extends Controller
     }
 
     /**
-     * @param UpdateBlogSetting $request
+     * @param SettingRequest $request
      * @param $id
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(UpdateBlogSetting $request , $id)
+
+    public function update(SettingRequest $request , $id)
     {
         $validated = $request->validated();
         $setting = Setting::find(1);
@@ -36,7 +40,9 @@ class SettingController extends Controller
 
     /**
      * @param $setting
+     * @param $key
      */
+
     public function logo( $setting,$key)
     {
         if ( request()->hasFile($key) ) {

@@ -28,9 +28,6 @@
         <div class="lds-pos"></div>
     </div>
 </div>
-<!-- ============================================================== -->
-<!-- Main wrapper - style you can find in pages.scss -->
-<!-- ============================================================== -->
 <div id="main-wrapper">
     <!-- Topbar header - style you can find in pages.scss -->
     <header class="topbar" data-navbarbg="skin5">
@@ -40,32 +37,13 @@
                 <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                 <!-- Logo -->
                 <a class="navbar-brand" href="{{ route('admin.index') }}">
-                    <!-- Logo icon -->
-                    <b class="logo-icon p-l-10">-->
-                        <!-- Dark Logo icon -->
-                        <img src="/admin/assets/images/logo-icon.png" alt="homepage" class="light-logo" />
-
-                    </b>
-                    <!--End Logo icon -->
-                    <!-- Logo text -->
                     <span class="logo-text">
-                             <!-- dark Logo text -->
-                             <img src="/admin/assets/images/logo-text.png" alt="homepage" class="light-logo" />
-
-                        </span>
-                    <!-- Logo icon -->
-                    <!-- <b class="logo-icon"> -->
-                    <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                    <!-- Dark Logo icon -->
-                    <!-- <img src="/admin/assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
-                    <!-- </b> -->
-                    <!--End Logo icon -->
+                        <h3 class="">Admin Paneli</h3>
+                    </span>
                 </a>
-                <!-- End Logo -->
                 <!-- Toggle which is visible on mobile only -->
                 <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
             </div>
-            <!-- End Logo -->
             <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
                 <!-- toggle and nav items -->
                 <ul class="navbar-nav float-left mr-auto">
@@ -80,16 +58,16 @@
                 <!-- Right side toggle and nav items -->
                 <ul class="navbar-nav float-right">
                     <!-- Comment -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-bell font-24"></i>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
+                    {{--<li class="nav-item dropdown">--}}
+                        {{--<a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-bell font-24"></i>--}}
+                        {{--</a>--}}
+                        {{--<div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
+                            {{--<a class="dropdown-item" href="#">Action</a>--}}
+                            {{--<a class="dropdown-item" href="#">Another action</a>--}}
+                            {{--<div class="dropdown-divider"></div>--}}
+                            {{--<a class="dropdown-item" href="#">Something else here</a>--}}
+                        {{--</div>--}}
+                    {{--</li>--}}
                     <!-- End Comment -->
                     <!-- Messages -->
                     <!-- End Messages -->
@@ -108,9 +86,7 @@
                             <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
                         </div>
                     </li>
-                    <!-- ============================================================== -->
                     <!-- User profile and search -->
-                    <!-- ============================================================== -->
                 </ul>
             </div>
         </nav>
@@ -155,7 +131,6 @@
 <!-- All Jquery -->
 <script src="/admin/assets/libs/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap tether Core JavaScript -->
-{{--<script src="/admin/assets/libs/popper.js/dist/umd/popper.min.js"></script>--}}
 <script src="/admin/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/admin/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
 <script src="/admin/assets/extra-libs/sparkline/sparkline.js"></script>
@@ -165,16 +140,14 @@
 <script src="/admin/dist/js/sidebarmenu.js"></script>
 <!--Custom JavaScript -->
 <script src="/admin/dist/js/custom.min.js"></script>
-<!--This page JavaScript -->
-<!-- <script src="/admin/dist/js/pages/dashboards/dashboard1.js"></script> -->
 <!-- Charts js Files -->
-<script src="/admin/assets/libs/flot/excanvas.js"></script>
-<script src="/admin/assets/libs/flot/jquery.flot.js"></script>
-<script src="/admin/assets/libs/flot/jquery.flot.pie.js"></script>
-<script src="/admin/assets/libs/flot/jquery.flot.time.js"></script>
-<script src="/admin/assets/libs/flot/jquery.flot.stack.js"></script>
-<script src="/admin/assets/libs/flot/jquery.flot.crosshair.js"></script>
-<script src="/admin/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+{{--<script src="/admin/assets/libs/flot/excanvas.js"></script>--}}
+{{--<script src="/admin/assets/libs/flot/jquery.flot.js"></script>--}}
+{{--<script src="/admin/assets/libs/flot/jquery.flot.pie.js"></script>--}}
+{{--<script src="/admin/assets/libs/flot/jquery.flot.time.js"></script>--}}
+{{--<script src="/admin/assets/libs/flot/jquery.flot.stack.js"></script>--}}
+{{--<script src="/admin/assets/libs/flot/jquery.flot.crosshair.js"></script>--}}
+{{--<script src="/admin/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
 @include('sweetalert::alert')
 @yield('js')

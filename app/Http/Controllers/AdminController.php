@@ -2,28 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View  admin index
      */
+
     public function index()
     {
         return view('admin.index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -80,5 +72,32 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * @return view create user
+     */
+
+    public function addUser()
+    {
+        return view('admin.users.create');
+    }
+
+    /**
+     * @param UserRequest $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+
+    public function saveUser(UserRequest $request)
+    {
+        $validated = $request->validated();
+        $user = new User();
+        $user->fill($validated);
+        $user->password = Hash::make($request->password);
+        $user->save();
+        alert()->success('Başarılı', 'Kullanıcı eklendi')->autoClose('2000');
+        return back();
+
     }
 }

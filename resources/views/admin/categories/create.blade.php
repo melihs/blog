@@ -29,9 +29,9 @@
             <div class="card-body">
                 <h4 class="card-title"> Yeni Kategori Ekle</h4>
                 <div class="form-group row">
-                    <label for="logo" class="col-sm-3 text-right control-label col-form-label">Üst Kategori</label>
+                    <label for="up_id" class="col-sm-3 text-right control-label col-form-label">Üst Kategori</label>
                     <div class="col-sm-9">
-                        <select class="form-control" name="up_id" id="">
+                        <select id="up_id" class="form-control" name="up_id" >
                             <option value="" selected>Üst kategori</option>
 
                         @foreach( $categories as $category)
@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="desc" class="col-sm-3 text-right control-label col-form-label">Kategori Açıklama</label>
+                    <label for="description" class="col-sm-3 text-right control-label col-form-label">Kategori Açıklama</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" id="description" name="description">
                     </div>

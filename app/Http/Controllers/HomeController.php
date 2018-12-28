@@ -3,13 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+
 class HomeController extends Controller
 {
-    public function index(  )
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        $user = User::find(1)->first();
+        $this->middleware('auth');
+    }
 
-        return view('test',compact('user'));
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('home');
     }
 }

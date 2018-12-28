@@ -12,17 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
-
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'yonetim'],function (){
+
     Route::get('/','AdminController@index')->name('admin.index');
+    Route::get('kullaniciekle','AdminController@addUser')->name('user.add');
+    Route::post('kullanicikayit','AdminController@saveUser')->name('user.save');
     Route::resource('ayarlar','SettingController');
     Route::resource('kategoriler','CategoryController');
     Route::resource('yazilar','PostController');
 });
 
-//Route::get('/test','HomeController@index');
 
-//Route::resource('iletisim','ContactController');

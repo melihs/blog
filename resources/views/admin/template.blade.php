@@ -100,6 +100,7 @@
             <nav class="sidebar-nav">
                 <ul id="sidebarnav" class="p-t-30">
                     <li class="sidebar-item active"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.index')}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Yönetici Paneli</span></a></li>
+                    <li class="sidebar-item active"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('kullanicilar.index')}}" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Kullanıcı Yönetimi</span></a></li>
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('ayarlar.index')}}" aria-expanded="false"><i class="mdi mdi-wrench"></i><span class="hide-menu">Site Ayarları</span></a></li>
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('kategoriler.index')}}" aria-expanded="false"><i class="mdi mdi-format-list-bulleted"></i><span class="hide-menu">Kategori Yönetimi</span></a></li>
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('yazilar.index')}}" aria-expanded="false"><i class="mdi mdi-border-color"></i><span class="hide-menu">İçerik Yönetimi</span></a></li>

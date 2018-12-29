@@ -49,22 +49,22 @@
                 <div class="form-group row">
                     <label for="title" class="col-sm-3 text-right control-label col-form-label">İçerik Resmi</label>
                     <div class="col-sm-9">
-                            <div class="card border-dark  mb-3" style="max-width: 18rem;">
-                                <div class="card-header">İçerik Resmi</div>
-                                <div class="card-body text-dark text-center">
-                                    <a href="/{{ $post->image }}" data-lightbox="{{ $post->image }}" data-title="">
-                                        <img src="/{{ $post->image }}" class="rounded img-fluid m-2" width="200" height="200" alt="">
-                                    </a>
-                                    <input type="file" class="form-control{{ $errors->has('image') ? ' is-invalid' : '' }}" id="image" name="image" >
+                        <div class="card border-dark  mb-3" style="max-width: 18rem;">
+                            <div class="card-header">İçerik Resmi</div>
+                            <div class="card-body text-dark text-center">
+                                <a href="/{{ $post->image }}" data-lightbox="{{ $post->image }}" data-title="">
+                                    <img src="/{{ $post->image }}" class="rounded img-fluid m-2" width="200" height="200" alt="">
+                                </a>
+                                <input type="file" class="form-control{{ $errors->has('image') ? ' is-invalid' : '' }}" id="image" name="image" >
 
-                                    @if ($errors->has('image'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('image') }}</strong>
-                                        </span>
-                                    @endif
+                                @if ($errors->has('image'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('image') }}</strong>
+                                    </span>
+                                @endif
 
-                                </div>
                             </div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -91,10 +91,11 @@
     </div>
 @endsection
 @section('css')
+    <!-- lightbox css-->
     <link rel="stylesheet" href="/admin/lightbox2/dist/css/lightbox.css">
 @endsection
 @section('js')
-    <!-- lightbox -->
+    <!-- lightbox  js-->
     <script src="/admin/lightbox2/dist/js/lightbox.js"></script>
     <script src="/admin/lightbox2/option.js"></script>
     <!-- ckeditor -->

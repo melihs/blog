@@ -19,7 +19,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix'=>'yonetim'],function (){
 
     Route::get('/','AdminController@index')->name('admin.index');
-    Route::resource('kullanici','AdminController');
+    Route::resource('kullanicilar','UserController');
     Route::resource('ayarlar','SettingController');
     Route::resource('kategoriler','CategoryController');
     Route::resource('yazilar','PostController');

@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="card">
-            <form method="POST" action="{{ route('user.save') }}">
+            <form method="POST" action="{{ route('kullanici.store') }}">
                 @csrf
             <div class="card-body">
                 <h4 class="card-title"> Yeni Kullanıcı Ekle</h4>
@@ -72,6 +72,12 @@
                     <label for="password-confirm" class="col-sm-3 text-right control-label col-form-label"> Tekrar Parola</label>
                     <div class="col-sm-9">
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="avatar" class="col-sm-3 text-right control-label col-form-label">Avatar</label>
+                    <div class="col-sm-9">
+                        <input id="avatar" type="file" class="form-control" name="avatar" required>
                     </div>
                 </div>
             </div>

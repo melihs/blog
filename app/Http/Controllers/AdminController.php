@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View  admin index
+     * @return  admin index
      */
 
     public function index()
@@ -19,14 +19,29 @@ class AdminController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return  user create
      */
-    public function store(Request $request)
+
+    public function create()
     {
-        //
+        return view('admin.users.create');
+    }
+
+    /**
+     * @param UserRequest $request
+     *
+     * @return user save
+     */
+
+    public function store(UserRequest $request)
+    {
+        $validated = $request->validated();
+        $user = new User();
+        $user->fill($validated);
+        $user->password = Hash::make($request->password);
+        $user->save();
+        alert()->success('Başarılı', 'Kullanıcı eklendi')->autoClose('2000');
+        return back();
     }
 
     /**
@@ -72,32 +87,5 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    /**
-     * @return view create user
-     */
-
-    public function addUser()
-    {
-        return view('admin.users.create');
-    }
-
-    /**
-     * @param UserRequest $request
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-
-    public function saveUser(UserRequest $request)
-    {
-        $validated = $request->validated();
-        $user = new User();
-        $user->fill($validated);
-        $user->password = Hash::make($request->password);
-        $user->save();
-        alert()->success('Başarılı', 'Kullanıcı eklendi')->autoClose('2000');
-        return back();
-
     }
 }

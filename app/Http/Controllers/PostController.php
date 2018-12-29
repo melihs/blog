@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Category;
+use App\Traits\ImageValidation;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
+    use ImageValidation;
+
     /**
      * @return posts list page
      */
@@ -40,9 +43,7 @@ class PostController extends Controller
         $post =new Post();
         $post->user_id = 1;
         $post->fill($validated);
-
-        $image_valid = new  SettingController();
-        $image_valid->imageValid($post,'image');
+        $this->imageValidate($post,'image');
         $post->save();
         alert()->success('Başarılı', 'içerik kaydedildi')->autoClose('2000');
         return back();
@@ -71,9 +72,7 @@ class PostController extends Controller
         $validated = $request->validated();
         $post = Post::find($id);
         $post->fill($validated);
-
-        $image_valid = new  SettingController();
-        $image_valid->imageValid($post,'image');
+        $this->imageValidate($post,'image');
         $post->save();
         alert()->success('Başarılı', 'içerik güncellendi')->autoClose('2000');
         return redirect()->route('yazilar.index');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\ImageValidation;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
@@ -9,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
+    use ImageValidation;
+
     /**
      * @return  admin index
      */
@@ -39,6 +42,7 @@ class AdminController extends Controller
         $user = new User();
         $user->fill($validated);
         $user->password = Hash::make($request->password);
+        $this->imageValidate();
         $user->save();
         alert()->success('Başarılı', 'Kullanıcı eklendi')->autoClose('2000');
         return back();

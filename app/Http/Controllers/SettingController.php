@@ -9,9 +9,7 @@ use App\Http\Requests\SettingRequest;
 class SettingController extends Controller
 {
     /**
-     * Show the form list  the website settings.
-     *
-     * @return Response
+     * @return settings create page,array settings
      */
 
     public function index()
@@ -23,8 +21,7 @@ class SettingController extends Controller
     /**
      * @param SettingRequest $request
      * @param $id
-     *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return update settings
      */
 
     public function update(SettingRequest $request , $id)
@@ -32,7 +29,7 @@ class SettingController extends Controller
         $validated = $request->validated();
         $setting = Setting::find(1);
         $setting->fill($validated);
-        $this->logo($setting,'logo');
+        $this->imageValid($setting,'logo');
         $setting->save();
         alert()->success('Başarılı', 'ayarlar güncellendi')->autoClose('2000');
         return back();
@@ -43,7 +40,7 @@ class SettingController extends Controller
      * @param $key
      */
 
-    public function logo( $setting,$key)
+    public function imageValid( $setting,$key)
     {
         if ( request()->hasFile($key) ) {
             $image = request($key);

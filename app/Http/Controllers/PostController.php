@@ -10,7 +10,7 @@ use App\Http\Requests\PostRequest;
 class PostController extends Controller
 {
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return posts list page
      */
 
     public function index()
@@ -20,7 +20,7 @@ class PostController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return create post
      */
 
     public function create()
@@ -31,8 +31,7 @@ class PostController extends Controller
 
     /**
      * @param PostRequest $request
-     *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return  save post
      */
 
     public function store(PostRequest $request)
@@ -43,7 +42,7 @@ class PostController extends Controller
         $post->fill($validated);
 
         $image_valid = new  SettingController();
-        $image_valid->logo($post,'image');
+        $image_valid->imageValid($post,'image');
         $post->save();
         alert()->success('Başarılı', 'içerik kaydedildi')->autoClose('2000');
         return back();
@@ -51,8 +50,7 @@ class PostController extends Controller
 
     /**
      * @param $id
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return edit post
      */
 
     public function edit($id)
@@ -65,8 +63,7 @@ class PostController extends Controller
     /**
      * @param PostRequest $request
      * @param $id
-     *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return update post
      */
 
     public function update(PostRequest $request, $id)
@@ -76,7 +73,7 @@ class PostController extends Controller
         $post->fill($validated);
 
         $image_valid = new  SettingController();
-        $image_valid->logo($post,'image');
+        $image_valid->imageValid($post,'image');
         $post->save();
         alert()->success('Başarılı', 'içerik güncellendi')->autoClose('2000');
         return redirect()->route('yazilar.index');
@@ -84,8 +81,7 @@ class PostController extends Controller
 
     /**
      * @param $id
-     *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return delete post
      */
 
     public function destroy($id)

@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="card">
-            <form method="POST" action="{{ route('kullanici.store') }}">
+            <form method="POST" action="{{ route('kullanici.store') }}" enctype="multipart/form-data">
                 @csrf
             <div class="card-body">
                 <h4 class="card-title"> Yeni Kullanıcı Ekle</h4>
@@ -77,7 +77,14 @@
                 <div class="form-group row">
                     <label for="avatar" class="col-sm-3 text-right control-label col-form-label">Avatar</label>
                     <div class="col-sm-9">
-                        <input id="avatar" type="file" class="form-control" name="avatar" required>
+                        <input id="avatar" type="file" class="form-control{{ $errors->has('avatar') ? ' is-invalid' : '' }}" name="avatar" required>
+
+                        @if ($errors->has('avatar'))
+                            <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('avatar') }}</strong>
+                        </span>
+                        @endif
+
                     </div>
                 </div>
             </div>

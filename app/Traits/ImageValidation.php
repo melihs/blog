@@ -14,7 +14,7 @@ trait ImageValidation{
      * @param $model
      * @param $key
      */
-    public function imageValidate( $model, $key)
+    public function imageValidate($model, $key)
     {
         if ( request()->hasFile($key) ) {
             $image = request($key);

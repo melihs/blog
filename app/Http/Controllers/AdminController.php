@@ -40,9 +40,9 @@ class AdminController extends Controller
     {
         $validated = $request->validated();
         $user = new User();
-        $user->fill($validated);
         $user->password = Hash::make($request->password);
-        $this->imageValidate();
+        $user->fill($validated);
+        $this->imageValidate($user,'avatar');
         $user->save();
         alert()->success('Başarılı', 'Kullanıcı eklendi')->autoClose('2000');
         return back();

@@ -71,13 +71,20 @@ class UserController extends Controller
      */
     public function update(UserRequest $request , $id)
     {
-        $validated = $request->validated();
-        $user = User::find($id);
-        $user->fill($validated);
-        $this->imageValidate($user,'avatar');
-        $user->save();
-        alert()->success('Başarılı', 'kullanıcı bilgileri güncellendi')->autoClose('2000');
-        return back();
+        try
+        {
+            $validated = $request->validated();
+            $user = User::find($id);
+            $user->fill($validated);
+            $this->imageValidate($user, 'avatar');
+            $user->save();
+            alert()->success('Başarılı', 'kullanıcı bilgileri güncellendi')->autoClose('2000');
+            return back();
+        }catch (\Exception $e)
+        {
+            alert()->error('Hata', 'bu e-posta daha önce kaydedilmiş !')->autoClose('2000');
+            return back();
+        }
     }
 
     /**
@@ -90,5 +97,14 @@ class UserController extends Controller
         User::destroy($id);
         alert()->success('Başarılı', 'Kullanıcı silindi')->autoClose('2000');
         return redirect()->route('kullanicilar.index');
+    }
+
+    /**
+     * @return mainpage
+     */
+    public function userLogout()
+    {
+        auth()->logout();
+        return redirect('/');
     }
 }

@@ -10,16 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix'=>'yonetim'],function (){
-
+Route::group(['prefix'=>'yonetim','middleware' =>'admin'],function (){
     Route::get('/','AdminController@index')->name('admin.index');
     Route::resource('kullanicilar','UserController');
+    Route::get('/cikis','UserController@userLogout')->name('user.userLogout');
     Route::resource('ayarlar','SettingController');
     Route::resource('kategoriler','CategoryController');
     Route::resource('yazilar','PostController');

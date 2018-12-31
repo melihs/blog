@@ -37,7 +37,7 @@ class PostRequest extends FormRequest
             [
                 'title.required' => 'başlık bölümü boş bırakılamaz !',
                 'content.required' => 'açıklama bölümü boş bırakılamaz !',
-                'category_id.required' => 'Lütfen bir kategori seçin',
+                'category_id.required' => 'Lütfen bir kategori seçin !',
                 'image.image' => 'Sadece resim dosyaları kaydedilir !',
                 'image.mimes' => ' Dosya formatı geçerli değil.Desteklenen formatlar jpg,jpeg,png,gif !',
                 'image.max' => 'Dosya boyutu maksimum 2mb olmalı !'

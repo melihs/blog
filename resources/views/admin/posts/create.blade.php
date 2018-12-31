@@ -20,9 +20,9 @@
             <div class="card-body">
                 <h4 class="card-title">İçerik Ekle</h4>
                 <div class="form-group row">
-                    <label for="category" class="col-sm-3 text-right control-label col-form-label">Kategori Seçin</label>
+                    <label for="category_id" class="col-sm-3 text-right control-label col-form-label">Kategori Seçin</label>
                     <div class="col-sm-9">
-                        <select class="form-control{{ $errors->has('category_id') ? ' is-invalid' : '' }}" name="category_id" id="category" value="{{ old('category_id') }}" >
+                        <select class="form-control{{ $errors->has('category_id') ? ' is-invalid' : '' }}" name="category_id" id="category_id" >
                             <option value="" selected>Kategori Seçin</option>
 
                             @foreach( $categories as $category)
@@ -94,7 +94,8 @@
 
 @endsection
 @section('js')
-    <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/translations/tr.js"></script>
-    <script src="/js/editor.js"></script>
+    <!-- ckeditor -->
+    <script src="/admin/ckeditor5/ckeditor.js"></script>
+    <script src="/admin/ckeditor5/translations/tr.js"></script>
+    <script src="/admin/ckeditor5/option.js"></script>
 @endsection

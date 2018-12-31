@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Category;
-use App\Traits\ImageValidation;
 use Illuminate\Http\Request;
+use App\Traits\ImageValidation;
 use App\Http\Requests\PostRequest;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -41,13 +42,13 @@ class PostController extends Controller
     {
         $validated = $request->validated();
         $post =new Post();
-        $post->user_id = 1;
+        $post->user_id = Auth::user()->id;
         $post->fill($validated);
         $this->imageValidate($post,'image');
         $post->save();
         alert()->success('Başarılı', 'içerik kaydedildi')->autoClose('2000');
         return back();
-}
+    }
 
     /**
      * @param $id
@@ -71,6 +72,8 @@ class PostController extends Controller
     {
         $validated = $request->validated();
         $post = Post::find($id);
+        $user = $post->user_id;
+        $post->user_id = $user ;
         $post->fill($validated);
         $this->imageValidate($post,'image');
         $post->save();

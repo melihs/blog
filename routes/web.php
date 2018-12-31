@@ -18,7 +18,8 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'yonetim','middleware' =>'admin'],function (){
-    Route::get('/','AdminController@index')->name('admin.index');
+//    Route::get('/','AdminController@index')->name('admin.index');
+    Route::get('/','UserController@adminIndex')->name('admin.index');
     Route::resource('kullanicilar','UserController');
     Route::get('/cikis','UserController@userLogout')->name('user.userLogout');
     Route::resource('ayarlar','SettingController');

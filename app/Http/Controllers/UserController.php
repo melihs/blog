@@ -25,6 +25,15 @@ class UserController extends Controller
     }
 
     /**
+     * @return  admin dashboard
+     */
+
+    public function adminIndex()
+    {
+        return view('admin.index');
+    }
+
+    /**
      * @return user create
      */
 

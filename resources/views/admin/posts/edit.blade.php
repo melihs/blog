@@ -15,7 +15,6 @@
                 </div>
             </div>
         </div>
-
         <div class="card">
             {!! Form::model($post,['route' => ['yazilar.update',$post->id],'method' =>'PUT','files' =>'true','class' => 'form-horizontal']) !!}
             <div class="card-body">
@@ -50,7 +49,6 @@
                     <label for="title" class="col-sm-3 text-right control-label col-form-label">İçerik Resmi</label>
                     <div class="col-sm-9">
                         <div class="card border-dark  mb-3" style="max-width: 18rem;">
-                            <div class="card-header">İçerik Resmi</div>
                             <div class="card-body text-dark text-center">
                                 <a href="/{{ $post->image }}" data-lightbox="{{ $post->image }}" data-title="">
                                     <img src="/{{ $post->image }}" class="rounded img-fluid m-2" width="200" height="200" alt="">
@@ -68,6 +66,32 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label for="slider" class="col-sm-3 text-right control-label col-form-label">Slider Seçimi</label>
+                    <div class="col-sm-9">
+                        <select class="form-control{{ $errors->has('slider') ? ' is-invalid' : '' }}" name="slider" id="slider" >
+
+                            @if($post->slider === 'goster')
+
+                                <option value="goster" class="text-success" selected>Slider içinde Göster</option>
+                                <option value="gosterme" class="text-danger">Slider içinde Gösterme!</option>
+
+
+                            @else
+
+                                <option value="goster" class="text-success">Slider içinde Göster</option>
+                                <option value="gosterme" class="text-danger" selected>Slider içinde Gösterme!</option>
+
+                            @endif
+
+                        </select>
+                        @if ($errors->has('slider'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('slider') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label for="editor" class="col-sm-3 text-right control-label col-form-label">İçerik</label>
                     <div class="col-sm-9">
                         <textarea type="text" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" id="editor" name="content">{{$post->content}}</textarea>
@@ -80,10 +104,10 @@
 
                     </div>
                 </div>
-            </div>
-            <div class="border-top">
-                <div class="card-body">
-                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                <div class="border-top">
+                    <div class="card-body">
+                        <button type="submit" class="btn btn-primary">Güncelle</button>
+                    </div>
                 </div>
             </div>
             {!! Form::close() !!}

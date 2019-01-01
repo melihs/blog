@@ -50,6 +50,7 @@
                     <div class="col-sm-9">
                         <div class="card border-dark  mb-3" style="max-width: 18rem;">
                             <div class="card-body text-dark text-center">
+                                <h5 class="card-title">Mevcut resim</h5>
                                 <a href="/{{ $post->image }}" data-lightbox="{{ $post->image }}" data-title="">
                                     <img src="/{{ $post->image }}" class="rounded img-fluid m-2" width="200" height="200" alt="">
                                 </a>
@@ -74,7 +75,6 @@
 
                                 <option value="goster" class="text-success" selected>Slider içinde Göster</option>
                                 <option value="gosterme" class="text-danger">Slider içinde Gösterme!</option>
-
 
                             @else
 

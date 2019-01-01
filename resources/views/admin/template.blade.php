@@ -17,7 +17,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <!-- sweet alert -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
     @yield('css')
 </head>
 <body>
@@ -87,6 +87,7 @@
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('ayarlar.index')}}" aria-expanded="false"><i class="mdi mdi-wrench"></i><span class="hide-menu">Site Ayarları</span></a></li>
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('kategoriler.index')}}" aria-expanded="false"><i class="mdi mdi-format-list-bulleted"></i><span class="hide-menu">Kategori Yönetimi</span></a></li>
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('yazilar.index')}}" aria-expanded="false"><i class="mdi mdi-border-color"></i><span class="hide-menu">İçerik Yönetimi</span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('sayfalar.index')}}" aria-expanded="false"><i class="mdi mdi-border-color"></i><span class="hide-menu">Sayfa Yönetimi</span></a></li>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->
@@ -132,7 +133,7 @@
 {{--<script src="/admin/assets/libs/flot/jquery.flot.stack.js"></script>--}}
 {{--<script src="/admin/assets/libs/flot/jquery.flot.crosshair.js"></script>--}}
 {{--<script src="/admin/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>--}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
 @include('sweetalert::alert')
 @yield('js')
 </body>

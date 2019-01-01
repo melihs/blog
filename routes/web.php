@@ -24,6 +24,7 @@ Route::group(['prefix'=>'yonetim','middleware' =>'admin'],function (){
     Route::resource('ayarlar','SettingController');
     Route::resource('kategoriler','CategoryController');
     Route::resource('yazilar','PostController');
+    Route::resource('sayfalar' , 'PageController');
 });
 
 

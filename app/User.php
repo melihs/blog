@@ -31,18 +31,13 @@ class User extends Authenticatable
          return $this->hasMany('App\Post');
     }
 
-//    public function details(  )
-//    {
-//        return $this->hasOne('App\Detail','user_id','id ');
-//    }
-//
-//    public function roles(  )
-//    {
-//        return $this->belongsToMany('App\Role');
-//    }
-
     public function role()
     {
         return $this->role;
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
     }
 }

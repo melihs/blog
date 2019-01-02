@@ -87,7 +87,8 @@
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('ayarlar.index')}}" aria-expanded="false"><i class="mdi mdi-wrench"></i><span class="hide-menu">Site Ayarları</span></a></li>
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('kategoriler.index')}}" aria-expanded="false"><i class="mdi mdi-format-list-bulleted"></i><span class="hide-menu">Kategori Yönetimi</span></a></li>
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('yazilar.index')}}" aria-expanded="false"><i class="mdi mdi-border-color"></i><span class="hide-menu">İçerik Yönetimi</span></a></li>
-                    <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('sayfalar.index')}}" aria-expanded="false"><i class="mdi mdi-border-color"></i><span class="hide-menu">Sayfa Yönetimi</span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('sayfalar.index')}}" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">Sayfa Yönetimi</span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('yorumlar.index')}}" aria-expanded="false"><i class="mdi mdi-comment-account-outline"></i><span class="hide-menu">Yorum Yönetimi</span></a></li>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->

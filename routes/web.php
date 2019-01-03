@@ -28,6 +28,8 @@ Route::group(['prefix'=>'yonetim','middleware' =>'admin'],function (){
     Route::resource('yorumlar' , 'CommentController');
     Route::get('onayla/{id}','CommentController@confirm')->name('yorumlar.confirm');
     Route::get('onaylama/{id}','CommentController@dontConfirm')->name('yorumlar.dontConfirm');
+    Route::get('iletisim','ContactController@contact')->name('iletisim');
+    Route::post('iletisim','ContactController@send')->name('iletisim.send');
 });
 
 

@@ -34,7 +34,10 @@ class PageController extends Controller
     public function store(PageRequest $request)
     {
         $validated = $request->validated();
-        Page::create($validated);
+        $page = new Page();
+        $page->fill($validated);
+        $page->slug = str_slug($request->title);
+        $page->save();
         alert()->success('Başarılı', 'Sayfa kaydedildi')->autoClose('2000');
         return back();
     }

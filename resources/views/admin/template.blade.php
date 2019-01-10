@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html lang="tr">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="{{ $setting->description}}">
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/admin/assets/images/favicon.png">
-    <title> blog cms panel</title>
+    <title>{{ $setting->title }}</title>
     <!-- Custom CSS -->
     <link href="/admin/assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -38,7 +38,7 @@
                 <!-- Logo -->
                 <a class="navbar-brand" href="{{ route('admin.index') }}">
                     <span class="logo-text">
-                        <h3 class="">Admin Paneli</h3>
+                        <h3 class="text-warning">Yönetim Paneli</h3>
                     </span>
                 </a>
                 <!-- Toggle which is visible on mobile only -->
@@ -63,7 +63,7 @@
                         <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/admin/assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
                         <div class="dropdown-menu dropdown-menu-right user-dd animated">
                             <a class="dropdown-item" href="{{ route('kullanicilar.edit',Auth::user()->id ) }}"><i class="ti-user m-r-5 m-l-5"></i> Profilim</a>
-                            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i>Mesaj kutusu</a>
+                            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i>  Mesaj kutusu</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('user.userLogout') }}"><i class="fa fa-power-off m-r-5 m-l-5"></i> Çıkış</a>
                             <div class="dropdown-divider"></div>

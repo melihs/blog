@@ -62,7 +62,10 @@ class PageController extends Controller
     public function update(PageRequest $request,$id)
     {
         $validated = $request->validated();
-        Page::find($id)->update($validated);
+        $page = Page::find($id);
+        $page->fill($validated);
+        $page->slug= str_slug($request->title);
+        $page->save();
         alert()->success('Başarılı', 'Sayfa güncellendi')->autoClose('2000');
         return back();
     }

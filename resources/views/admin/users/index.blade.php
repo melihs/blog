@@ -29,11 +29,11 @@
                                             <table id="zero_config" class="table table-striped table-bordered dataTable" role="grid" aria-describedby="zero_config_info">
                                                 <thead>
                                                 <tr role="row">
-                                                    <th class="sorting_asc" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 177px;">Kullanıcı Adı</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 282.6px;">Kullanıcı e-posta</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 135.4px;">Kullanıcı Yetki</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 5%;">Düzenle</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 5%;">Sil</th>
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 177px;">Kullanıcı Adı</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 282.6px;">Kullanıcı e-posta</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 135.4px;">Kullanıcı Yetki</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 5%;">Düzenle</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 5%;">Sil</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -43,9 +43,9 @@
                                                         <td class="sorting_1">{{ $user->name }}</td>
                                                         <td>{{ $user->email }}</td>
                                                         <td>{{ $user->role }}</td>
-                                                        <td><a href="{{ route('kullanicilar.edit',$user->id) }}"  class="btn btn-warning">Düzenle</a></td>
+                                                        <td class="text-center"><a href="{{ route('kullanicilar.edit',$user->id) }}"  class="btn btn-warning"><i class="mdi mdi-settings"></i></a></td>
                                                         {!! Form::model($user, ['route' => ['kullanicilar.destroy', $user->id ], 'method' => 'delete']) !!}
-                                                        <td><button type="submit" class="btn btn-danger btn-sm">Sil</button></td>
+                                                        <td class="text-center"><button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
                                                         {!! Form::close() !!}
                                                     </tr>
                                                 @endforeach

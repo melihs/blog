@@ -29,11 +29,11 @@
                                             <table id="zero_config" class="table table-striped table-bordered dataTable" role="grid" aria-describedby="zero_config_info">
                                                 <thead>
                                                 <tr role="row">
-                                                    <th class="sorting_asc" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 5%; text-align: center;">ID</th>
-                                                    <th class="sorting_asc" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 177px;">Yazı Başlık</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 135.4px;">İçerik</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 5%;">Düzenle</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 5%;">Sil</th>
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 5%; text-align: center;">ID</th>
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 177px;">Yazı Başlık</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 135.4px;">İçerik</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 5%;">Düzenle</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 5%;">Sil</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -43,9 +43,9 @@
                                                         <td class="sorting_1">{{ $page->id }}</td>
                                                         <td>{{ $page->title }}</td>
                                                         <td>{{ str_limit(strip_tags($page->content),$limit=70,$end='...') }}</td>
-                                                        <td><a href="{{ route('sayfalar.edit',$page->id) }}"  class="btn btn-warning">Düzenle</a></td>
+                                                        <td class="text-center"><a href="{{ route('sayfalar.edit',$page->id) }}"  class="btn btn-warning"><i class="mdi mdi-settings"></i></a></td>
                                                         {!! Form::model($page, ['route' => ['sayfalar.destroy', $page->id ], 'method' => 'delete']) !!}
-                                                        <td><button type="submit" class="btn btn-danger btn-sm">Sil</button></td>
+                                                        <td class="text-center"><button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
                                                         {!! Form::close() !!}
                                                     </tr>
                                                 @endforeach

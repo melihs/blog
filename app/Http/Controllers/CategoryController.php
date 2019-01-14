@@ -69,6 +69,7 @@ class CategoryController extends Controller
         $validated = $request->validated();
         $category = Category::find($id);
         $category->fill($validated);
+        $category->slug = str_slug($request->title);
         $category->save();
         alert()->success('Başarılı','Kategori güncellendi')->autoClose('2000');
         return redirect()->route('kategoriler.index');

@@ -16,4 +16,14 @@ class Category extends Model
     {
         return $this->hasMany('App\Post');
     }
+
+    public function mainCategory()
+    {
+        return $this->belongsTo('App\Category','id');
+    }
+
+    public function downCategory()
+    {
+        return $this->hasMany('App\Category','up_id');
+    }
 }

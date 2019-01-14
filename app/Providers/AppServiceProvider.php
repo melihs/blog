@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $setting = Setting::find(1);
         $pages = Page::all();
-        $categories = Category::all();
+        $categories = Category::where('up_id','=',null)->get();
         view::share(
             [
                 'setting'    => $setting,

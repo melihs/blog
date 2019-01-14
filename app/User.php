@@ -14,13 +14,13 @@ class User extends Authenticatable
      * @var array
      */
 
-    protected $fillable = [ 'name','role','avatar','email' ];
+    protected $fillable = [ 'name','role','avatar','email','password' ];
 
     /**
      * @var array
      */
 
-    protected $hidden = [ 'password', 'remember_token'];
+    protected $hidden = [  'remember_token'];
 
     /**
      * @return HasMany relations

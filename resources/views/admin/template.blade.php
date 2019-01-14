@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ $setting->description}}">
     <meta name="author" content="">
@@ -22,7 +21,6 @@
 </head>
 <body>
 <div id="main-wrapper">
-    <!-- Topbar header - style you can find in pages.scss -->
     <header class="topbar" data-navbarbg="skin5">
         <nav class="navbar top-navbar navbar-expand-md navbar-dark">
             <div class="navbar-header" data-logobg="skin5">
@@ -41,12 +39,6 @@
                 <!-- toggle and nav items -->
                 <ul class="navbar-nav float-left mr-auto">
                     <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
-                    <!-- Search -->
-                    <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
-                        <form class="app-search position-absolute">
-                            <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a>
-                        </form>
-                    </li>
                 </ul>
                 <!-- Right side toggle and nav items -->
                 <ul class="navbar-nav float-right">
@@ -76,12 +68,18 @@
             <nav class="sidebar-nav">
                 <ul id="sidebarnav" class="p-t-30">
                     <li class="sidebar-item active"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.index')}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Yönetici Paneli</span></a></li>
+
+                    @if(Auth::user()->role()== 'admin')
+
                     <li class="sidebar-item active"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('kullanicilar.index')}}" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Kullanıcı Yönetimi</span></a></li>
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('ayarlar.index')}}" aria-expanded="false"><i class="mdi mdi-wrench"></i><span class="hide-menu">Site Ayarları</span></a></li>
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('kategoriler.index')}}" aria-expanded="false"><i class="mdi mdi-format-list-bulleted"></i><span class="hide-menu">Kategori Yönetimi</span></a></li>
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('yazilar.index')}}" aria-expanded="false"><i class="mdi mdi-border-color"></i><span class="hide-menu">İçerik Yönetimi</span></a></li>
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('sayfalar.index')}}" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">Sayfa Yönetimi</span></a></li>
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('yorumlar.index')}}" aria-expanded="false"><i class="mdi mdi-comment-account-outline"></i><span class="hide-menu">Yorum Yönetimi</span></a></li>
+
+                    @endif
+
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->
@@ -119,14 +117,6 @@
 <script src="/admin/dist/js/sidebarmenu.js"></script>
 <!--Custom JavaScript -->
 <script src="/admin/dist/js/custom.min.js"></script>
-<!-- Charts js Files -->
-{{--<script src="/admin/assets/libs/flot/excanvas.js"></script>--}}
-{{--<script src="/admin/assets/libs/flot/jquery.flot.js"></script>--}}
-{{--<script src="/admin/assets/libs/flot/jquery.flot.pie.js"></script>--}}
-{{--<script src="/admin/assets/libs/flot/jquery.flot.time.js"></script>--}}
-{{--<script src="/admin/assets/libs/flot/jquery.flot.stack.js"></script>--}}
-{{--<script src="/admin/assets/libs/flot/jquery.flot.crosshair.js"></script>--}}
-{{--<script src="/admin/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
 @include('sweetalert::alert')
 @yield('js')

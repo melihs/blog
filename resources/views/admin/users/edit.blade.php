@@ -8,7 +8,7 @@
                     <div class="ml-auto text-right">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href='{{route('kullanicilar.index')}}'>Kullanıcıler</a></li>
+                                <li class="breadcrumb-item"><a href='{{route('kullanicilar.index')}}'>Kullanıcılar</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Düzenle</li>
                             </ol>
                         </nav>
@@ -33,8 +33,8 @@
 
                                         @if ($errors->has('avatar'))
                                             <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('avatar') }}</strong>
-                                    </span>
+                                                <strong>{{ $errors->first('avatar') }}</strong>
+                                            </span>
                                         @endif
 
                                     </div>
@@ -43,20 +43,27 @@
                         </div>
                     </div>
                     <div class="col-sm-9">
-                        <div class="form-group row">
-                            <label for="role" class="col-sm-3 text-right control-label col-form-label">Yetki</label>
-                            <div class="col-sm-9">
-                                <select id="role" class="form-control" name="role" >
-                                    @if($user->role == 'admin')
-                                        <option value="admin" selected>Admin</option>
-                                        <option value="standart" >Standar Kullanıcı</option>
-                                    @else
-                                        <option value="standart" selected>Standart Kullanıcı</option>
-                                        <option value="admin" >Admin</option>
-                                    @endif
-                                </select>
+
+                        @if(Auth::user()->role()=='admin')
+
+                            <div class="form-group row">
+                                <label for="role" class="col-sm-3 text-right control-label col-form-label">Yetki</label>
+                                <div class="col-sm-9">
+                                    <select id="role" class="form-control" name="role" >
+
+                                        @if($user->role == 'admin')
+                                            <option value="admin" selected>Admin</option>
+                                            <option value="standart" >Standar Kullanıcı</option>
+                                        @else
+                                            <option value="standart" selected>Standart Kullanıcı</option>
+                                            <option value="admin" >Admin</option>
+                                        @endif
+
+                                    </select>
+                                </div>
                             </div>
-                        </div>
+                        @endif
+
                         <div class="form-group row">
                             <label for="title" class="col-sm-3 text-right control-label col-form-label">Kullanıcı Adı</label>
                             <div class="col-sm-9">

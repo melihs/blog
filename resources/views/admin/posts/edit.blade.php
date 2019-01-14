@@ -48,12 +48,8 @@
                 <div class="form-group row">
                     <label for="title" class="col-sm-3 text-right control-label col-form-label">İçerik Resmi</label>
                     <div class="col-sm-9">
-                        <div class="card border-dark  mb-3" style="max-width: 18rem;">
-                            <div class="card-body text-dark text-center">
-                                <h5 class="card-title">Mevcut resim</h5>
-                                <a href="/{{ $post->image }}" data-lightbox="{{ $post->image }}" data-title="">
-                                    <img src="/{{ $post->image }}" class="rounded img-fluid m-2" width="200" height="200" alt="">
-                                </a>
+                        <div class="row">
+                            <div class="col-sm-6">
                                 <input type="file" class="form-control{{ $errors->has('image') ? ' is-invalid' : '' }}" id="image" name="image" >
 
                                 @if ($errors->has('image'))
@@ -61,7 +57,16 @@
                                         <strong>{{ $errors->first('image') }}</strong>
                                     </span>
                                 @endif
-
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card border-dark  mb-3" style="max-width: 18rem;">
+                                    <div class="card-body text-dark text-center">
+                                        <h5 class="card-title">Mevcut resim</h5>
+                                        <a href="/{{ $post->image }}" data-lightbox="{{ $post->image }}" data-title="">
+                                            <img src="/{{ $post->image }}" class="rounded img-fluid m-2" width="200" height="200" alt="">
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -71,15 +76,15 @@
                     <div class="col-sm-9">
                         <select class="form-control{{ $errors->has('slider') ? ' is-invalid' : '' }}" name="slider" id="slider" >
 
-                            @if($post->slider === 'goster')
+                            @if($post->slider === '1')
 
-                                <option value="goster" class="text-success" selected>Slider içinde Göster</option>
-                                <option value="gosterme" class="text-danger">Slider içinde Gösterme!</option>
+                                <option value="1" class="text-success" selected>Slider içinde Göster</option>
+                                <option value="0" class="text-danger">Slider içinde Gösterme!</option>
 
                             @else
 
-                                <option value="goster" class="text-success">Slider içinde Göster</option>
-                                <option value="gosterme" class="text-danger" selected>Slider içinde Gösterme!</option>
+                                <option value="1" class="text-success">Slider içinde Göster</option>
+                                <option value="0" class="text-danger" selected>Slider içinde Gösterme!</option>
 
                             @endif
 
@@ -125,5 +130,5 @@
     <!-- ckeditor -->
     <script src="/admin/ckeditor5/ckeditor.js"></script>
     <script src="/admin/ckeditor5/translations/tr.js"></script>
-    <script src="/admin/ckeditor5/option.js"></script>
+    <script src='/js/ckeditor-option.js'></script>
 @endsection

@@ -89,20 +89,9 @@
                                 <div class="global-cell">
                                     <div class="logo">
                                         <a href="index.html">
-                                            <img src="homepage/images/logo/1.png" alt="main logo">
+                                            <img src="{{ $setting->logo }}" class="" height="100" width="200" alt="main logo">
                                         </a>
-                                        <p class="site-desc">News blog & Magazine Template</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8 col-lg-7 col-sm-7 col-xs-12 col-lg-offset-1 header-mdh hidden-xs">
-                        <div class="global-table">
-                            <div class="global-row">
-                                <div class="global-cell">
-                                    <div class="advertisement text-right">
-                                        <a href="#" class="block"><img src="homepage/images/ad/1.jpg" alt="ad img"></a>
+                                        <p class="site-desc">{{ $setting->title }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -149,17 +138,6 @@
 
                                             </ul>
                                         </nav>
-                                    </div>
-                                </div>
-                                <div class="col-md-1">
-                                    <div class="search-wrap pull-right">
-                                        <div class="search-btn"><i class="fa fa-search"></i></div>
-                                        <div class="search-form">
-                                            <form action="#">
-                                                <input type="search" placeholder="Search">
-                                                <button type="submit"><i class='fa fa-search'></i></button>
-                                            </form>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

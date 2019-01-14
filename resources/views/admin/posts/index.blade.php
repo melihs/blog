@@ -43,9 +43,9 @@
                                                         <td class="sorting_1">{{ $post->title }}</td>
                                                         <td>{{ $post->category->title }}</td>
                                                         <td>{{ $post->user->name }}</td>
-                                                        <td><a href="{{ route('yazilar.edit',$post->id) }}"  class="btn btn-warning">Düzenle</a></td>
+                                                        <td class="text-center"><a href="{{ route('yazilar.edit',$post->id) }}"  class="btn btn-warning"><i class="mdi mdi-settings"></i></a></td>
                                                         {!! Form::model($post, ['route' => ['yazilar.destroy', $post->id ], 'method' => 'delete']) !!}
-                                                        <td><button type="submit" class="btn btn-danger btn-sm">Sil</button></td>
+                                                        <td class="text-center"><button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
                                                         {!! Form::close() !!}
                                                     </tr>
                                                 @endforeach

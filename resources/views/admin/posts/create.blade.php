@@ -64,8 +64,8 @@
                     <label for="slider" class="col-sm-3 text-right control-label col-form-label">Slider Seçimi</label>
                     <div class="col-sm-9">
                         <select class="form-control{{ $errors->has('slider') ? ' is-invalid' : '' }}" name="slider" id="slider" >
-                            <option value="goster" class="text-success">Slider içinde Göster</option>
-                            <option value="gosterme" class="text-danger">Slider içinde Gösterme!</option>
+                            <option value="1" class="text-success">Slider içinde Göster</option>
+                            <option value="0" class="text-danger">Slider içinde Gösterme!</option>
                         </select>
                     @if ($errors->has('slider'))
                             <span class="invalid-feedback" role="alert">
@@ -99,8 +99,11 @@
 
 @endsection
 @section('js')
+    <!-- lightbox  js-->
+    <script src="/admin/lightbox2/dist/js/lightbox.js"></script>
+    <script src="/admin/lightbox2/option.js"></script>
     <!-- ckeditor -->
     <script src="/admin/ckeditor5/ckeditor.js"></script>
     <script src="/admin/ckeditor5/translations/tr.js"></script>
-    <script src="/admin/ckeditor5/option.js"></script>
+    <script src='/js/ckeditor-option.js'></script>
 @endsection

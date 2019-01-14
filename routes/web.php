@@ -21,6 +21,7 @@ Route::group(['prefix'=>'yonetim','middleware' =>'admin'],function (){
     Route::resource('kategoriler','CategoryController');
     Route::resource('yazilar','PostController');
     Route::resource('sayfalar' , 'PageController');
+    Route::get('sayfa/{id}/{slug}','PageController@show')->name('page.show');
     Route::resource('yorumlar' , 'CommentController');
     Route::get('onayla/{id}','CommentController@confirm')->name('yorumlar.confirm');
     Route::get('onaylama/{id}','CommentController@dontConfirm')->name('yorumlar.dontConfirm');

@@ -21,13 +21,6 @@
     @yield('css')
 </head>
 <body>
-<!-- Preloader - style you can find in spinners.css -->
-<div class="preloader">
-    <div class="lds-ripple">
-        <div class="lds-pos"></div>
-        <div class="lds-pos"></div>
-    </div>
-</div>
 <div id="main-wrapper">
     <!-- Topbar header - style you can find in pages.scss -->
     <header class="topbar" data-navbarbg="skin5">
@@ -63,7 +56,7 @@
                         <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/admin/assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
                         <div class="dropdown-menu dropdown-menu-right user-dd animated">
                             <a class="dropdown-item" href="{{ route('kullanicilar.edit',Auth::user()->id ) }}"><i class="ti-user m-r-5 m-l-5"></i> Profilim</a>
-                            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i>  Mesaj kutusu</a>
+                            <a class="dropdown-item" href="{{ route('homepage') }}"><i class="ti-home m-r-5 m-l-5"></i> Anasayfa</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('user.userLogout') }}"><i class="fa fa-power-off m-r-5 m-l-5"></i> Çıkış</a>
                             <div class="dropdown-divider"></div>

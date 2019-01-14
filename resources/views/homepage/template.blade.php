@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> Znews 3 - HTML Magazine Template </title>
-    <meta name="description" content="">
+    <title>{{ $setting->title }}</title>
+    <meta name="description" content="{{ $setting->description }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Place favicon.ico in the root directory -->

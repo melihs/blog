@@ -41,9 +41,11 @@
     <!-- Start of header area -->
     @include('homepage.header')
     <!-- End of header area -->
+@if(request()->route()->getName()=='homepage')
     <!-- Start slider area -->
     @include('homepage.slider')
     <!-- End slider area -->
+@endif
     <!-- Start page content -->
     @yield('content')
     <!-- End page content -->

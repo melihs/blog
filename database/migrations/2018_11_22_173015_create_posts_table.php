@@ -6,7 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreatePostsTable extends Migration
 {
-    // todo: category relations was canceled.It will be add
     /**
      * Run the migrations.
      *
@@ -17,12 +16,13 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('content');
+            $table->text('content');
             $table->integer('category_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->string('image')->nullable();
+            $table->string('slider',50)->default('1');
+            $table->string('slug');
             $table->timestamps();
-
 //            $table->foreign('category_id')->references('id')->on('categories')->ondelete('cascade');
 //            $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
         });

@@ -6,6 +6,8 @@ use App\Category;
 $factory->define(Category::class, function (Faker $faker) {
     $title=$faker->sentence;
     return [
-            'title' =>$title
+            'title' => $title,
+            'slug' => str_slug($title),
+            'description' =>$faker->sentence,
     ];
 });

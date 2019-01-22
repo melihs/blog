@@ -14,6 +14,8 @@ $factory->define(Post::class, function (Faker $faker) {
         {
             return Category::all()->random();
         },
+        'slider' =>'0',
+        'slug' => str_slug($title),
         'user_id' => function ()
         {
             return User::all()->random();

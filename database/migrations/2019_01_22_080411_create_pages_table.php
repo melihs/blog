@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdatePostsTable2 extends Migration
+class CreatePagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class UpdatePostsTable2 extends Migration
      */
     public function up()
     {
-        Schema::table('posts',function (Blueprint $table){
-            $table->string('slider',50)->nullable()->default('goster');
+        Schema::create('pages', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title');
+            $table->string('slug');
+            $table->text('content');
+            $table->timestamps();
         });
     }
 
@@ -25,6 +29,6 @@ class UpdatePostsTable2 extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('pages');
     }
 }

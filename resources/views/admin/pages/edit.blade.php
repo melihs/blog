@@ -19,9 +19,9 @@
             {!! Form::model($page,['route' => ['sayfalar.update',$page->id],'method' =>'PUT','class' => 'form-horizontal']) !!}
             <div class="card-body">
                 <h4 class="card-title">Sayfa Düzenle: <small class="text-danger">{{ $page->title }} </small></h4>
-                <div class="form-group row">
-                    <label for="title" class="col-sm-3 text-right control-label col-form-label">Sayfa Başlık</label>
-                    <div class="col-sm-9">
+                <div class="form-group row mt-4">
+                    <label for="title" class="col-sm-2 control-label col-form-label">Sayfa Başlık</label>
+                    <div class="col-sm-10">
                         <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" value="{{ $page->title }}">
 
                         @if ($errors->has('title'))
@@ -33,8 +33,8 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="editor" class="col-sm-3 text-right control-label col-form-label">İçerik</label>
-                    <div class="col-sm-9">
+                    <label for="editor" class="col-sm-2 control-label col-form-label">İçerik</label>
+                    <div class="col-sm-10">
                         <textarea type="text" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" id="editor" name="content">{{$page->content}}</textarea>
 
                         @if ($errors->has('content'))
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="border-top">
-                    <div class="card-body">
+                    <div class="card-body text-right">
                         <button type="submit" class="btn btn-primary">Güncelle</button>
                     </div>
                 </div>

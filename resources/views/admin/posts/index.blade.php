@@ -47,7 +47,7 @@
                                                         {!! Form::model($post, ['route' => ['yazilar.destroy', $post->id ], 'method' => 'delete']) !!}
                                                         <td class="text-center"><button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
                                                         {!! Form::close() !!}
-                                                    </tr>
+                                                    </tr>a
                                                 @endforeach
 
                                                 </tbody>
@@ -69,5 +69,6 @@
 @endsection
 @section('js')
     <script src="/admin/assets/extra-libs/DataTables/datatables.min.js"></script>
+    <script src="/js/datatables-option.js"></script>
     <script> $('#zero_config').DataTable(); </script>
 @endsection

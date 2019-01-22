@@ -19,49 +19,13 @@
             {!! Form::model($post,['route' => ['yazilar.update',$post->id],'method' =>'PUT','files' =>'true','class' => 'form-horizontal']) !!}
             <div class="card-body">
                 <h4 class="card-title">İçerik Düzenle: <small class="text-danger">{{ $post->title }} </small></h4>
-                <div class="form-group row">
-                    <label for="logo" class="col-sm-3 text-right control-label col-form-label">Kategori Seçin</label>
-                    <div class="col-sm-9">
-                        <select class="form-control" name="category_id" id="">
-                            <option value="{{ $post->category->id }}" selected>{{ $post->category->title }}</option>
-
-                            @foreach( $categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->title }}</option>
-                            @endforeach
-
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="title" class="col-sm-3 text-right control-label col-form-label">İçerik Başlık</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" value="{{ $post->title }}">
-
-                        @if ($errors->has('title'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('title') }}</strong>
-                            </span>
-                        @endif
-
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="title" class="col-sm-3 text-right control-label col-form-label">İçerik Resmi</label>
-                    <div class="col-sm-9">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <input type="file" class="form-control{{ $errors->has('image') ? ' is-invalid' : '' }}" id="image" name="image" >
-
-                                @if ($errors->has('image'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('image') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="col-sm-6">
+                <div class="form-group row mt-4">
+                    <div class="col-sm-3">
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <label for="title" >Mevcut Resim</label>
                                 <div class="card border-dark  mb-3" style="max-width: 18rem;">
                                     <div class="card-body text-dark text-center">
-                                        <h5 class="card-title">Mevcut resim</h5>
                                         <a href="/{{ $post->image }}" data-lightbox="{{ $post->image }}" data-title="">
                                             <img src="/{{ $post->image }}" class="rounded img-fluid m-2" width="200" height="200" alt="">
                                         </a>
@@ -70,47 +34,88 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label for="slider" class="col-sm-3 text-right control-label col-form-label">Slider Seçimi</label>
                     <div class="col-sm-9">
-                        <select class="form-control{{ $errors->has('slider') ? ' is-invalid' : '' }}" name="slider" id="slider" >
+                        <div class="form-group row">
+                            <label for="logo" class="col-sm-2 control-label col-form-label">Kategori Seçin</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="category_id" id="">
+                                    <option value="{{ $post->category->id }}" selected>{{ $post->category->title }}</option>
 
-                            @if($post->slider === '1')
+                                    @foreach( $categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                    @endforeach
 
-                                <option value="1" class="text-success" selected>Slider içinde Göster</option>
-                                <option value="0" class="text-danger">Slider içinde Gösterme!</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="title" class="col-sm-2 control-label col-form-label">İçerik Başlık</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" value="{{ $post->title }}">
 
-                            @else
+                                @if ($errors->has('title'))
+                                    <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('title') }}</strong>
+                            </span>
+                                @endif
 
-                                <option value="1" class="text-success">Slider içinde Göster</option>
-                                <option value="0" class="text-danger" selected>Slider içinde Gösterme!</option>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="slider" class="col-sm-2 control-label col-form-label">Slider Seçimi</label>
+                            <div class="col-sm-10">
+                                <select class="form-control{{ $errors->has('slider') ? ' is-invalid' : '' }}" name="slider" id="slider" >
 
-                            @endif
+                                    @if($post->slider === '1')
 
-                        </select>
-                        @if ($errors->has('slider'))
-                            <span class="invalid-feedback" role="alert">
+                                        <option value="1" class="text-success" selected>Slider içinde Göster</option>
+                                        <option value="0" class="text-danger">Slider içinde Gösterme!</option>
+
+                                    @else
+
+                                        <option value="1" class="text-success">Slider içinde Göster</option>
+                                        <option value="0" class="text-danger" selected>Slider içinde Gösterme!</option>
+
+                                    @endif
+
+                                </select>
+                                @if ($errors->has('slider'))
+                                    <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('slider') }}</strong>
                             </span>
-                        @endif
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="editor" class="col-sm-3 text-right control-label col-form-label">İçerik</label>
-                    <div class="col-sm-9">
-                        <textarea type="text" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" id="editor" name="content">{{$post->content}}</textarea>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="slider" class="col-sm-2 control-label col-form-label">İçerik Resmi</label>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control{{ $errors->has('image') ? ' is-invalid' : '' }}" id="image" name="image" >
 
-                        @if ($errors->has('content'))
-                            <span class="invalid-feedback" role="alert">
+                                @if ($errors->has('image'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('image') }}</strong>
+                                    </span>
+                                @endif
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="editor" class="col-sm-2 control-label col-form-label">İçerik</label>
+                            <div class="col-sm-10">
+                                <textarea type="text" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" id="editor" name="content">{{$post->content}}</textarea>
+
+                                @if ($errors->has('content'))
+                                    <span class="invalid-feedback" role="alert">
                                <strong>{{ $errors->first('content') }}</strong>
                             </span>
-                        @endif
+                                @endif
 
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="border-top">
-                    <div class="card-body">
+                    <div class="card-body text-right">
                         <button type="submit" class="btn btn-primary">Güncelle</button>
                     </div>
                 </div>
@@ -126,7 +131,7 @@
 @section('js')
     <!-- lightbox  js-->
     <script src="/admin/lightbox2/dist/js/lightbox.js"></script>
-    <script src="/admin/lightbox2/option.js"></script>
+    <script src="/js/lightbox2-option.js"></script>
     <!-- ckeditor -->
     <script src="/admin/ckeditor5/ckeditor.js"></script>
     <script src="/admin/ckeditor5/translations/tr.js"></script>

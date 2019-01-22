@@ -20,14 +20,14 @@
             <div class="card-body">
                 <h4 class="card-title">Yorum Düzenle</h4>
                 <div class="form-group row">
-                    <label for="title" class="col-sm-3 text-right control-label col-form-label">Yorum Sahibi</label>
-                    <div class="col-sm-9">
+                    <label for="title" class="col-sm-2 control-label col-form-label">Yorum Sahibi</label>
+                    <div class="col-sm-10">
                         <input type="text" class="form-control" id="title" name="title" value="{{ $comment->user->name }}" disabled>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="editor" class="col-sm-3 text-right control-label col-form-label">Yorum</label>
-                    <div class="col-sm-9">
+                    <label for="editor" class="col-sm-2 control-label col-form-label">Yorum</label>
+                    <div class="col-sm-10">
                         <textarea type="text" class="form-control{{ $errors->has('comment') ? ' is-invalid' : '' }}" id="editor" name="comment">{!! $comment->comment !!}</textarea>
 
                         @if ($errors->has('comment'))
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="border-top">
-                    <div class="card-body">
+                    <div class="card-body text-right">
                         <button type="submit" class="btn btn-primary">Güncelle</button>
                     </div>
                 </div>

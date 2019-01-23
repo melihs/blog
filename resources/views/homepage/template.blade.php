@@ -7,7 +7,7 @@
     <meta name="description" content="{{ $setting->description }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
-    <link rel="shortcut icon" type="image/x-icon" href="/homepage/homepage/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/homepage/images/favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.html">
     <!-- Bootstrap fremwork main css -->
     <link rel="stylesheet" href="/homepage/css/bootstrap.min.css">

@@ -30,6 +30,7 @@ Homestead.json
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea/blog.iml
 
 # Generated files
 .idea/**/contentModel.xml

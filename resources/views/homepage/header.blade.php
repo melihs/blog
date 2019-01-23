@@ -89,7 +89,7 @@
                                 <div class="global-cell">
                                     <div class="logo">
                                         <a href="index.html">
-                                            <img src="{{ $setting->logo }}" class="" height="100" width="200" alt="main logo">
+                                            <img src="{{ $setting->logo }}" class="" height="120" width="120" alt="main logo">
                                         </a>
                                         <p class="site-desc">{{ $setting->title }}</p>
                                     </div>

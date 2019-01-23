@@ -20,7 +20,7 @@ Route::group(['prefix'=>'yonetim','middleware' =>'admin'],function (){
     Route::resource('ayarlar','SettingController');
     Route::resource('kategoriler','CategoryController');
     Route::resource('yazilar','PostController');
-    Route::resource('sayfalar' , 'PageController@dataPost');
+    Route::resource('sayfalar' , 'PageController');
     Route::get('sayfa/{id}/{slug}','PageController@show')->name('page.show');
     Route::resource('yorumlar' , 'CommentController');
     Route::get('onayla/{id}','CommentController@confirm')->name('yorumlar.confirm');

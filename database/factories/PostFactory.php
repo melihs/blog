@@ -6,16 +6,16 @@ use App\User;
 use App\Post;
 
 $factory->define(Post::class, function (Faker $faker) {
-    $title=$faker->sentence;
+    $title=$faker->word;
     return [
         'title' => $title,
-        'content' =>$faker->text,
+        'slug' => str_slug($title),
+        'content' =>$faker->paragraph,
         'category_id' => function()
         {
             return Category::all()->random();
         },
         'slider' =>'0',
-        'slug' => str_slug($title),
         'user_id' => function ()
         {
             return User::all()->random();

@@ -23,8 +23,6 @@ class CreatePostsTable extends Migration
             $table->string('slider',50)->default('1');
             $table->string('slug');
             $table->timestamps();
-//            $table->foreign('category_id')->references('id')->on('categories')->ondelete('cascade');
-//            $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
         });
     }
 

@@ -85,7 +85,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="border-top">
+                <div class="border-top text-right">
                     <div class="card-body">
                         <button type="submit" class="btn btn-primary">ekle</button>
                     </div>

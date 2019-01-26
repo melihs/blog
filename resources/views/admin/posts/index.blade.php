@@ -21,7 +21,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">İçerik Yönetimi</h4>
-                                <div style="margin:15px 20px 10px; float:right;"><a href="{{ route('yazilar.create') }}" class="btn btn-success">İçerik Ekle</a></div>
+                            <div style="margin:15px 20px 10px; float:right;"><a href="{{ route('yazilar.create') }}" class="btn btn-success">İçerik Ekle</a></div>
                             <div class="table-responsive">
                                 <div id="zero_config_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                                     <div class="row">

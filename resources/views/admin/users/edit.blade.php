@@ -36,25 +36,26 @@
                     </div>
                         <div class="col-sm-9">
 
-                            @if(Auth::user()->role()=='admin')
+                            @can('users.isAdmin')
 
                                 <div class="form-group row">
                                     <label for="role" class="col-sm-2 control-label col-form-label">Yetki</label>
                                     <div class="col-sm-10">
                                         <select id="role" class="form-control" name="role" >
 
-                                            @if($user->role == 'admin')
-                                                <option value="admin" selected>Admin</option>
-                                                <option value="standart" >Standar Kullanıcı</option>
+                                            @if($user->role === '1')
+                                                <option value="1" selected>Admin</option>
+                                                <option value="0" >Standar Kullanıcı</option>
                                             @else
-                                                <option value="standart" selected>Standart Kullanıcı</option>
-                                                <option value="admin" >Admin</option>
+                                                <option value="0" selected>Standart Kullanıcı</option>
+                                                <option value="1" >Admin</option>
                                             @endif
 
                                         </select>
                                     </div>
                                 </div>
-                            @endif
+
+                            @endcan
 
                             <div class="form-group row">
                                 <label for="title" class="col-sm-2 control-label col-form-label">Kullanıcı Adı</label>
@@ -63,8 +64,8 @@
 
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('name') }}</strong>
-                            </span>
+                                            <strong>{{ $errors->first('name') }}</strong>
+                                        </span>
                                     @endif
 
                                 </div>
@@ -76,8 +77,8 @@
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
                                     @endif
 
                                 </div>
@@ -102,8 +103,8 @@
 
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
                                     @endif
 
                                 </div>

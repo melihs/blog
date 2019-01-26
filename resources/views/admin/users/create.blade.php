@@ -24,8 +24,8 @@
                     <label for="role" class="col-sm-3 text-right control-label col-form-label">Yetki</label>
                     <div class="col-sm-9">
                         <select id="role" class="form-control" name="role" >
-                            <option value="standart" selected >Standart Kullanıcı</option>
-                            <option value="admin" >Admin</option>
+                            <option value="0" selected >Standart</option>
+                            <option value="1" >Admin</option>
                         </select>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div class="border-top">
-                <div class="card-body">
+                <div class="card-body text-right">
                     <button type="submit" class="btn btn-primary">Kullanıcı Ekle</button>
                 </div>
             </div>

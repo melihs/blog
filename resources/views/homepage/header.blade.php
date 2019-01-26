@@ -34,6 +34,7 @@
                                 </ul>
                             </div>
                             <div class="user-accoint topbar-sblock">
+
                                     @if(!Auth::check())
 
                                         <span class="login-btn uppercase">Oturum Aç</span>
@@ -68,9 +69,11 @@
                                         </form>
                                         </div>
                                     @else
-                                        @if(Auth::user()->role == 'admin')
+                                        {{--@if(Auth::user()->role === '1')--}}
+                                        @can('users.isAdmin')
                                             <span class="login-btn uppercase topbar-sblock"><a href="{{ route('admin.index') }}">Yönetim Paneli</a></span>
-                                        @endif
+                                        {{--@endif--}}
+                                        @endcan
                                             <span class="login-btn uppercase topbar-sblock"><a href="{{ route('kullanicilar.edit', Auth::user()->id) }}">Profilim</a></span>
                                             <span class="login-btn uppercase topbar-sblock"><a href="{{ route('user.userLogout') }}">Çıkış Yap</a></span>
                                     @endif

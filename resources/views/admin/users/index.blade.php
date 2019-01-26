@@ -31,7 +31,7 @@
                                                 <tr role="row">
                                                     <th class="sorting_asc" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 177px;">Kullanıcı Adı</th>
                                                     <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 282.6px;">Kullanıcı e-posta</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 135.4px;">Kullanıcı Yetki</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 13%;">Kullanıcı Yetki</th>
                                                     <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 5%;">Düzenle</th>
                                                     <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 5%;">Sil</th>
                                                 </tr>
@@ -42,7 +42,13 @@
                                                     <tr role="row" class="odd">
                                                         <td class="sorting_1">{{ $user->name }}</td>
                                                         <td>{{ $user->email }}</td>
-                                                        <td>{{ $user->role }}</td>
+
+                                                        @if($user->role === '1')
+                                                            <td class="text-success text-center"><i class="mdi mdi-account-star"></i> Admin</td>
+                                                        @else
+                                                            <td class="text-secondary text-center"><i class="mdi mdi-account"></i> Standart</td>
+                                                        @endif
+
                                                         <td class="text-center"><a href="{{ route('kullanicilar.edit',$user->id) }}"  class="btn btn-warning"><i class="mdi mdi-settings"></i></a></td>
                                                         {!! Form::model($user, ['route' => ['kullanicilar.destroy', $user->id ], 'method' => 'delete']) !!}
                                                         <td class="text-center"><button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>

@@ -39,6 +39,7 @@ class UserController extends Controller
 
     public function create()
     {
+//        $this->authorize('users.create');
         return view('admin.users.create');
     }
 

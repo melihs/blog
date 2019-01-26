@@ -18,36 +18,13 @@ class UserRequest extends FormRequest
 
     public function rules()
     {
-        switch ($this->method())
-        {
-            case 'GET':
-            case 'POST':
-            {
-                return [
-                    'name' => 'required|string|max:255',
-                    'email' => 'required|string|email|max:255|unique:users',
-                    'email' => 'required|string|email|max:255',
-                    'role' => 'nullable',
-                    'password' => 'required|min:6|confirmed',
-                    'password' => 'required|string|min:6|confirmed',
-                    'avatar' =>'image|mimes:png,jpg,jpeg,gif,gif|max:2048'
-                ];
-                break;
-            }
-            case 'PUT':
-            {
-                return [
-                    'name' => 'required|string|max:255',
-                    'email' => 'required|string|email|max:255|unique:users,email,'.$this->get('email'),
-                    'email' => 'required|string|email|max:255',
-                    'role' => 'nullable',
-//                    'password' => 'string|min:6|confirmed',
-//                    'password' => 'string|min:6|confirmed',
-                    'avatar' =>'image|mimes:png,jpg,jpeg,gif,gif|max:2048'
-                ];
-                break;
-            }
-        }
+        return  [
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users,email',
+                'role' => 'default:0',
+                'password' => 'string|min:6|confirmed',
+                'avatar' =>'image|mimes:png,jpg,jpeg,gif,gif|max:2048|nullable',
+        ];
     }
 
     /**
@@ -60,9 +37,9 @@ class UserRequest extends FormRequest
           'name.required' =>'isim alanı boş bırakılamaz !',
           'email.required' =>'e-posta alanı boş bırakılamaz !',
           'email.unique' =>'bu e-posta daha önce kaydedilmiş !',
-//          'password.required' =>'parola alanı boş bırakılamaz !',
-//          'password.min' =>'parola en az 6 karakterden oluşmalı !',
-//          'password.confirmed' =>'parolalar eşleşmedi !',
+          'password.required' =>'parola alanı boş bırakılamaz !',
+          'password.min' =>'parola en az 6 karakterden oluşmalı !',
+          'password.confirmed' =>'parolalar eşleşmedi !',
           'avatar.image' => 'Sadece resim dosyaları kaydedilir !',
           'avatar.mimes' => ' Dosya formatı geçerli değil.Desteklenen formatlar jpg,jpeg,png,gif !',
           'avatar.max' => 'Dosya boyutu maksimum 2mb olmalı !'

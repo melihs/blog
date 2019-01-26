@@ -18,13 +18,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $setting = Setting::find(1);
-        $pages = Page::all();
-        $categories = Category::where('up_id','=',null)->get();
+        $pages = Page::take(7)->get();
+        $categories = Category::where('up_id','=',null)->take(8)->get();
         view::share(
             [
                 'setting'    => $setting,
                 'pages'      => $pages,
-                'categories' => $categories
+                'categories' => $categories,
             ]
         );
     }

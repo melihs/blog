@@ -8,6 +8,6 @@ $factory->define(Category::class, function (Faker $faker) {
     return [
             'title' => $title,
             'slug' => str_slug($title),
-            'description' =>$faker->paragraph,
+            'description' =>$faker->sentence,
     ];
 });

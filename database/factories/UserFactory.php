@@ -1,7 +1,8 @@
 <?php
 
 use Faker\Generator as Faker;
-
+use App\User;
+use App\Role;
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -16,11 +17,11 @@ use Faker\Generator as Faker;
 $factory->define(App\User::class, function (Faker $faker) {
     
     return [
-        'name' => $faker->name,
-        'role' =>'0',
-        'avatar' =>$faker->imageUrl(),
-        'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'name'     => $faker->name,
+        'role_id'  => random_int(1,3),
+        'avatar'   => $faker->imageUrl(),
+        'email'    => $faker->unique()->safeEmail,
+        'password' => bcrypt($faker->password),
         'remember_token' => str_random(10),
     ];
 });

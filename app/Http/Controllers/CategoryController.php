@@ -24,8 +24,10 @@ class CategoryController extends Controller
 
     public function create()
     {
+        $this->authorize('users.common');
         $categories = Category::where('up_id',null)->get();
         return view('admin.categories.create',compact('categories'));
+
     }
 
     /**
@@ -52,6 +54,7 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('users.common');
          $category = Category::find($id);
          $all_categories = Category::all();
         return view('admin.categories.edit',compact('category','all_categories'));
@@ -82,6 +85,7 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('users.common');
         Category::destroy($id);
         alert()->success('Başarılı','Kategori silindi')->autoClose('2000');
         return redirect()->route('kategoriler.index');

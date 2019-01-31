@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="border-top">
-                <div class="card-body">
+                <div class="card-body text-right">
                     <button type="submit" class="btn btn-primary">ekle</button>
                 </div>
             </div>

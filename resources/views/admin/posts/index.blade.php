@@ -29,6 +29,7 @@
                                             <table id="zero_config" class="table table-striped table-bordered dataTable" role="grid" aria-describedby="zero_config_info">
                                                 <thead>
                                                 <tr role="row">
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 4%;">ID</th>
                                                     <th class="sorting_asc" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 177px;">Yazı Başlık</th>
                                                     <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 282.6px;">Kategori</th>
                                                     <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 135.4px;">Yazar</th>
@@ -40,9 +41,10 @@
 
                                                     @foreach( $posts as $post)
                                                         <tr role="row" class="odd">
+                                                            <td class="sorting_1 text-center font-bold">{{ $post->id }}</td>
                                                             <td class="sorting_1">{{ $post->title }}</td>
-                                                            <td>{{ $post->category->title }}</td>
-                                                            <td>{{ $post->user->name }}</td>
+                                                             <td>{{ $post->category->title }}</td>
+                                                             <td>{{ $post->user->name }}</td>
                                                             <td class="text-center"><a href="{{ route('yazilar.edit',$post->id) }}"  class="btn btn-warning"><i class="mdi mdi-settings"></i></a></td>
                                                             {!! Form::model($post, ['route' => ['yazilar.destroy', $post->id ], 'method' => 'delete']) !!}
                                                             <td class="text-center"><button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>

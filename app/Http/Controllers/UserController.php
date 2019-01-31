@@ -19,8 +19,8 @@ class UserController extends Controller
 
     public function index()
     {
-       $users = User::all();
-
+        $this->authorize('users.admin');
+        $users = User::all();
         return view('admin.users.index',compact('users'));
     }
 
@@ -39,7 +39,7 @@ class UserController extends Controller
 
     public function create()
     {
-//        $this->authorize('users.create');
+        $this->authorize('users.admin');
         return view('admin.users.create');
     }
 
@@ -53,6 +53,7 @@ class UserController extends Controller
         $validated = $request->validated();
         $user = new User();
         $user->password = Hash::make($request->password);
+        $user->role_id = $request->role_id;
         $user->fill($validated);
         $this->imageValidate($user,'avatar');
         $user->save();
@@ -104,6 +105,7 @@ class UserController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('users.admin');
         User::destroy($id);
         alert()->success('Başarılı', 'Kullanıcı silindi')->autoClose('2000');
         return redirect()->route('kullanicilar.index');

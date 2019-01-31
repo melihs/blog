@@ -12,7 +12,6 @@
                         <div class="header-top-left">
                             <nav class="header-top-menu zm-secondary-menu">
                                 <ul>
-                                    <li><a href="{{ route('homepage') }}">Anasayfa</a></li>
 
                                     @foreach($pages as $page)
                                         <li><a href="/sayfa/{{ $page->id }}/{{ $page->slug }}">{{ $page->title }}</a></li>
@@ -37,43 +36,12 @@
 
                                     @if(!Auth::check())
 
-                                        <span class="login-btn uppercase">Oturum Aç</span>
-                                        <div class="login-form-wrap bg-white">
-                                            <form method="POST" action="{{ route('login') }}" class="zm-signin-form text-left">
-                                            @csrf
-                                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" placeholder="e-posta adresiniz" value="{{ old('email') }}" required>
-
-                                            @if ($errors->has('email'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong class="text-danger">{{ $errors->first('email') }}</strong>
-                                                </span>
-                                            @endif
-
-                                            <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="şifreniz" required>
-
-                                            @if ($errors->has('password'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong class="text-danger">{{ $errors->first('password') }}</strong>
-                                                </span>
-                                            @endif
-                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}> Beni Hatırla <br>
-                                            <div class="zm-submit-box clearfix  mt-20">
-                                                <input type="submit" value="Giriş">
-                                                <a href="{{ route('register') }}">Kayıt</a>
-                                            </div>
-                                            <a href="#" class="zm-forget">Şifremi Unuttum</a>
-                                            <div class="zm-login-social-box">
-                                                <a href="#" class="social-btn bg-facebook block"><span class="btn_text"><i class="fa fa-facebook"></i>Login with Facebook</span></a>
-                                                <a href="#" class="social-btn bg-twitter block"><span class="btn_text"><i class="fa fa-twitter"></i>Login with Twitter</span></a>
-                                            </div>
-                                        </form>
-                                        </div>
+                                        <span class="login-btn uppercase topbar-sblock"><a href="{{ route('login') }}">Oturum Aç</a></span>
+                                        <span class="register-btn uppercase topbar-sblock"><a href="{{ route('register') }}">Kayıt Ol</a></span>
                                     @else
-                                        {{--@if(Auth::user()->role === '1')--}}
-                                        @can('users.isAdmin')
+                                        @cannot('users.standart',User::class)
                                             <span class="login-btn uppercase topbar-sblock"><a href="{{ route('admin.index') }}">Yönetim Paneli</a></span>
-                                        {{--@endif--}}
-                                        @endcan
+                                        @endcannot
                                             <span class="login-btn uppercase topbar-sblock"><a href="{{ route('kullanicilar.edit', Auth::user()->id) }}">Profilim</a></span>
                                             <span class="login-btn uppercase topbar-sblock"><a href="{{ route('user.userLogout') }}">Çıkış Yap</a></span>
                                     @endif

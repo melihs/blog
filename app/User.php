@@ -9,18 +9,20 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
+    /**
+     * @var string
+     */
+    protected $table = 'users';
 
     /**
      * @var array
      */
-
-    protected $fillable = [ 'name','role','avatar','email','password' ];
+    protected $fillable = [ 'name','role_id','avatar','email'];
 
     /**
      * @var array
      */
-
-    protected $hidden = [  'remember_token'];
+    protected $hidden = [ 'password','remember_token'];
 
     /**
      * @return HasMany relations
@@ -33,11 +35,12 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->role;
+        return $this->belongsTo('App\Role');
     }
 
     public function comments()
     {
         return $this->hasMany('App\Comment');
     }
+
 }

@@ -29,6 +29,7 @@
                                             <table id="zero_config" class="table table-striped table-bordered dataTable" role="grid" aria-describedby="zero_config_info">
                                                 <thead>
                                                 <tr role="row">
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 4%;">ID</th>
                                                     <th class="sorting_asc" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-sort="ascending" style="width: 177px;">Kategori Başlık</th>
                                                     <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 282.6px;">Kategori Türü</th>
                                                     <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 135.4px;">Kategori Açıklama</th>
@@ -40,6 +41,7 @@
 
                                                 @foreach( $categories as $category)
                                                     <tr role="row" class="odd">
+                                                        <td class="sorting_1 text-center font-bold">{{ $category->id }}</td>
                                                         <td class="sorting_1">{{ $category->title }}</td>
                                                         <td>{{ empty($category->up_id) ? 'Ana Kategori' : 'Alt Kategori' }}</td>
                                                         <td>{{ $category->description }}</td>

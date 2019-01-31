@@ -42,7 +42,7 @@
 
                                                 @foreach( $comments as $comment)
                                                     <tr role="row" class="odd">
-                                                        <td class="sorting_1">{{ $comment->id }}</td>
+                                                        <td class="sorting_1 text-center font-bold">{{ $comment->id }}</td>
                                                         <td>{{ $comment->user->name }}</td>
                                                         <td>{{ str_limit(strip_tags($comment->comment),$limit = 60, $end = '...') }}</td>
                                                         <td>{{ $comment->post->title }}</td>

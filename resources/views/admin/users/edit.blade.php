@@ -7,7 +7,11 @@
                     <div class="ml-auto text-right">
                         <nav aria-label="breadcrum10">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href='{{route('kullanicilar.index')}}'>Kullanıcılar</a></li>
+
+                                @can('users.admin')
+                                    <li class="breadcrumb-item"><a href='{{route('kullanicilar.index')}}'>Kullanıcılar</a></li>
+                                @endcan
+
                                 <li class="breadcrumb-item active" aria-current="page">Düzenle</li>
                             </ol>
                         </nav>
@@ -36,25 +40,33 @@
                     </div>
                         <div class="col-sm-9">
 
-                            @can('users.isAdmin')
-
+                            @can('users.admin')
                                 <div class="form-group row">
                                     <label for="role" class="col-sm-2 control-label col-form-label">Yetki</label>
                                     <div class="col-sm-10">
                                         <select id="role" class="form-control" name="role" >
 
-                                            @if($user->role === '1')
-                                                <option value="1" selected>Admin</option>
-                                                <option value="0" >Standar Kullanıcı</option>
-                                            @else
-                                                <option value="0" selected>Standart Kullanıcı</option>
-                                                <option value="1" >Admin</option>
-                                            @endif
+                                            @switch($user->role_id)
+                                                @case(1)
+                                                <option value="1" selected>Standart</option>
+                                                <option value="2" class="text-primary">Moderatör</option>
+                                                <option value="3" class="text-success">Admin</option>
+                                                    @break
+                                                @case(2)
+                                                <option value="2" class="text-primary" selected>Moderatör</option>
+                                                <option value="3" class="text-success" >Admin</option>
+                                                <option value="1" >Standart</option>
+                                                    @break
+                                                @case(3)
+                                                <option value="3" class="text-success" selected>Admin</option>
+                                                <option value="2" class="text-primary">Moderatör</option>
+                                                <option value="1" >Standart</option>
+                                                    @break
+                                            @endswitch
 
                                         </select>
                                     </div>
                                 </div>
-
                             @endcan
 
                             <div class="form-group row">

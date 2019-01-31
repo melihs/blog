@@ -28,7 +28,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $this->authorize('posts.create');
+        $this->authorize('users.common');
         $categories = Category::all();
         return view('admin.posts.create',compact('categories')) ;
     }
@@ -43,6 +43,7 @@ class PostController extends Controller
         $validated = $request->validated();
         $post =new Post();
         $post->user_id = Auth::user()->id;
+        $post->category_id = Post::category()->id;
         $post->fill($validated);
         $post->slug = str_slug($request->title);
         $this->imageValidate($post,'image');
@@ -59,7 +60,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $this->authorize('posts.update');
+        $this->authorize('users.common');
         $post = Post::find($id);
         $categories = Category::where('id','!=',$post->category_id)->get();
         return view('admin.posts.edit',compact('post','categories'));

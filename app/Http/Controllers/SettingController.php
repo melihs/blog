@@ -17,6 +17,7 @@ class SettingController extends Controller
 
     public function index()
     {
+        $this->authorize('users.admin');
         $settings = Setting::find(1);
         return view('admin.settings.create',compact('settings'));
     }
@@ -29,6 +30,7 @@ class SettingController extends Controller
 
     public function update(SettingRequest $request , $id)
     {
+        $this->authorize('users.admin');
         $validated = $request->validated();
         $setting = Setting::find(1);
         $setting->fill($validated);

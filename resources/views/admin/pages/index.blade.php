@@ -40,7 +40,7 @@
 
                                                 @foreach( $pages as $page)
                                                     <tr role="row" class="odd">
-                                                        <td class="sorting_1">{{ $page->id }}</td>
+                                                        <td class="sorting_1 text-center font-bold">{{ $page->id }}</td>
                                                         <td>{{ $page->title }}</td>
                                                         <td>{{ str_limit(strip_tags($page->content),$limit=70,$end='...') }}</td>
                                                         <td class="text-center"><a href="{{ route('sayfalar.edit',$page->id) }}"  class="btn btn-warning"><i class="mdi mdi-settings"></i></a></td>

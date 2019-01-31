@@ -9,8 +9,19 @@ class Role extends Model
     protected $table = 'roles';
     protected $guarded = [];
 
-    public function users(  )
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function users()
     {
-        return $this->belongsToMany('App\User');
+        return $this->hasMany('App\User');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+            return $this->belongsToMany('App\Role')->using('App\RolePermission');
     }
 }

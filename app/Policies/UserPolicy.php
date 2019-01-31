@@ -11,14 +11,23 @@ class UserPolicy
     use HandlesAuthorization;
     use Permission;
 
-    public function create(User $user)
+    public function standart(User $user)
     {
-        return $this->rolePermission($user);
+        return $this->rolePermission($user,1);
     }
 
-    public function isAdmin(User $user)
+    public function admin(User $user)
     {
-        return $this->rolePermission($user);
+        return $this->rolePermission($user,3);
     }
 
+    public function moderator($user)
+    {
+        return $this->rolePermission($user,2);
+    }
+
+    public function common($user)
+    {
+        return $this->commonPermission($user,2,3);
+    }
 }

@@ -43,7 +43,6 @@ class PostController extends Controller
         $validated = $request->validated();
         $post =new Post();
         $post->user_id = Auth::user()->id;
-        $post->category_id = Post::category()->id;
         $post->fill($validated);
         $post->slug = str_slug($request->title);
         $this->imageValidate($post,'image');

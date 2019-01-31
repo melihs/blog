@@ -13,6 +13,7 @@ class CommentController extends Controller
      */
     public function index()
     {
+        $this->authorize('users.common');
         $comments = Comment::all();
         return view('admin.comments.index',compact('comments'));
     }
@@ -44,6 +45,7 @@ class CommentController extends Controller
      */
     public function status($id,$value)
     {
+        $this->authorize('users.common');
         $comment = Comment::find($id);
         $comment->status = $value;
         $comment->save();
@@ -68,6 +70,7 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('users.common');
         $comment = Comment::find($id);
         return view('admin.comments.edit',compact('comment'));
     }
@@ -92,6 +95,7 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('users.common');
         Comment::destroy($id);
         alert()->success('Başarılı', 'Yorum silindi')->autoClose('2000');
         return redirect()->route('yorumlar.index');

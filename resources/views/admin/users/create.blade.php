@@ -22,16 +22,16 @@
             <h4 class="card-title"> Yeni Kullanıcı Ekle</h4>
 
             @can('users.admin')
-            <div class="form-group row">
-                <label for="role" class="col-sm-3 text-right control-label col-form-label">Yetki</label>
-                <div class="col-sm-9">
-                    <select id="role" class="form-control" name="role_id" >
-                        <option value="1" selected >Standart</option>
-                        <option value="2" class="text-primary">Moderatör</option>
-                        <option value="3" class="text-success">Admin</option>
-                    </select>
+                <div class="form-group row">
+                    <label for="role" class="col-sm-3 text-right control-label col-form-label">Yetki</label>
+                    <div class="col-sm-9">
+                        <select id="role" class="form-control" name="role_id" >
+                            <option value="1" selected >Standart</option>
+                            <option value="2" class="text-primary">Moderatör</option>
+                            <option value="3" class="text-success">Admin</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
             @endcan
 
             <div class="form-group row">

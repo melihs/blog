@@ -10,19 +10,23 @@ use Illuminate\View\View;
 class PageController extends Controller
 {
     /**
-     * @return page index view
+     * @return \Illuminate\Contracts\View\Factory|View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index()
     {
+        $this->authorize('users.common');
         $pages = Page::all();
         return view('admin.pages.index',compact('pages'));
     }
 
     /**
-     * @return pages create view
+     * @return \Illuminate\Contracts\View\Factory|View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function create()
     {
+        $this->authorize('users.common');
         return view('admin.pages.create');
     }
 
@@ -50,6 +54,7 @@ class PageController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('users.common');
         $page = Page::find($id);
         return view('admin.pages.edit',compact('page'));
     }
@@ -78,6 +83,7 @@ class PageController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('users.common');
         Page::destroy($id);
         alert()->success('Başarılı', 'Sayfa silindi')->autoClose('2000');
         return redirect()->route('sayfalar.index');

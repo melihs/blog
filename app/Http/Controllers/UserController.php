@@ -16,7 +16,6 @@ class UserController extends Controller
      * @return  admin.users.index
      * @array   users
      */
-
     public function index()
     {
         $this->authorize('users.admin');
@@ -52,9 +51,9 @@ class UserController extends Controller
     {
         $validated = $request->validated();
         $user = new User();
+        $user->fill($validated);
         $user->password = Hash::make($request->password);
         $user->role_id = $request->role_id;
-        $user->fill($validated);
         $this->imageValidate($user,'avatar');
         $user->save();
         alert()->success('Başarılı', 'Kullanıcı eklendi')->autoClose('2000');

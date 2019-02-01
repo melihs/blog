@@ -42,7 +42,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input id="password" type="text" class="form-control-lg form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Parola" required>
+                                    <input id="password" type="password" class="form-control-lg form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Parola" required>
 
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-info text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input id="password-confirm" type="text" class="form-control form-control-lg" name="password_confirmation" placeholder="Parola Tekrar" required>
+                                    <input id="password-confirm" type="password" class="form-control form-control-lg" name="password_confirmation" placeholder="Parola Tekrar" required>
                                 </div>
                             </div>
                         </div>

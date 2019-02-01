@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\User;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UserRequest extends FormRequest
@@ -18,11 +19,11 @@ class UserRequest extends FormRequest
 
     public function rules()
     {
+//        $user = new User();
         return  [
                 'name' => 'required|string|max:255',
-                'email' => 'required|string|email|max:255|unique:users,email',
+                'email' => 'required|string|email|max:255|unique:users',
                 'role_id' => 'required',
-//                'password' => 'required|string|min:6|confirmed',
                 'password' => 'required|string|min:6|confirmed',
                 'avatar' =>'image|mimes:png,jpg,jpeg,gif,gif|max:2048|nullable',
         ];

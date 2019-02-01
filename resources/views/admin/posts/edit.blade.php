@@ -61,20 +61,21 @@
 
                             </div>
                         </div>
-                        <div class="form-group row">
+                        @if(isset($post->image))
+                            <div class="form-group row">
                             <label for="slider" class="col-sm-2 control-label col-form-label">Slider Seçimi</label>
                             <div class="col-sm-10">
                                 <select class="form-control{{ $errors->has('slider') ? ' is-invalid' : '' }}" name="slider" id="slider" >
 
                                     @if($post->slider === '1')
 
-                                        <option value="1" class="text-success" selected>Slider içinde Göster</option>
-                                        <option value="0" class="text-danger">Slider içinde Gösterme!</option>
+                                        <option value="1" class="text-success" selected>göster</option>
+                                        <option value="0" class="text-danger">gösterme!</option>
 
                                     @else
 
-                                        <option value="1" class="text-success">Slider içinde Göster</option>
-                                        <option value="0" class="text-danger" selected>Slider içinde Gösterme!</option>
+                                        <option value="1" class="text-success">göster</option>
+                                        <option value="0" class="text-danger" selected>gösterme!</option>
 
                                     @endif
 
@@ -86,6 +87,7 @@
                                 @endif
                             </div>
                         </div>
+                        @endif
                         <div class="form-group row">
                             <label for="slider" class="col-sm-2 control-label col-form-label">İçerik Resmi</label>
                             <div class="col-sm-10">

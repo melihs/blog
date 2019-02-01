@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('user_id');
             $table->string('image')->nullable();
-            $table->string('slider',50)->default('1');
+            $table->string('slider',50)->default('0');
             $table->string('slug');
             $table->timestamps();
         });

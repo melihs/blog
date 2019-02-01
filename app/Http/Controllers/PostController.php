@@ -66,20 +66,6 @@ class PostController extends Controller
     }
 
     /**
-     * @param $id
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws AuthorizationExceptionAlias
-     */
-    public function destroy($id)
-    {
-        $this->authorize('posts.delete');
-        Post::destroy($id);
-        alert()->success('Başarılı', 'içerik silindi')->autoClose('2000');
-        return redirect()->route('yazilar.index');
-    }
-
-    /**
      * @param PostRequest $request
      * @param $id
      *
@@ -96,6 +82,20 @@ class PostController extends Controller
         $this->imageValidate($post,'image');
         $post->save();
         alert()->success('Başarılı', 'içerik güncellendi')->autoClose('2000');
+        return back();
+    }
+
+    /**
+     * @param $id
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws AuthorizationExceptionAlias
+     */
+    public function destroy($id)
+    {
+        $this->authorize('posts.delete');
+        Post::destroy($id);
+        alert()->success('Başarılı', 'içerik silindi')->autoClose('2000');
         return redirect()->route('yazilar.index');
     }
 }

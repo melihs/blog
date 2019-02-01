@@ -26,16 +26,15 @@ class UserController extends Controller
     /**
      * @return  admin dashboard
      */
-
     public function adminIndex()
     {
         return view('admin.index');
     }
 
     /**
-     * @return user create
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-
     public function create()
     {
         $this->authorize('users.admin');
@@ -46,7 +45,6 @@ class UserController extends Controller
      * @param UserRequest $request
      * @return user save
      */
-
     public function store(UserRequest $request)
     {
         $validated = $request->validated();
@@ -101,7 +99,6 @@ class UserController extends Controller
      * @param $id
      * @return delete user
      */
-
     public function destroy($id)
     {
         $this->authorize('users.admin');

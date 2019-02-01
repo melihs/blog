@@ -18,6 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
+        $this->authorize('users.common');
         $posts = Post::all();
         return view('admin.posts.index',compact('posts'));
     }
@@ -42,8 +43,8 @@ class PostController extends Controller
     {
         $validated = $request->validated();
         $post =new Post();
-        $post->user_id = Auth::user()->id;
         $post->fill($validated);
+        $post->user_id = Auth::user()->id;
         $post->slug = str_slug($request->title);
         $this->imageValidate($post,'image');
         $post->save();
@@ -75,9 +76,9 @@ class PostController extends Controller
     {
         $validated = $request->validated();
         $post = Post::find($id);
+        $post->fill($validated);
         $user = $post->user_id;
         $post->user_id = $user;
-        $post->fill($validated);
         $post->slug = str_slug($request->title);
         $this->imageValidate($post,'image');
         $post->save();
@@ -93,7 +94,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $this->authorize('posts.delete');
+        $this->authorize('users.common');
         Post::destroy($id);
         alert()->success('Başarılı', 'içerik silindi')->autoClose('2000');
         return redirect()->route('yazilar.index');

@@ -22,23 +22,27 @@
                 <div class="form-group row">
                     <label for="title" class="col-sm-3 text-right control-label col-form-label">Sayfa Başlık</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" id="title" >
+                        <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" value="{{ old('title') }}" name="title" id="title" >
+
                         @if ($errors->has('title'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('title') }}</strong>
                             </span>
                         @endif
+
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="editor" class="col-sm-3 text-right control-label col-form-label">İçerik</label>
                     <div class="col-sm-9">
-                        <textarea type="text" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" name="content" id="editor"></textarea>
+                        <textarea type="text" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" name="content" id="editor">{{ old('content') }}</textarea>
+
                         @if ($errors->has('content'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('content') }}</strong>
                             </span>
                         @endif
+
                     </div>
                 </div>
                 <div class="border-top text-right">

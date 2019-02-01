@@ -59,7 +59,7 @@
                             <div class="global-row">
                                 <div class="global-cell">
                                     <div class="logo">
-                                        <a href="index.html">
+                                        <a href="{{ route('homepage') }}">
                                             <img src="{{ $setting->logo }}" class="" height="120" width="120" alt="main logo">
                                         </a>
                                         <p class="site-desc">{{ $setting->title }}</p>

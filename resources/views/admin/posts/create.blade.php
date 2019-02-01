@@ -26,38 +26,42 @@
                             <option value="" selected>Kategori Seçin</option>
 
                             @foreach( $categories as $category)
-
                                 <option value="{{ $category->id }}">{{ $category->title }}</option>
                             @endforeach
-
                         </select>
-                    @if ($errors->has('category_id'))
+
+                        @if ($errors->has('category_id'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('category_id') }}</strong>
                             </span>
                         @endif
+
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="title" class="col-sm-3 text-right control-label col-form-label">İçerik Başlık</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" id="title" >
-                    @if ($errors->has('title'))
+                        <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" value="{{ old('title') }}" name="title" id="title" >
+
+                        @if ($errors->has('title'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('title') }}</strong>
                             </span>
                         @endif
+
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="image" class="col-sm-3 text-right control-label col-form-label">İçerik Resmi</label>
                     <div class="col-sm-9">
                         <input type="file" class="form-control{{ $errors->has('image') ? ' is-invalid' : '' }}" id="image" name="image">
-                    @if ($errors->has('image'))
+
+                        @if ($errors->has('image'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('image') }}</strong>
                             </span>
                         @endif
+
                     </div>
                 </div>
                 <div class="form-group row">
@@ -67,22 +71,26 @@
                             <option value="1" class="text-success">Slider içinde Göster</option>
                             <option value="0" class="text-danger">Slider içinde Gösterme!</option>
                         </select>
-                    @if ($errors->has('slider'))
+
+                        @if ($errors->has('slider'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('slider') }}</strong>
                             </span>
                         @endif
+
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="editor" class="col-sm-3 text-right control-label col-form-label">İçerik</label>
                     <div class="col-sm-9">
-                        <textarea type="text" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" name="content" id="editor"></textarea>
-                    @if ($errors->has('content'))
+                        <textarea type="text" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" name="content" id="editor">{{ old('content') }}</textarea>
+
+                        @if ($errors->has('content'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('content') }}</strong>
                             </span>
                         @endif
+
                     </div>
                 </div>
                 <div class="border-top text-right">

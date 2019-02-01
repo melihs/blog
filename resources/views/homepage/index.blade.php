@@ -16,7 +16,7 @@
                         <div class="zm-posts">
                             <article class="zm-post-lay-a">
                                 <div class="zm-post-thumb">
-                                    <a href="blog-single-image.html"><img src="/{{ $single_post->image }}" alt="img"></a>
+                                    <a href="blog-single-image.html"><img src="/{{ $single_post->image }}" alt="img" height="400"></a>
                                 </div>
                                 <div class="zm-post-dis">
                                     <div class="zm-post-header">
@@ -43,7 +43,7 @@
                             <!-- Start single post layout D -->
                                 <article class="zm-post-lay-d clearfix">
                                     <div class="zm-post-thumb f-left">
-                                        <a href="blog-single-image.html"><img src="/{{ $post->image }}" alt="img"></a>
+                                        <a href="blog-single-image.html"><img src="/{{ $post->image }}" alt="img" height="200"></a>
                                     </div>
                                     <div class="zm-post-dis f-right">
                                         <div class="zm-post-header">

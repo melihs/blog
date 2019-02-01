@@ -15,15 +15,6 @@
                 </div>
             </div>
         </div>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         <div class="card">
             {!! Form::open( [ 'route' => 'kategoriler.store','method' => 'POST', 'class' => 'form-horizontal']) !!}
             <div class="card-body">
@@ -44,13 +35,27 @@
                 <div class="form-group row">
                     <label for="title" class="col-sm-3 text-right control-label col-form-label">Kategori Başlık</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="title" name="title">
+                        <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" value="{{ old('title') }}" id="title" name="title">
+
+                        @if ($errors->has('title'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('title') }}</strong>
+                            </span>
+                        @endif
+
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="description" class="col-sm-3 text-right control-label col-form-label">Kategori Açıklama</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="description" name="description">
+                        <input type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" value="{{ old('description') }}" id="description" name="description">
+
+                        @if ($errors->has('description'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('description') }}</strong>
+                            </span>
+                        @endif
+
                     </div>
                 </div>
             </div>

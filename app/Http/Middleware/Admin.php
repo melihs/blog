@@ -18,8 +18,8 @@ class Admin
      */
     public function handle( $request, Closure $next )
     {
-        $role = Auth::user()->role_id;
         if (Auth::check()) {
+            $role = Auth::user()->role_id;
             switch ( $role ) {
                 case 1:
                     {
@@ -39,6 +39,8 @@ class Admin
                 default :
                     return redirect('/');
             }
+        }else{
+            return redirect('/');
         }
     }
 }

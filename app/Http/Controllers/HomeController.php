@@ -17,4 +17,11 @@ class HomeController extends Controller
         $comments = Comment::whereStatus('1')->take(5)->get();
         return view('homepage.index',compact('sliders','posts','singlePost','newPosts','comments'));
     }
+
+    public function postDetail($id)
+    {
+        $post = Post::find($id);
+        $similars = Post::where('id','!=', $id)->take(3)->get();
+        return view('homepage.detail',compact('post','similars'));
+    }
 }

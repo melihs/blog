@@ -10,12 +10,12 @@
                                 <img src="/{{ $slider->image }}" alt="img" height="300" width="200">
                             </div>
                             <div class="zm-post-dis text-white">
-                                <div class="zm-category"><a href="#" class="bg-cat-3 cat-btn">{{ $slider->category->title }}</a></div>
-                                <h2 class="zm-post-title"><a href="blog-single-image.html">{{ $slider->title }}</a></h2>
+                                <div class="zm-category"><a href="/kategori/{{ $slider->category->id }}/{{ $slider->category->slug }}" class="bg-cat-3 cat-btn">{{ $slider->category->title }}</a></div>
+                                <h2 class="zm-post-title"><a href="/yazi/{{ $slider->id }}/{{ $slider->slug }}">{{ $slider->title }}</a></h2>
                                 <div class="zm-post-meta">
                                     <ul>
-                                        <li class="s-meta"><a href="#" class="zm-author">{{ $slider->user->name }}</a></li>
-                                        <li class="s-meta"><a href="#" class="zm-date">{{ date_format($slider->created_at ,'d-m-Y') }}</a></li>
+                                        <li class="s-meta zm-author">{{ $slider->user->name }}</li>
+                                        <li class="s-meta zm-date">{{ date_format($slider->created_at ,'d m Y') }}</li>
                                     </ul>
                                 </div>
                             </div>

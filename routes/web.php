@@ -10,8 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
-Route::get('/', 'HomeController@index')->name('homepage');
 
 Route::group(['prefix'=>'yonetim','middleware' =>'admin'],function (){
     Route::get('/','UserController@adminIndex')->name('admin.index');
@@ -27,4 +25,7 @@ Route::group(['prefix'=>'yonetim','middleware' =>'admin'],function (){
     Route::get('onaylama/{id}','CommentController@dontConfirm')->name('yorumlar.dontConfirm');
 });
 
+Auth::routes();
+Route::get('/', 'HomeController@index')->name('homepage');
+Route::get('yazi/{id}/{slug}', 'HomeController@postDetail')->name('post.show');
 

@@ -59,10 +59,19 @@
                             <div class="global-row">
                                 <div class="global-cell">
                                     <div class="logo">
-                                        <a href="{{ route('homepage') }}">
-                                            <img src="{{ $setting->logo }}" class="" height="120" width="120" alt="main logo">
-                                        </a>
+                                        <a href="{{ route('homepage') }}"><img src="/{{ $setting->logo }}" class="" height="100" width="150" alt="main logo"></a>
                                         <p class="site-desc">{{ $setting->title }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-lg-7 col-sm-7 col-xs-12 col-lg-offset-1 header-mdh hidden-xs">
+                        <div class="global-table">
+                            <div class="global-row">
+                                <div class="global-cell">
+                                    <div class="advertisement text-right">
+                                        <a href="#" class="block"><img src="homepage/images/ad/1.jpg" alt="ad img"></a>
                                     </div>
                                 </div>
                             </div>

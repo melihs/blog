@@ -16,7 +16,7 @@
                         <div class="zm-posts">
                             <article class="zm-post-lay-a">
                                 <div class="zm-post-thumb">
-                                    <a href="blog-single-image.html"><img src="/{{ $singlePost->image }}" alt="img" height="400"></a>
+                                    <a href="/yazi/{{ $singlePost->id }}/{{ $singlePost->slug }}"><img src="/{{ $singlePost->image }}" alt="img" height="400"></a>
                                 </div>
                                 <div class="zm-post-dis">
                                     <div class="zm-post-header">
@@ -24,8 +24,8 @@
                                         <h2 class="zm-post-title h2"><a href="/yazi/{{ $singlePost->id }}/{{ $singlePost->slug }}">{{ $singlePost->title }}</a></h2>
                                         <div class="zm-post-meta">
                                             <ul>
-                                                <li class="s-meta"><a href="#" class="zm-author">{{ $singlePost->user->name }}</a></li>
-                                                <li class="s-meta"><a href="#" class="zm-date">{{ date_format($singlePost->created_at,'d-m-Y')}}</a></li>
+                                                <li class="s-meta zm-author">{{ $singlePost->user->name }}</li>
+                                                <li class="s-meta zm-date">{{ date_format($singlePost->created_at,'d m Y')}}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -38,12 +38,11 @@
                     </div>
                     <div class="col-md-7 col-sm-12 col-xs-12 col-lg-6">
                         <div class="zm-posts">
-
-                        @foreach( $posts as $post)
                             <!-- Start single post layout D -->
+                            @foreach( $posts as $post)
                                 <article class="zm-post-lay-d clearfix">
                                     <div class="zm-post-thumb f-left">
-                                        <a href="blog-single-image.html"><img src="/{{ $post->image }}" alt="img" height="150"></a>
+                                        <a href="/yazi/{{ $post->id }}/{{ $post->slug }}"><img src="/{{ $post->image }}" alt="img" height="150"></a>
                                     </div>
                                     <div class="zm-post-dis f-right">
                                         <div class="zm-post-header">
@@ -51,16 +50,15 @@
                                             <h2 class="zm-post-title"><a href="/yazi/{{ $post->id }}/{{ $post->slug }}">{{ $post->title }}</a></h2>
                                             <div class="zm-post-meta">
                                                 <ul>
-                                                    <li class="s-meta"><a href="#" class="zm-author">{{ $post->user->name }}</a></li>
-                                                    <li class="s-meta"><a href="#" class="zm-date">{{ date_format($post->created_at,'d-m-Y') }}</a></li>
+                                                    <li class="s-meta zm-author">{{ $post->user->name }}</li>
+                                                    <li class="s-meta zm-date">{{ date_format($post->created_at,'d m Y') }}</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </article>
-                                <!-- End single post layout D -->
                             @endforeach
-
+                            <!-- End single post layout D -->
                         </div>
                     </div>
                 </div>
@@ -85,26 +83,23 @@
 
                                     @foreach($newPosts as $newPost)
                                         <article class="zm-post-lay-c zm-single-post clearfix">
-                                        <div class="zm-post-thumb f-left">
-                                            <a href="/yazi/{{ $newPost->id }}/{{ $newPost->slug}}"><img src="{{ $newPost->image }}" alt="img" height="200"></a>
-                                        </div>
-                                        <div class="zm-post-dis f-right">
-                                            <div class="zm-post-header">
-                                                <div class="zm-category"><a href="/kategori/{{ $newPost->category->id }}/{{ $newPost->category->slug }}" class="bg-cat-1 cat-btn">{{ $newPost->category->title }}</a></div>
-                                                <h2 class="zm-post-title"><a href="/yazi/{{ $newPost->id }}/{{ $newPost->slug }}">{{ $newPost->title }}</a></h2>
-                                                <div class="zm-post-meta">
-                                                    <ul>
-                                                        <li class="s-meta"><a href="#" class="zm-author">{{ $newPost->user->name }}</a></li>
-                                                        <li class="s-meta"><a href="#" class="zm-date">{{ date_format($newPost->created_at,'d-m-Y') }}</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="zm-post-content">
-                                                    <p>{{str_limit(strip_tags($newPost->content),$limit = 150,$end = "...") }}</p>
+                                            <div class="zm-post-thumb f-left"><a href="/yazi/{{ $newPost->id }}/{{ $newPost->slug}}"><img src="{{ $newPost->image }}" alt="img" height="200"></a></div>
+                                            <div class="zm-post-dis f-right">
+                                                <div class="zm-post-header">
+                                                    <div class="zm-category"><a href="/kategori/{{ $newPost->category->id }}/{{ $newPost->category->slug }}" class="bg-cat-1 cat-btn">{{ $newPost->category->title }}</a></div>
+                                                    <h2 class="zm-post-title"><a href="/yazi/{{ $newPost->id }}/{{ $newPost->slug }}">{{ $newPost->title }}</a></h2>
+                                                    <div class="zm-post-meta">
+                                                        <ul>
+                                                            <li class="s-meta zm-author">{{ $newPost->user->name }}</li>
+                                                            <li class="s-meta zm-date">{{ date_format($newPost->created_at,'d m Y') }}</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="zm-post-content"><p>{{str_limit(strip_tags($newPost->content),$limit = 150,$end = "...") }}</p></div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </article>
+                                        </article>
                                     @endforeach
+
                                 </div>
                             </div>
                         </div>
@@ -128,21 +123,21 @@
 
                                             @foreach($comments as $comment)
                                                 <article class="zm-post-lay-e zm-single-post clearfix">
-                                                <div class="zm-post-thumb f-left">
-                                                    <a href="/yazi/{{ $comment->post->id }}/{{ $comment->post->slug}}"><img src="{{ $comment->post->image }}" alt="img" height="80"></a>
-                                                </div>
-                                                <div class="zm-post-dis f-right">
-                                                    <div class="zm-post-header">
-                                                        <h2 class="zm-post-title"><a href="/yazi/{{ $comment->post->id }}/{{ $comment->post->slug }}">{{ $comment->post->title }}</a></h2>
-                                                        <div class="zm-post-meta">
-                                                            <ul>
-                                                                <li class="s-meta"><a href="#" class="zm-author">{{ $comment->user->name }}</a></li>
-                                                                <li class="s-meta"><a href="#" class="zm-date">{{ date_format($comment->created_at,'d-m-Y') }}</a></li>
-                                                            </ul>
+                                                    <div class="zm-post-thumb f-left">
+                                                        <a href="/yazi/{{ $comment->post->id }}/{{ $comment->post->slug}}"><img src="{{ $comment->post->image }}" alt="img" height="80"></a>
+                                                    </div>
+                                                    <div class="zm-post-dis f-right">
+                                                        <div class="zm-post-header">
+                                                            <h2 class="zm-post-title"><a href="/yazi/{{ $comment->post->id }}/{{ $comment->post->slug }}">{{ $comment->post->title }}</a></h2>
+                                                            <div class="zm-post-meta">
+                                                                <ul>
+                                                                    <li class="s-meta zm-author">{{ $comment->user->name }}</li>
+                                                                    <li class="s-meta zm-date">{{ date_format($comment->created_at,'d m Y') }}</li>
+                                                                </ul>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </article>
+                                                </article>
                                             @endforeach
 
                                         </div>
@@ -162,7 +157,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- End Advertisement -->
             </div>
         </div>
     </section>

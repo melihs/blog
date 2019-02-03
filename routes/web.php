@@ -28,4 +28,5 @@ Route::group(['prefix'=>'yonetim','middleware' =>'admin'],function (){
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('homepage');
 Route::get('yazi/{id}/{slug}', 'HomeController@postDetail')->name('post.show');
+Route::post('gonder', 'HomeController@sendComment')->name('comment.send');
 

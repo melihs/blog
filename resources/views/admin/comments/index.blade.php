@@ -29,10 +29,10 @@
                                                 <thead>
                                                 <tr role="row">
                                                     <th class="sorting_asc" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 5%;">ID</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 282.6px;">Yazan</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 100px;">Yazan</th>
                                                     <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 282.6px;">Yorum</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 135.4px;">İçerik</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 135.4px;">Tarih</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 200px;">İçerik</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 90px;">Tarih</th>
                                                     <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 5%;">Durum</th>
                                                     <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 5%;">Düzenle</th>
                                                     <th class="sorting" tabindex="0" aria-controls="zero_config" rowspan="1" colspan="1" style="width: 5%;">Sil</th>
@@ -46,7 +46,7 @@
                                                         <td>{{ $comment->user->name }}</td>
                                                         <td>{{ str_limit(strip_tags($comment->comment),$limit = 60, $end = '...') }}</td>
                                                         <td>{{ $comment->post->title }}</td>
-                                                        <td>{{ date('d-m-y',strtotime($comment->created_at)) }}</td>
+                                                        <td class="text-center">{{ date_format($comment->created_at,'d m Y') }}</td>
                                                         <td>
 
                                                             @if($comment->status === '0')

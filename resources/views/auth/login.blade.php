@@ -47,10 +47,10 @@
                                     <div class="p-t-20">
 
                                         @if (Route::has('password.request'))
-                                            <a href="{{ route('password.request') }}" class="btn btn-info" id="to-recover"><i class="fa fa-lock m-r-5"></i> Şifremi unuttum?</a>
+                                            <a href="{{ route('password.request') }}" class="btn btn-info float-right" id="to-recover"><i class="fa fa-lock m-r-5"></i> Şifremi unuttum?</a>
                                         @endif
 
-                                        <button class="btn btn-success float-right" type="submit">Giriş</button>
+                                        <button class="btn btn-success" type="submit">Giriş</button>
                                     </div>
                                 </div>
                             </div>

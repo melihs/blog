@@ -118,10 +118,10 @@
                                     <div class="review-wrap">
                                         <div class="review-inner">
                                             <!-- Start Single Review -->
-                                            @foreach($post->comments as $comment)
+                                            @foreach($comments as $comment)
                                             <div class="single-review clearfix">
                                                 <div class="reviewer-img">
-                                                    <img src="/{{ $comment->user->avatar }}" alt="">
+                                                    <img src="/{{ $comment->user->avatar }}" height="75" width="75" alt="avatar">
                                                 </div>
                                                 <div class="reviewer-info">
                                                     <h4 class="reviewer-name"><a href="#">{{ $comment->user->name }}</a></h4>
@@ -137,37 +137,33 @@
                                 </div>
                             </div>
                             <!-- End Comment box  -->
-                            <!-- Start comment form -->
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            @if(Auth::check())
+                                <!-- Start comment form -->
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="comment-form-area">
                                     <div class="post-title mb-40">
-                                        <h2 class="h6 inline-block">leave a comment</h2>
+                                        <h2 class="h6 inline-block">Yorum Yaz</h2>
                                     </div>
                                     <div class="form-wrap">
-                                        <form action="#">
+                                        <form action="{{ route('comment.send') }}" method="POST">
+                                            @csrf
                                             <div class="form-inner clearfix">
-                                                <div class="single-input left width-half">
-                                                    <input required="required" placeholder="Full Name *" type="text">
-                                                </div>
-                                                <div class="single-input right width-half">
-                                                    <input placeholder="Phone Number" type="text">
-                                                </div>
-                                                <div class="single-input left width-half">
-                                                    <input required="required" placeholder="Email Address *" type="text">
-                                                </div>
-                                                <div class="single-input right width-half">
-                                                    <input required="required" placeholder="Website" type="text">
-                                                </div>
                                                 <div class="single-input">
-                                                    <textarea class="textarea" placeholder="Type your comment..."></textarea>
+                                                    <input type="hidden" value="{{ $post->id }}" name="post">
+                                                    <textarea class="textarea" name="comment" placeholder="Yorum girin..."></textarea>
                                                 </div>
-                                                <button class="submit-button" type="submit">Submit Comment</button>
+                                                <button class="submit-button" type="submit">Gönder</button>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-                            <!-- End comment form -->
+                                <!-- End comment form -->
+                            @else
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <a href="{{ route('login') }}" class="btn btn-block btn-lg btn-success">Yorum yapmak için giriş yapın</a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <!-- End left side -->

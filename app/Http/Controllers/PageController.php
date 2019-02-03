@@ -69,7 +69,7 @@ class PageController extends Controller
         $validated = $request->validated();
         $page = Page::find($id);
         $page->fill($validated);
-        $page->slug= str_slug($request->title);
+        $page->slug = str_slug($request->title);
         $page->save();
         alert()->success('Başarılı', 'Sayfa güncellendi')->autoClose('2000');
         return back();

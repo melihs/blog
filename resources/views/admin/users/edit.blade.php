@@ -42,25 +42,25 @@
 
                             @can('users.admin')
                                 <div class="form-group row">
-                                    <label for="role" class="col-sm-2 control-label col-form-label">Yetki</label>
+                                    <label for="role_id" class="col-sm-2 control-label col-form-label">Yetki</label>
                                     <div class="col-sm-10">
-                                        <select id="role" class="form-control" name="role" >
+                                        <select id="role_id" class="form-control" name="role_id" >
 
                                             @switch($user->role_id)
                                                 @case(1)
-                                                <option value="1" selected>Standart</option>
-                                                <option value="2" class="text-primary">Moderatör</option>
-                                                <option value="3" class="text-success">Admin</option>
+                                                <option value='1' selected>Standart</option>
+                                                <option value='2' class="text-primary">Moderatör</option>
+                                                <option value='3' class="text-success">Admin</option>
                                                     @break
                                                 @case(2)
-                                                <option value="2" class="text-primary" selected>Moderatör</option>
-                                                <option value="3" class="text-success" >Admin</option>
-                                                <option value="1" >Standart</option>
+                                                <option value='2' class="text-primary" selected>Moderatör</option>
+                                                <option value='3' class="text-success" >Admin</option>
+                                                <option value='1' >Standart</option>
                                                     @break
                                                 @case(3)
-                                                <option value="3" class="text-success" selected>Admin</option>
-                                                <option value="2" class="text-primary">Moderatör</option>
-                                                <option value="1" >Standart</option>
+                                                <option value='3' class="text-success" selected>Admin</option>
+                                                <option value='2' class="text-primary">Moderatör</option>
+                                                <option value='1' >Standart</option>
                                                     @break
                                             @endswitch
 
@@ -85,7 +85,7 @@
                             <div class="form-group row">
                                 <label for="email" class="col-sm-2 control-label col-form-label">E-mail adresi</label>
                                 <div class="col-sm-10">
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"  value="{{ $user->email }}"  autofocus>
+                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"  value="{{ $user->email }}" >
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">

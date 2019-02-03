@@ -55,8 +55,8 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $this->authorize('users.common');
-         $category = Category::find($id);
-         $all_categories = Category::all();
+        $category = Category::find($id);
+        $all_categories = Category::all();
         return view('admin.categories.edit',compact('category','all_categories'));
     }
 

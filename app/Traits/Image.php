@@ -8,13 +8,13 @@
 
 namespace App\Traits;
 
-trait ImageValidation{
+trait Image{
 
     /**
      * @param $model
      * @param $key
      */
-    public function imageValidate($model, $key)
+    public function setImagePath($model, $key)
     {
         if ( request()->hasFile($key) ) {
             $image = request($key);
@@ -23,6 +23,7 @@ trait ImageValidation{
             $file_path = $target_directory . '/' . $file_name;
             $image->move($target_directory, $file_name);
             $model->$key = $file_path;
+            return $model->$key;
         }
     }
 }

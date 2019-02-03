@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use App\Traits\ImageValidation;
+use App\Traits\Image;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    use ImageValidation;
+    use Image;
 
     /**
      * @return  admin.users.index
@@ -52,7 +52,7 @@ class UserController extends Controller
         $user->fill($validated);
         $user->password = Hash::make($request->password);
         $user->role_id = $request->role_id;
-        $this->imageValidate($user,'avatar');
+        $this->setImagePath($user,'avatar');
         $user->save();
         alert()->success('Başarılı', 'Kullanıcı eklendi')->autoClose('2000');
         return back();
@@ -71,28 +71,34 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * @param $id
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
-    public function update(UserRequest $request , $id)
+    public function update($id)
     {
-        try
-        {
-            $validated = $request->validated();
-            $user = User::find($id);
-            $user->fill($validated);
-            $this->imageValidate($user, 'avatar');
-            $user->save();
-            alert()->success('Başarılı', 'kullanıcı bilgileri güncellendi')->autoClose('2000');
-            return back();
-        }catch (\Exception $e)
-        {
-            alert()->error('Hata', 'bu e-posta daha önce kaydedilmiş !')->autoClose('2000');
-            return back();
-        }
+        $user = User::find($id);
+        $this->validate(request(),
+            [
+                'role_id' => 'required',
+                'name'   => 'required|string|max:255',
+                'avatar' => 'image|mimes:png,jpg,jpeg,gif,gif|max:2048|nullable'
+            ],
+            [
+                'name.required' =>'isim alanı boş bırakılamaz !',
+                'avatar.image' => 'Sadece resim dosyaları kaydedilir !',
+                'avatar.mimes' => ' Dosya formatı geçerli değil.Desteklenen formatlar jpg,jpeg,png,gif !',
+                'avatar.max' => 'Dosya boyutu maksimum 2mb olmalı !'
+            ]);
+        $user->role_id = request('role_id');
+        $user->name = request('name');
+        $this->emailValidate($user,$id);
+        $this->passwordValidate($user);
+        $this->setImagePath($user, 'avatar');
+        $user->save();
+        alert()->success('Başarılı', 'kullanıcı bilgileri güncellendi')->autoClose('2000');
+        return back();
     }
 
     /**
@@ -114,5 +120,57 @@ class UserController extends Controller
     {
         auth()->logout();
         return redirect('/');
+    }
+
+    /**
+     * @param $user
+     * @param $id
+     *
+     * @return mixed
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function emailValidate($user, $id)
+    {
+        $getEmail = User::find($id)->email;
+        if($getEmail !== request()->email || request()->email === null)
+        {
+            $this->validate(request(),
+                [
+                    'email' => 'required|string|email|max:255|unique:users'
+                ],
+                [
+                    'email.required' => 'e-posta alanı boş bırakılamaz !',
+                    'email.unique' =>'bu e-posta daha önce kaydedilmiş !',
+                    'email.email' =>'Lütfen e-posta girişi yapın ör: example@gmail.com',
+                ]
+            );
+            $user->email = request()->email;
+            return  $user->email;
+        }
+    }
+
+    /**
+     * @param $user
+     *
+     * @return string
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function passwordValidate($user)
+    {
+        if(request()->password)
+        {
+            $this->validate(request(),
+                [
+                    'password' =>'required|string|min:6|confirmed'
+                ],
+                [
+                    'password.required' =>'parola alanı boş bırakılamaz !',
+                    'password.min' =>'parola en az 6 karakterden oluşmalı !',
+                    'password.confirmed' =>'parolalar eşleşmedi !',
+                ]
+            );
+            $user->password = Hash::make(request()->password);
+            return $user->password;
+        }
     }
 }

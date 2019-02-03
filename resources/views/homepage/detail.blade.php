@@ -113,61 +113,24 @@
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="review-area mt-50 ptb-70 border-top">
                                     <div class="post-title mb-40">
-                                        <h2 class="h6 inline-block">There are 03 Comments for This Article</h2>
+                                        <h2 class="h6 inline-block">Toplam Yorum Sayısı {{ $post->comments->count() }}</h2>
                                     </div>
                                     <div class="review-wrap">
                                         <div class="review-inner">
                                             <!-- Start Single Review -->
+                                            @foreach($post->comments as $comment)
                                             <div class="single-review clearfix">
                                                 <div class="reviewer-img">
-                                                    <img src="images/post/single/comnt/1.jpg" alt="">
+                                                    <img src="/{{ $comment->user->avatar }}" alt="">
                                                 </div>
                                                 <div class="reviewer-info">
-                                                    <h4 class="reviewer-name"><a href="#">Jhon doe</a></h4>
-                                                    <span class="date-time">Auguest 11, 2.16, 12:21pm</span>
-                                                    <p class="reviewer-comment">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit.</p>
-                                                    <a href="#" class="reply-btn">Reply</a>
+                                                    <h4 class="reviewer-name"><a href="#">{{ $comment->user->name }}</a></h4>
+                                                    <span class="date-time">{{ date_format($comment->created_at , 'd m Y') }}</span>
+                                                    <p class="reviewer-comment">{{ $comment->comment }}</p>
+                                                    {{--<a href="#" class="reply-btn">Reply</a>--}}
                                                 </div>
                                             </div>
-                                            <!-- End Single Review -->
-                                            <!-- Start Single Review -->
-                                            <div class="single-review second-comment clearfix">
-                                                <div class="reviewer-img">
-                                                    <img src="images/post/single/comnt/2.jpg" alt="">
-                                                </div>
-                                                <div class="reviewer-info">
-                                                    <h4 class="reviewer-name"><a href="#">Jhon doe</a></h4>
-                                                    <span class="date-time">Auguest 11, 2.16, 12:21pm</span>
-                                                    <p class="reviewer-comment">Phasellus aliquam ante metus, vitae molestie turpis rutrum eu. Fusce mi risus, cursus eu elit vitae, viverra vulputate mi. Donec ullamcorper felis nec sapien ultrices feugiat. Morbi sit amet blandit nibh. Vivamus eros felis, tempus vitae dolor quis, euismod dignissim ipsum. </p>
-                                                    <a href="#" class="reply-btn">Reply</a>
-                                                </div>
-                                            </div>
-                                            <!-- End Single Review -->
-                                            <!-- Start Single Review -->
-                                            <!-- <div class="single-review third-comment clearfix">
-                                                <div class="reviewer-img">
-                                                    <img src="images/post/single/comnt/2.jpg" alt="">
-                                                </div>
-                                                <div class="reviewer-info">
-                                                    <h4 class="reviewer-name"><a href="#">Jhon doe</a></h4>
-                                                    <span class="date-time">Auguest 11, 2.16, 12:21pm</span>
-                                                    <p class="reviewer-comment">Phasellus aliquam ante metus, vitae molestie turpis rutrum eu. Fusce mi risus, cursus eu elit vitae, viverra vulputate mi. Donec ullamcorper felis nec sapien ultrices feugiat. Morbi sit amet blandit nibh. Vivamus eros felis, tempus vitae dolor quis, euismod dignissim ipsum. </p>
-                                                <a href="#" class="reply-btn">Reply</a>
-                                                </div>
-                                            </div> -->
-                                            <!-- End Single Review -->
-                                            <!-- Start Single Review -->
-                                            <div class="single-review clearfix">
-                                                <div class="reviewer-img">
-                                                    <img src="images/post/single/comnt/3.jpg" alt="">
-                                                </div>
-                                                <div class="reviewer-info">
-                                                    <h4 class="reviewer-name"><a href="#">Jhon doe</a></h4>
-                                                    <span class="date-time">Auguest 11, 2.16, 12:21pm</span>
-                                                    <p class="reviewer-comment">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit.</p>
-                                                    <a href="#" class="reply-btn">Reply</a>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                             <!-- End Single Review -->
                                         </div>
                                     </div>
@@ -257,7 +220,7 @@
                                             <!-- Start single post layout E -->
                                             <article class="zm-post-lay-e zm-single-post clearfix">
                                                 <div class="zm-post-thumb f-left">
-                                                    <a href="blog-single-image.html"><img src="images/post/e/2.jpg" alt="img"></a>
+                                                    <a href="blog-single-image.html"><img src="/images/post/e/2.jpg" alt="img"></a>
                                                 </div>
                                                 <div class="zm-post-dis f-right">
                                                     <div class="zm-post-header">
@@ -275,7 +238,7 @@
                                             <!-- Start single post layout E -->
                                             <article class="zm-post-lay-e zm-single-post clearfix">
                                                 <div class="zm-post-thumb f-left">
-                                                    <a href="blog-single-image.html"><img src="images/post/e/6.jpg" alt="img"></a>
+                                                    <a href="blog-single-image.html"><img src="/images/post/e/6.jpg" alt="img"></a>
                                                 </div>
                                                 <div class="zm-post-dis f-right">
                                                     <div class="zm-post-header">
@@ -293,7 +256,7 @@
                                             <!-- Start single post layout E -->
                                             <article class="zm-post-lay-e zm-single-post hidden-md clearfix">
                                                 <div class="zm-post-thumb f-left">
-                                                    <a href="blog-single-image.html"><img src="images/post/e/7.jpg" alt="img"></a>
+                                                    <a href="blog-single-image.html"><img src="/images/post/e/7.jpg" alt="img"></a>
                                                 </div>
                                                 <div class="zm-post-dis f-right">
                                                     <div class="zm-post-header">
@@ -311,7 +274,7 @@
                                             <!-- Start single post layout E -->
                                             <article class="zm-post-lay-e zm-single-post hidden-md clearfix">
                                                 <div class="zm-post-thumb f-left">
-                                                    <a href="blog-single-image.html"><img src="images/post/e/8.jpg" alt="img"></a>
+                                                    <a href="blog-single-image.html"><img src="/images/post/e/8.jpg" alt="img"></a>
                                                 </div>
                                                 <div class="zm-post-dis f-right">
                                                     <div class="zm-post-header">

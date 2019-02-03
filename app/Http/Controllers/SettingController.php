@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Traits\ImageValidation;
+use App\Traits\Image;
 use Illuminate\Http\Request;
 use App\Setting;
 use App\Http\Requests\SettingRequest;
 
 class SettingController extends Controller
 {
-    use ImageValidation;
+    use Image;
 
     /**
      * @return settings create page,array settings
@@ -34,7 +34,7 @@ class SettingController extends Controller
         $validated = $request->validated();
         $setting = Setting::find(1);
         $setting->fill($validated);
-        $this->imageValidate($setting,'logo');
+        $this->setImagePath($setting,'logo');
         $setting->save();
         alert()->success('Başarılı', 'ayarlar güncellendi')->autoClose('2000');
         return back();

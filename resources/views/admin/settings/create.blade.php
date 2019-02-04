@@ -36,14 +36,12 @@
                         </div>
                         <div class="col-sm-9">
                             <div class="form-group row">
-                                <label for="title" class="col-sm-2 control-label col-form-label">Site Başlık</label>
+                                <label for="title" class="col-sm-2 control-label col-form-label"><i class="mdi mdi-pencil"></i> Site Başlık</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" id="title" value="{{$settings->title}}">
 
                                     @if ($errors->has('title'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('title') }}</strong>
-                                        </span>
+                                        <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('title') }}</strong></span>
                                     @endif
 
                                 </div>
@@ -54,35 +52,106 @@
                                     <input type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" id="description" name="description" value="{{$settings->description}}">
 
                                     @if ($errors->has('description'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('description') }}</strong>
-                                        </span>
+                                        <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('description') }}</strong></span>
                                     @endif
 
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="email" class="col-sm-2 control-label col-form-label">e-posta</label>
+                                <label for="email" class="col-sm-2 control-label col-form-label"><i class="mdi mdi-email"></i> E-posta</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" id="email" name="email" value="{{$settings->email}}">
 
                                     @if ($errors->has('email'))
-                                        <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
+                                        <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('email') }}</strong></span>
                                     @endif
 
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="logo" class="col-sm-2 control-label col-form-label">Site Logo</label>
+                                <label for="logo" class="col-sm-2 control-label col-form-label"><i class="mdi mdi-image"></i> Site Logo</label>
                                 <div class="col-sm-10">
                                     <input type="file" class="form-control{{ $errors->has('logo') ? ' is-invalid' : '' }}" id="logo" name="logo">
 
                                     @if ($errors->has('logo'))
-                                        <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('logo') }}</strong>
-                            </span>
+                                        <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('logo') }}</strong></span>
+                                    @endif
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="facebook" class="col-sm-2 control-label col-form-label"><i class="mdi mdi-facebook"></i> Facebook</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control{{ $errors->has('facebook') ? ' is-invalid' : '' }}" id="facebook" name="facebook" value="{{$settings->facebook}}">
+
+                                    @if ($errors->has('facebook'))
+                                        <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('facebook') }}</strong></span>
+                                    @endif
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="twitter" class="col-sm-2 control-label col-form-label"><i class="mdi mdi-twitter"></i> Twitter</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control{{ $errors->has('twitter') ? ' is-invalid' : '' }}" id="twitter" name="twitter" value="{{$settings->twitter}}">
+
+                                    @if ($errors->has('twitter'))
+                                        <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('twitter') }}</strong></span>
+                                    @endif
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="instagram" class="col-sm-2 control-label col-form-label"><i class="mdi mdi-instagram"></i> Instagram</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control{{ $errors->has('instagram') ? ' is-invalid' : '' }}" id="instagram" name="instagram" value="{{$settings->instagram}}">
+
+                                    @if ($errors->has('instagram'))
+                                        <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('instagram') }}</strong></span>
+                                    @endif
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="pinterest" class="col-sm-2 control-label col-form-label"><i class="mdi mdi-pinterest"></i> Pinterest</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control{{ $errors->has('pinterest') ? ' is-invalid' : '' }}" id="pinterest" name="pinterest" value="{{$settings->pinterest}}">
+
+                                    @if ($errors->has('pinterest'))
+                                        <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('pinterest') }}</strong></span>
+                                    @endif
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="phone" class="col-sm-2 control-label col-form-label"><i class="mdi mdi-phone"></i> Telefon</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" id="phone" name="phone" value="{{$settings->phone}}">
+
+                                    @if ($errors->has('phone'))
+                                        <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('phone') }}</strong></span>
+                                    @endif
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="about_us" class="col-sm-2 control-label col-form-label"><i class="mdi mdi-account-box-outline"></i> Hakkımızda</label>
+                                <div class="col-sm-10">
+                                    <textarea type="text" rows="5" class="form-control{{ $errors->has('about_us') ? ' is-invalid' : '' }}" name="about_us" id="about_us">{{ $setting->about_us }}</textarea>
+
+                                    @if ($errors->has('about_us'))
+                                        <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('about_us') }}</strong></span>
+                                    @endif
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="address" class="col-sm-2 control-label col-form-label"><i class="mdi mdi-home"></i> Adres</label>
+                                <div class="col-sm-10">
+                                    <textarea type="text" rows="5" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" id="address">{{ $setting->address }}</textarea>
+
+                                    @if ($errors->has('address'))
+                                        <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('address') }}</strong></span>
                                     @endif
 
                                 </div>
@@ -100,8 +169,6 @@
     </div>
 @endsection
 @section('css')
- {{-- todo: paralo güncelleme işlemi yapılacak --}}
 @endsection
 @section('js')
-
 @endsection

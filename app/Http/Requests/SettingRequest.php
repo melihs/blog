@@ -22,7 +22,14 @@ class SettingRequest extends FormRequest
             'title' =>'required',
             'description' =>'required',
             'email' =>'email',
-            'logo' =>'image|mimes:png,jpg,jpeg,gif,gif|max:2048'
+            'logo' =>'image|mimes:png,jpg,jpeg,gif,gif|max:2048',
+            'facebook' => 'string|nullable',
+            'twitter' => 'string|nullable',
+            'instagram' => 'string|nullable',
+            'pinterest' => 'string|nullable',
+            'phone' => 'string|nullable',
+            'about_us' => 'nullable',
+            'address' => 'nullable'
         ];
     }
 

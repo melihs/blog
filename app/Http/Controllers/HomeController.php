@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Post;
 use App\Comment;
+use App\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,13 +29,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function postDetail($id)
+    public function post($id)
     {
         $post = Post::find($id);
         $similars = Post::where('id','!=', $id)->take(3)->get();
         $comments = Comment::whereStatus('1')->wherePost_id($id)->get();
         list($mostComments, $recentComments) = $this->comments();
-        return view('homepage.detail',compact('post','similars','comments','mostComments','recentComments'));
+        return view('homepage.post',compact('post','similars','comments','mostComments','recentComments'));
     }
 
     /**
@@ -54,6 +55,11 @@ class HomeController extends Controller
         return back();
     }
 
+    /**
+     * @param $id
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function category($id)
     {
         $category = Category::find($id);
@@ -70,5 +76,12 @@ class HomeController extends Controller
         $mostComments = Post::withCount('comments')->orderBy('comments_count', 'desc')->take(5)->get();
         $recentComments = Comment::whereStatus('1')->orderBy('created_at', 'desc')->take(5)->get();
         return array ( $mostComments, $recentComments );
+    }
+
+    public function page($id)
+    {
+        $page = Page::find($id);
+        list($mostComments,$recentComments) = $this->comments();
+        return view('homepage.page', compact('page','mostComments','recentComments'));
     }
 }

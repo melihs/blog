@@ -5,24 +5,22 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 hidden-sm">
                     <div class="zm-widget pr-40">
-                        <h2 class="h6 zm-widget-title uppercase text-white mb-30">About Znews</h2>
+                        <h2 class="h6 zm-widget-title uppercase text-white mb-30">Hakkımızda</h2>
                         <div class="zm-widget-content">
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat, non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            <p>Sed ut perspiciatis unde omnis iste, voluptatem dolore mque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi.</p>
+                            <p>{{ $setting->about_us }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-6 col-lg-2">
                     <div class="zm-widget">
-                        <h2 class="h6 zm-widget-title uppercase text-white mb-30">Social Links</h2>
+                        <h2 class="h6 zm-widget-title uppercase text-white mb-30">Sosyal Medya</h2>
                         <div class="zm-widget-content">
                             <div class="zm-social-media zm-social-1">
                                 <ul>
-                                    <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i>Like us on Facebook</a></li>
-                                    <li><a href="https://twitter.com/"><i class="fa fa-twitter"></i>Tweet us on Twitter</a></li>
-                                    <li><a href="https://www.pinterest.com/"><i class="fa fa-pinterest"></i>Pin us on Pinterest</a></li>
-                                    <li><a href="https://www.instagram.com/"><i class="fa fa-instagram"></i>Heart us on Instagram</a></li>
-                                    <li><a href="https://plus.google.com/"><i class="fa fa-google-plus"></i>Share us on GooglePlus</a></li>
+                                    <li><a href="https://www.facebook.com/{{ $setting->facebook }}"><i class="fa fa-facebook"></i>Facebook</a></li>
+                                    <li><a href="https://twitter.com/{{ $setting->twitter}}"><i class="fa fa-twitter"></i>Twitter</a></li>
+                                    <li><a href="https://www.instagram.com/{{ $setting->instagram }}"><i class="fa fa-instagram"></i>Instagram</a></li>
+                                    <li><a href="https://www.pinterest.com/{{ $setting->pinterest }}"><i class="fa fa-pinterest"></i>Pinterest</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -30,15 +28,13 @@
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-6 col-lg-3">
                     <div class="zm-widget pr-50 pl-20">
-                        <h2 class="h6 zm-widget-title uppercase text-white mb-30">Popular Categories</h2>
+                        <h2 class="h6 zm-widget-title uppercase text-white mb-30">Linkler</h2>
                         <div class="zm-widget-content">
                             <div class="zm-category-widget zm-category-1">
                                 <ul>
-                                    <li><a href="#">Business<span>22</span></a></li>
-                                    <li><a href="#">Fashion<span>18</span></a></li>
-                                    <li><a href="#">Sports<span>09</span></a></li>
-                                    <li><a href="#">Technology<span>35</span></a></li>
-                                    <li><a href="#">Entertainment<span>7</span></a></li>
+                                    @foreach($footerLinks as $footerLink)
+                                        <li><a href="/sayfa/{{ $footerLink->id }}/{{ $footerLink->slug }}">{{ $footerLink->title }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -70,17 +66,15 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
                     <div class="zm-copyright">
-                        <p class="uppercase">&copy; 2016 Your Company. All Rights Reserved.</p>
+                        <p class="uppercase">&copy; {{ date('Y') }} {{ $setting->title }}</p>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 text-right hidden-xs">
                     <nav class="footer-menu zm-secondary-menu text-right">
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Feature</a></li>
-                            <li><a href="#">Shortcodes</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contact</a></li>
+                            @foreach($pages as $page)
+                                <li><a href="/sayfa/{{ $page->id }}/{{ $page->slug }}">{{ $page->title }}</a></li>
+                            @endforeach
                         </ul>
                     </nav>
                 </div>

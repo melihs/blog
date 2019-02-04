@@ -72,7 +72,7 @@ class PageController extends Controller
         $page->slug = str_slug($request->title);
         $page->save();
         alert()->success('Başarılı', 'Sayfa güncellendi')->autoClose('2000');
-        return back();
+        return redirect()->route('sayfalar.index');
     }
 
     /**

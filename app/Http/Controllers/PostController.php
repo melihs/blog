@@ -83,7 +83,7 @@ class PostController extends Controller
         $this->setImagePath($post,'image');
         $post->save();
         alert()->success('Başarılı', 'içerik güncellendi')->autoClose('2000');
-        return back();
+        return redirect()->route('yazilar.index');
     }
 
     /**

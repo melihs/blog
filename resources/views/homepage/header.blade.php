@@ -25,11 +25,10 @@
                         <div class="header-top-right clierfix text-right">
                             <div class="header-social-bookmark topbar-sblock">
                                 <ul>
-                                    <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="https://plus.google.com/"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="https://dribbble.com/"><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                    <li><a href="https://www.facebook.com/{{ $setting->facebook }}"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="https://twitter.com/{{ $setting->twitter}}"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="https://www.instagram.com/{{ $setting->instagram }}"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="https://www.pinterest.com/{{ $setting->pinterest }}"><i class="fa fa-pinterest"></i></a></li>
                                 </ul>
                             </div>
                             <div class="user-accoint topbar-sblock">

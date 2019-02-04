@@ -19,7 +19,6 @@ Route::group(['prefix'=>'yonetim','middleware' =>'admin'],function (){
     Route::resource('kategoriler','CategoryController');
     Route::resource('yazilar','PostController');
     Route::resource('sayfalar' , 'PageController');
-    Route::get('sayfa/{id}/{slug}','PageController@show')->name('page.show');
     Route::resource('yorumlar' , 'CommentController');
     Route::get('onayla/{id}','CommentController@confirm')->name('yorumlar.confirm');
     Route::get('onaylama/{id}','CommentController@dontConfirm')->name('yorumlar.dontConfirm');
@@ -27,7 +26,8 @@ Route::group(['prefix'=>'yonetim','middleware' =>'admin'],function (){
 
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('homepage');
-Route::get('yazi/{id}/{slug}', 'HomeController@postDetail')->name('post.show');
-Route::get('kategori/{id}/{slug}','HomeController@category')->name('post.show');
+Route::get('yazi/{id}/{slug}', 'HomeController@post')->name('post.show');
+Route::get('kategori/{id}/{slug}','HomeController@category')->name('category.show');
+Route::get('sayfa/{id}/{slug}','HomeController@page')->name('page.show');
 Route::post('gonder', 'HomeController@sendComment')->name('comment.send');
 

@@ -71,7 +71,7 @@
                             <div class="global-row">
                                 <div class="global-cell">
                                     <div class="advertisement text-right">
-                                        <a href="#" class="block"><img src="homepage/images/ad/1.jpg" alt="ad img"></a>
+                                        <a href="#" class="block"><img src="/homepage/images/ad/1.jpg" alt="ad img"></a>
                                     </div>
                                 </div>
                             </div>

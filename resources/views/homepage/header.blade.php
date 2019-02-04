@@ -98,15 +98,15 @@
 
                                                 @foreach($categories as $category)
                                                     <li class="current drop">
-                                                        <a href="#">{{ $category->title }}</a>
+                                                        <a href="/kategori/{{ $category->id }}/{{ $category->slug }}">{{ $category->title }}</a>
 
                                                         @if($category->downCategory->count())
 
                                                             <ul class="dropdown">
 
-                                                            @foreach($category->downCategory as $down_category)
+                                                            @foreach($category->downCategory as $downCategory)
                                                                 <li>
-                                                                    <a href="#">{{ $down_category->title }}</a>
+                                                                    <a href="/kategori/{{ $downCategory->id }}/{{ $downCategory->slug }}">{{ $downCategory->title }}</a>
                                                                 </li>
                                                             @endforeach
 

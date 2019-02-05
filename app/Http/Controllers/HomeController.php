@@ -6,6 +6,7 @@ use App\Post;
 use App\Comment;
 use App\Category;
 use App\Page;
+use Kryptonit3\Counter\Counter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,7 +40,7 @@ class HomeController extends Controller
         $post = Post::find($id);
         $similars = $post->getSimilars($id);
         $comments = $comment->getPostRelated($id);
-        list($recentComments,$mostComments) = $this->comments($post,$comment);
+        list($recentComments,$mostComments) = $this->comments();
         return view('homepage.post',compact('post','similars','comments','mostComments','recentComments'));
     }
 
@@ -62,41 +63,37 @@ class HomeController extends Controller
 
     /**
      * @param Post $post
-     * @param Comment $comment
      * @param $id
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function category( Post $post, Comment $comment ,$id)
+    public function category(Post $post,$id)
     {
         $category = Category::find($id);
         $posts = $post->postPaginate($id);
-        list($recentComments,$mostComments) = $this->comments($post,$comment);
+        list($recentComments,$mostComments) = $this->comments();
         return view('homepage.category',compact('category','posts','mostComments','recentComments'));
     }
 
     /**
-     * @param Post $post
-     * @param Comment $comment
      * @param $id
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function page(Post $post,Comment $comment , $id)
+    public function page($id)
     {
         $page = Page::find($id);
-        list($recentComments,$mostComments) = $this->comments($post,$comment);
+        list($recentComments,$mostComments) = $this->comments();
         return view('homepage.page', compact('page','mostComments','recentComments'));
     }
 
     /**
      * @param Post $post
-     * @param Comment $comment
      * @param Request $request
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    public function search(Post $post,Comment $comment, Request $request)
+    public function search(Post $post,Request $request)
     {
         $word = request('word');
         if(empty($word))
@@ -105,19 +102,18 @@ class HomeController extends Controller
             return back();
         }
         $results = $post->scopeSearch($word);
-        list($recentComments,$mostComments) = $this->comments($post,$comment);
-        return view('homepage.search',compact('results','mostComments','recentComments'));
+        list($recentComments,$mostComments) = $this->comments();
+        return view('homepage.search',['results' => $results,'mostComments' => $mostComments,'recentComments' => $recentComments,'word' => $word]);
 
     }
 
     /**
-     * @param Post $post
-     * @param Comment $comment
-     *
      * @return array
      */
-    public function comments(Post $post ,Comment $comment)
+    public function comments()
     {
+       $post = new Post();
+       $comment = new Comment();
        $recentComments = $comment->getRecent();
        $mostComments = $post->getMost();
        return [ $recentComments,$mostComments ];

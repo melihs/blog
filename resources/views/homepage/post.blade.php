@@ -6,13 +6,13 @@
                 <div class="row">
                     <!-- Start left side -->
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 columns">
-                        {{--<div class="row mb-40">--}}
-                            {{--<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">--}}
-                                {{--<div class="section-title">--}}
-                                    {{--<h2 class="h6 header-color inline-block uppercase">{{ $post->title }}</h2>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
+                        <div class="row mb-40">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="section-title">
+                                    <h2 class="h6 header-color inline-block uppercase">{{ $post->title }}</h2>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <!-- Start single post image formate-->
                             <div class="col-md-12">
@@ -24,9 +24,10 @@
                                         <div class="zm-post-header">
                                             <h2 class="zm-post-title h2">{{ $post->title }}</h2>
                                             <div class="zm-post-meta">
-                                                <ul>
-                                                    <li class="s-meta zm-author">{{ $post->user->name }}</li>
-                                                    <li class="s-meta zm-date">{{ date_format($post->created_at,'d m Y') }}</li>
+                                                <ul class="list-unstyled">
+                                                    <li class="s-meta"><i class="fa fa-user"></i> {{ $post->user->name }}</li>
+                                                    <li class="s-meta"><i class="fa fa-calendar"></i> {{ date_format($post->created_at,'d m Y') }}</li>
+                                                    <li class="s-meta"><i class="fa fa-eye"></i> {{ Counter::showAndCount($post->slug), $post->id }}</li>
                                                 </ul>
                                             </div>
                                         </div>

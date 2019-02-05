@@ -48,7 +48,7 @@ class Post extends Model
     public function scopeSearch($word)
     {
         $word = trim($word);
-        return $this->where('title', 'LIKE', '%' . $word . '%')->latest()->get();
+        return $this->where('title', 'LIKE', '%' . $word . '%')->latest()->paginate(5);
     }
 
     /**

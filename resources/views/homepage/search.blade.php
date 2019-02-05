@@ -123,6 +123,23 @@
                     </div>
                     <!-- End Right sidebar -->
                 </div>
+                <!-- Start pagination area -->
+                <div class="row hidden-xs">
+                    <div class="zm-pagination-wrap mt-70">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <nav class="zm-pagination ptb-40 text-center">
+                                        <ul class="page-numbers">
+                                            {{ $results->appends(['word' => $word])->links() }}
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End pagination area -->
                 <!-- Start Advertisement -->
                 <div class="advertisement">
                     <div class="row mt-40">

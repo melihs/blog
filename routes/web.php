@@ -30,5 +30,5 @@ Route::get('yazi/{id}/{slug}', 'HomeController@post')->name('post.show');
 Route::get('kategori/{id}/{slug}','HomeController@category')->name('category.show');
 Route::get('sayfa/{id}/{slug}','HomeController@page')->name('page.show');
 Route::post('gonder', 'HomeController@sendComment')->name('comment.send');
-Route::post('arama', 'HomeController@search')->name('search');
+Route::any('arama', 'HomeController@search')->name('search');
 

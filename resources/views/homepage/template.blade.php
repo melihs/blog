@@ -23,8 +23,7 @@
     <link rel="stylesheet" href="/homepage/css/custom.css">
     <!-- Style customizer (Remove these lines please) -->
     <link rel="stylesheet" href="/homepage/css/style-customizer.css">
-    <!-- Modernizr JS -->
-    <script src="/homepage/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="/css/fontawesome.css">
     <!-- sweet alert -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
 </head>
@@ -54,6 +53,8 @@
 <script src="/homepage/js/plugins.js"></script>
 <!-- Main js file that contents all jQuery plugins activation. -->
 <script src="/homepage/js/main.js"></script>
+<!-- Modernizr JS -->
+<script src="/homepage/js/vendor/modernizr-2.8.3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
 @include('sweetalert::alert')
 </body>

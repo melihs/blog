@@ -119,6 +119,23 @@
                                         </nav>
                                     </div>
                                 </div>
+                                <div class="col-md-1">
+                                    <div class="search-wrap pull-right">
+                                        <div class="search-btn"><i class="fa fa-search"></i></div>
+                                        <div class="search-form">
+                                            <form action="{{ route('search') }}" method="POST">
+                                                @csrf
+                                                <input type="search" name="word" class="form-control{{ $errors->has('word') ? 'is-invalid' : '' }}" placeholder="Arama Yap">
+
+                                                @if($errors->has('word'))
+                                                    <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('word') }}</strong></span>
+                                                @endif
+
+                                                <button type="submit"><i class='fa fa-search'></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

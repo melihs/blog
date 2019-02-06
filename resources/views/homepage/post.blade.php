@@ -27,7 +27,7 @@
                                                 <ul class="list-unstyled">
                                                     <li class="s-meta"><i class="fa fa-user"></i> {{ $post->user->name }}</li>
                                                     <li class="s-meta"><i class="fa fa-calendar"></i> {{ date_format($post->created_at,'d m Y') }}</li>
-                                                    <li class="s-meta"><i class="fa fa-eye"></i> {{ Counter::showAndCount($post->slug), $post->id }}</li>
+                                                    <li class="s-meta"><i class="fa fa-eye"></i> {{ $viewCount }}</li>
                                                 </ul>
                                             </div>
                                         </div>

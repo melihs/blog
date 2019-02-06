@@ -99,4 +99,5 @@ class PostController extends Controller
         alert()->success('Başarılı', 'içerik silindi')->autoClose('2000');
         return redirect()->route('yazilar.index');
     }
+
 }

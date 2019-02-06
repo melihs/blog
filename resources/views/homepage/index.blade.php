@@ -24,8 +24,9 @@
                                         <h2 class="zm-post-title h2"><a href="/yazi/{{ $singlePost->id }}/{{ $singlePost->slug }}">{{ $singlePost->title }}</a></h2>
                                         <div class="zm-post-meta">
                                             <ul>
-                                                <li class="s-meta zm-author">{{ $singlePost->user->name }}</li>
-                                                <li class="s-meta zm-date">{{ date_format($singlePost->created_at,'d m Y')}}</li>
+                                                <li class="s-meta zm-author"><i class="fa fa-user"></i> {{ $singlePost->user->name }}</li>
+                                                <li class="s-meta zm-date"><i class="fa fa-calendar"></i> {{ date_format($singlePost->created_at,'d m Y')}}</li>
+                                                <li class="s-meta"><i class="fa fa-eye"></i> {{ views($singlePost)->unique()->count()  }}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -50,8 +51,8 @@
                                             <h2 class="zm-post-title"><a href="/yazi/{{ $post->id }}/{{ $post->slug }}">{{ $post->title }}</a></h2>
                                             <div class="zm-post-meta">
                                                 <ul>
-                                                    <li class="s-meta zm-author">{{ $post->user->name }}</li>
-                                                    <li class="s-meta zm-date">{{ date_format($post->created_at,'d m Y') }}</li>
+                                                    <li class="s-meta zm-author"><i class="fa fa-user"></i> {{ $post->user->name }}</li>
+                                                    <li class="s-meta zm-date"><i class="fa fa-calendar"></i> {{ date_format($post->created_at,'d m Y') }}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -90,8 +91,9 @@
                                                     <h2 class="zm-post-title"><a href="/yazi/{{ $newPost->id }}/{{ $newPost->slug }}">{{ $newPost->title }}</a></h2>
                                                     <div class="zm-post-meta">
                                                         <ul>
-                                                            <li class="s-meta zm-author">{{ $newPost->user->name }}</li>
-                                                            <li class="s-meta zm-date">{{ date_format($newPost->created_at,'d m Y') }}</li>
+                                                            <li class="s-meta zm-author"><i class="fa fa-user"></i> {{ $newPost->user->name }}</li>
+                                                            <li class="s-meta zm-date"><i class="fa fa-calendar"></i> {{ date_format($newPost->created_at,'d m Y') }}</li>
+                                                            <li class="s-meta"><i class="fa fa-eye"></i> {{ views($newPost)->unique()->count()  }}</li>
                                                         </ul>
                                                     </div>
                                                     <div class="zm-post-content"><p>{{str_limit(strip_tags($newPost->content),$limit = 150,$end = "...") }}</p></div>
@@ -145,6 +147,41 @@
                                 </div>
                             </aside>
                             <!-- Start post layout E -->
+                            <aside class="zm-post-lay-e-area col-xs-12 col-sm-6 col-md-6 col-lg-12 mt-60 hidden-md">
+                                <div class="row mb-40">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="section-title">
+                                            <h2 class="h6 header-color inline-block uppercase">Popüler İçerikler</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="zm-posts">
+
+                                            @foreach($populers as $populer)
+                                                <article class="zm-post-lay-e zm-single-post clearfix">
+                                                    <div class="zm-post-thumb f-left">
+                                                        <a href="/yazi/{{ $populer->id }}/{{ $populer->slug}}"><img src="{{ $populer->image }}" alt="img" height="80"></a>
+                                                    </div>
+                                                    <div class="zm-post-dis f-right">
+                                                        <div class="zm-post-header">
+                                                            <h2 class="zm-post-title"><a href="/yazi/{{ $populer->id }}/{{ $populer->slug }}">{{ $populer->title }}</a></h2>
+                                                            <div class="zm-post-meta">
+                                                                <ul>
+                                                                    <li class="s-meta zm-author">{{ $populer->user->name }}</li>
+                                                                    <li class="s-meta zm-date">{{ date_format($populer->created_at,'d m Y') }}</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            @endforeach
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </aside>
                         </div>
                     </div>
                     <!-- End Right sidebar -->

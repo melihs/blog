@@ -6,7 +6,6 @@ use App\Post;
 use App\Comment;
 use App\Category;
 use App\Page;
-use Kryptonit3\Counter\Counter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,10 +24,12 @@ class HomeController extends Controller
         $singlePost = $post->getSingle();
         $newPosts = $post->getNew();
         $comments = $comment->getConfirm();
-        return view('homepage.index',compact('sliders','posts','singlePost','newPosts','comments'));
+        $populers = $this->sortPopuler();
+        return view('homepage.index',compact('sliders','posts','singlePost','newPosts','comments','populers'));
     }
 
     /**
+     * @param Counter $counter
      * @param Post $post
      * @param Comment $comment
      * @param $id
@@ -40,8 +41,10 @@ class HomeController extends Controller
         $post = Post::find($id);
         $similars = $post->getSimilars($id);
         $comments = $comment->getPostRelated($id);
+        views($post)->record();
+        $viewCount = $this->getViews($post);
         list($recentComments,$mostComments) = $this->comments();
-        return view('homepage.post',compact('post','similars','comments','mostComments','recentComments'));
+        return view('homepage.post',compact('post','similars','comments','mostComments','recentComments','viewCount'));
     }
 
     /**
@@ -117,5 +120,27 @@ class HomeController extends Controller
        $recentComments = $comment->getRecent();
        $mostComments = $post->getMost();
        return [ $recentComments,$mostComments ];
+    }
+
+    /**
+     * @param $object
+     *
+     * @return mixed
+     */
+    public function getViews($object)
+    {
+        return views($object)->unique()->count();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function sortPopuler()
+    {
+        $all = Post::take(5)->get();
+        $populers = $all->sortByDesc(function ($all) {
+            return views($all)->unique()->count();
+        });
+        return $populers;
     }
 }

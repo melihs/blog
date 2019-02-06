@@ -4,8 +4,83 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d527a45a5f67cf01c6c177a5e8c7baed",
+    "content-hash": "a713b35fbcef42ff45d885729dd2dd37",
     "packages": [
+        {
+            "name": "cyrildewit/eloquent-viewable",
+            "version": "v3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cyrildewit/eloquent-viewable.git",
+                "reference": "a96c848e06ca417afe0e5efda6c2230ada9d65bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cyrildewit/eloquent-viewable/zipball/a96c848e06ca417afe0e5efda6c2230ada9d65bc",
+                "reference": "a96c848e06ca417afe0e5efda6c2230ada9d65bc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "5.5.*|5.6.*|5.7.*",
+                "illuminate/contracts": "5.5.*|5.6.*|5.7.*",
+                "illuminate/cookie": "5.5.*|5.6.*|5.7.*",
+                "illuminate/database": "5.5.*|5.6.*|5.7.*",
+                "illuminate/http": "5.5.*|5.6.*|5.7.*",
+                "illuminate/support": "5.5.*|5.6.*|5.7.*",
+                "jaybizzle/crawler-detect": "^1.0",
+                "nesbot/carbon": "^1.22",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "illuminate/config": "5.5.*|5.6.*|5.7.*",
+                "mockery/mockery": "^1.0",
+                "orchestra/database": "^3.5",
+                "orchestra/testbench": "~3.5.0|~3.6.0|~3.7.0",
+                "phpunit/phpunit": "^6.5|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "CyrildeWit\\EloquentViewable\\EloquentViewableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "CyrildeWit\\EloquentViewable\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Cyril de Wit",
+                    "email": "info@cyrildewit.nl",
+                    "homepage": "http://cyrildewit.nl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Simple package that allows you to associate views with Eloquent models",
+            "homepage": "https://github.com/cyrildewit/eloquent-viewable",
+            "keywords": [
+                "counter",
+                "cyrildewit",
+                "eloquent",
+                "hits",
+                "laravel",
+                "viewable",
+                "views",
+                "visitable",
+                "visits"
+            ],
+            "time": "2019-01-29T15:18:52+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -916,55 +991,6 @@
                 "php crawler detect"
             ],
             "time": "2019-01-15T21:21:27+00:00"
-        },
-        {
-            "name": "kryptonit3/counter",
-            "version": "5.2.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Kryptonit3/Counter.git",
-                "reference": "1a0bcf209b194879286f5175e671a70b08e2888e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Kryptonit3/Counter/zipball/1a0bcf209b194879286f5175e671a70b08e2888e",
-                "reference": "1a0bcf209b194879286f5175e671a70b08e2888e",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "5.*",
-                "jaybizzle/crawler-detect": "1.*",
-                "php": ">=5.3.3",
-                "ramsey/uuid": "~3.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Kryptonit3\\Counter\\CounterServiceProvider"
-                    ],
-                    "aliases": {
-                        "Counter": "Kryptonit3\\Counter\\Facades\\CounterFacade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Kryptonit3\\Counter\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jesse Szypulski",
-                    "email": "jesse.szypulski@gmail.com"
-                }
-            ],
-            "description": "Hit counter for your pages.",
-            "time": "2018-01-21T22:38:18+00:00"
         },
         {
             "name": "laravel/framework",

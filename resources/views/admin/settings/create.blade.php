@@ -47,7 +47,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="description" class="col-sm-2 control-label col-form-label">Site Açıklama</label>
+                                <label for="description" class="col-sm-2 control-label col-form-label"><i class="mdi mdi-book"></i> Açıklama</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" id="description" name="description" value="{{$settings->description}}">
 

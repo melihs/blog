@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PageRequest;
 use App\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class PageController extends Controller
@@ -69,7 +70,8 @@ class PageController extends Controller
         $validated = $request->validated();
         $page = Page::find($id);
         $page->fill($validated);
-        $page->slug = str_slug($request->title);
+//        $page->slug = str_slug($request->title);
+        $page->slug = Str::slug($request->title);
         $page->save();
         alert()->success('Başarılı', 'Sayfa güncellendi')->autoClose('2000');
         return redirect()->route('sayfalar.index');

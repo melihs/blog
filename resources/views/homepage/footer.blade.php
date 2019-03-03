@@ -42,15 +42,15 @@
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-6 col-lg-3">
                     <div class="zm-widget">
-                        <h2 class="h6 zm-widget-title uppercase text-white mb-30">Subscribe Newsletter</h2>
+                        <h2 class="h6 zm-widget-title uppercase text-white mb-30">Ücretsiz Abonelik</h2>
                         <!-- Start Subscribe From -->
                         <div class="zm-widget-content">
                             <div class="subscribe-form subscribe-footer">
-                                <p>Join 80,000+ awesome subscribers and update yourself with our exclusive news.</p>
-                                <form action="#">
-                                    <input type="text" placeholder="Enter your full name">
-                                    <input type="email" placeholder="Enter email address" required="">
-                                    <input type="submit" value="Subscribe">
+                                <p>Haber Bültenimize Ücretsiz Kayıt Olabilirsiniz.</p>
+                                <form action="{{ route('subscribe') }}" method="POST">
+                                    @csrf
+                                    <input type="email" placeholder="E-posta Adresiniz" name="email" required>
+                                    <input type="submit" value="Abone Ol">
                                 </form>
                             </div>
                         </div>

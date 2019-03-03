@@ -31,4 +31,7 @@ Route::get('kategori/{id}/{slug}','HomeController@category')->name('category.sho
 Route::get('sayfa/{id}/{slug}','HomeController@page')->name('page.show');
 Route::post('gonder', 'HomeController@sendComment')->name('comment.send');
 Route::any('arama', 'HomeController@search')->name('search');
+Route::any('aboneol', 'HomeController@subscribe')->name('subscribe');
+//Route::get('password/reset','UserController@password');
+//Route::post('password/reset','UserController@sendMail')->name('send.mail');
 

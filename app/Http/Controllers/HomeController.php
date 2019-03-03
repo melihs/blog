@@ -8,6 +8,7 @@ use App\Category;
 use App\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Newsletter;
 
 class HomeController extends Controller
 {
@@ -142,5 +143,23 @@ class HomeController extends Controller
             return views($all)->unique()->count();
         });
         return $populers;
+    }
+
+    public function subscribe(Request $request)
+    {
+       $isSubscribe = Newsletter::isSubscribed($request->email);
+        if($isSubscribe)
+        {
+            alert()->error('Hata', 'E-posta adresiniz zaten kayıtlı')->autoClose('2000');
+            return back();
+        }else
+        {
+          $subscribe = Newsletter::subscribe($request->email);
+          if($subscribe)
+          {
+              alert()->success('Teşekkürler', 'E-posta adresiniz kaydedildi')->autoClose('2000');
+              return back();
+          }
+        }
     }
 }

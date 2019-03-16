@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendMail;
 use App\User;
 use Illuminate\Http\Request;
 use App\Traits\Image;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -37,7 +39,6 @@ class UserController extends Controller
      */
     public function create()
     {
-        $this->authorize('users.admin');
         return view('admin.users.create');
     }
 
@@ -120,6 +121,24 @@ class UserController extends Controller
     {
         auth()->logout();
         return redirect('/');
+    }
+
+    public function password()
+    {
+        return view('auth.passwords.email');
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function sendMail(Request $request)
+    {
+        $request->validate(['email' =>'required|email']);
+        $app_mail = 'melihsahin24@gmail.com';
+        $email = $request->email;
+        Mail::to($app_mail)->send(new SendMail($email));
+        alert()->success('Başarılı', 'e-posta gönderildi')->autoClose('2000');
+        return back();
     }
 
     /**

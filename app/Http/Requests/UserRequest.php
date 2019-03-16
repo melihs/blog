@@ -9,7 +9,8 @@ class UserRequest extends FormRequest
 {
     public function authorize()
     {
-        return true;
+        return $this->authorize('users.admin');
+
     }
 
     /**

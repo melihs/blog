@@ -16,8 +16,8 @@
             </div>
         </div>
         <div class="card">
-            {!! Form::open( [ 'route' => 'sayfalar.store','method' => 'POST', 'class' => 'form-horizontal']) !!}
-            <div class="card-body">
+            <form onsubmit="return addAjax('{{ route('sayfalar.store') }}','Sayfa kaydedildi.');" id="ajax-form" action="{{ route('sayfalar.store') }}" method="POST" class="form-horizontal">
+                <div class="card-body">
                 <h4 class="card-title">Sayfa Ekle</h4>
                 <div class="form-group row">
                     <label for="title" class="col-sm-3 text-right control-label col-form-label">Sayfa Başlık</label>
@@ -35,7 +35,7 @@
                 <div class="form-group row">
                     <label for="editor" class="col-sm-3 text-right control-label col-form-label">İçerik</label>
                     <div class="col-sm-9">
-                        <textarea type="text" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" name="content" id="editor">{{ old('content') }}</textarea>
+                        <textarea type="text" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" name="content" rows="6">{{ old('content') }}</textarea>
 
                         @if ($errors->has('content'))
                             <span class="invalid-feedback" role="alert">
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            {!! Form::close() !!}
+            </form>
         </div>
     </div>
 @endsection
@@ -60,7 +60,8 @@
 @endsection
 @section('js')
     <!-- ckeditor-->
-    <script src="/admin/ckeditor5/ckeditor.js"></script>
-    <script src="/admin/ckeditor5/translations/tr.js"></script>
-    <script src='/js/ckeditor-option.js'></script>
+{{--    <script src="/admin/ckeditor5/ckeditor.js"></script>--}}
+{{--    <script src="/admin/ckeditor5/translations/tr.js"></script>--}}
+{{--    <script src='/js/ckeditor-option.js'></script>--}}
+    <script src="/js/addAjax.js"></script>
 @endsection

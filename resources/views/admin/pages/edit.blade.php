@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="card">
-            {!! Form::model($page,['route' => ['sayfalar.update',$page->id],'method' =>'PUT','class' => 'form-horizontal']) !!}
+            <form onsubmit="return editAjax('{{ route('sayfalar.update',$page->id) }}','Sayfa güncellendi.');" id="ajax-form" action="{{ route('sayfalar.update',$page->id) }}" method="PUT" class="form-horizontal">
             <div class="card-body">
                 <h4 class="card-title">Sayfa Düzenle: <small class="text-danger">{{ $page->title }} </small></h4>
                 <div class="form-group row mt-4">
@@ -35,7 +35,7 @@
                 <div class="form-group row">
                     <label for="editor" class="col-sm-2 control-label col-form-label">İçerik</label>
                     <div class="col-sm-10">
-                        <textarea type="text" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" id="editor" name="content">{{$page->content}}</textarea>
+                        <textarea type="text" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" id="editor" name="content">{{strip_tags($page->content)}}</textarea>
 
                         @if ($errors->has('content'))
                             <span class="invalid-feedback" role="alert">
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            {!! Form::close() !!}
+            </form>
         </div>
     </div>
 @endsection
@@ -61,10 +61,11 @@
 @endsection
 @section('js')
     <!-- lightbox  js-->
-    <script src="/admin/lightbox2/dist/js/lightbox.js"></script>
-    <script src="/admin/lightbox2/option.js"></script>
+{{--    <script src="/admin/lightbox2/dist/js/lightbox.js"></script>--}}
+{{--    <script src="/admin/lightbox2/option.js"></script>--}}
     <!-- ckeditor-->
-    <script src="/admin/ckeditor5/ckeditor.js"></script>
-    <script src="/admin/ckeditor5/translations/tr.js"></script>
-    <script src='/js/ckeditor-option.js'></script>
+{{--    <script src="/admin/ckeditor5/ckeditor.js"></script>--}}
+{{--    <script src="/admin/ckeditor5/translations/tr.js"></script>--}}
+{{--    <script src='/js/ckeditor-option.js'></script>--}}
+    <script src="/js/editAjax.js"></script>
 @endsection

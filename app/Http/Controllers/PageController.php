@@ -41,10 +41,9 @@ class PageController extends Controller
         $validated = $request->validated();
         $page = new Page();
         $page->fill($validated);
-        $page->slug = str_slug($request->title);
+        $page->slug = Str::slug($request->title);
         $page->save();
-        alert()->success('Başarılı', 'Sayfa kaydedildi')->autoClose('2000');
-        return back();
+        return Response()->json(['success'=>$page]);
     }
 
     /**
@@ -70,11 +69,9 @@ class PageController extends Controller
         $validated = $request->validated();
         $page = Page::find($id);
         $page->fill($validated);
-//        $page->slug = str_slug($request->title);
         $page->slug = Str::slug($request->title);
         $page->save();
-        alert()->success('Başarılı', 'Sayfa güncellendi')->autoClose('2000');
-        return redirect()->route('sayfalar.index');
+        return Response()->json(['success'=>$page]);
     }
 
     /**

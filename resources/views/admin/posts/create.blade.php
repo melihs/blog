@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="card">
-            {!! Form::open( [ 'route' => 'yazilar.store','method' => 'POST', 'class' => 'form-horizontal', 'files' => 'true']) !!}
+            <form onsubmit="return addAjax('{{ route('yazilar.store') }}','Yazı eklendi.');" id="ajax-form" action="{{ route('yazilar.store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
             <div class="card-body">
                 <h4 class="card-title">İçerik Ekle</h4>
                 <div class="form-group row">
@@ -99,7 +99,7 @@
                     </div>
                 </div>
             </div>
-            {!! Form::close() !!}
+            </form>
         </div>
     </div>
 @endsection
@@ -108,10 +108,11 @@
 @endsection
 @section('js')
     <!-- lightbox  js-->
-    <script src="/admin/lightbox2/dist/js/lightbox.js"></script>
-    <script src="/admin/lightbox2/option.js"></script>
+{{--    <script src="/admin/lightbox2/dist/js/lightbox.js"></script>--}}
+{{--    <script src="/admin/lightbox2/option.js"></script>--}}
     <!-- ckeditor -->
-    <script src="/admin/ckeditor5/ckeditor.js"></script>
-    <script src="/admin/ckeditor5/translations/tr.js"></script>
-    <script src='/js/ckeditor-option.js'></script>
+{{--    <script src="/admin/ckeditor5/ckeditor.js"></script>--}}
+{{--    <script src="/admin/ckeditor5/translations/tr.js"></script>--}}
+{{--    <script src='/js/ckeditor-option.js'></script>--}}
+    <script src="/js/addAjax.js"></script>
 @endsection

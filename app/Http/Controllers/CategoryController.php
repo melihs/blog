@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryRequest;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -41,10 +42,9 @@ class CategoryController extends Controller
         $validated = $request->validated();
         $category = new Category();
         $category->fill($validated);
-        $category->slug = str_slug($request->title);
+        $category->slug =Str::slug($request->title);
         $category->save();
-        alert()->success('Başarılı', 'Kategori eklendi')->autoClose('2000');
-        return back();
+        return Response()->json(['success'=>$category]);
     }
 
     /**
@@ -72,7 +72,7 @@ class CategoryController extends Controller
         $validated = $request->validated();
         $category = Category::find($id);
         $category->fill($validated);
-        $category->slug = str_slug($request->title);
+        $category->slug = Str::slug($request->title);
         $category->save();
         alert()->success('Başarılı','Kategori güncellendi')->autoClose('2000');
         return redirect()->route('kategoriler.index');

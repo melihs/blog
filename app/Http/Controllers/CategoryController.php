@@ -74,10 +74,14 @@ class CategoryController extends Controller
         $category->fill($validated);
         $category->slug = Str::slug($request->title);
         $category->save();
-        alert()->success('Başarılı','Kategori güncellendi')->autoClose('2000');
-        return redirect()->route('kategoriler.index');
+        return Response()->json(['success'=>$category]);
     }
 
+    public function show(  )
+    {
+     return redirect()->route('admin.index');
+    }
+    
     /**
      * @param  \App\Category  $id
      * @return \Illuminate\Http\Response

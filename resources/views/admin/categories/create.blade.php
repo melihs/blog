@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="card">
-            <form onsubmit="return addAjax();" id="ajax-form" action="{{ route('kategoriler.store') }}" method="POST" class="form-horizontal">
+            <form onsubmit="return addAjax('{{ route('kategoriler.store') }}','Kategori eklendi.');" id="ajax-form" action="{{ route('kategoriler.store') }}" method="POST" class="form-horizontal">
                 <div class="card-body">
                     <h4 class="card-title"> Yeni Kategori Ekle</h4>
                     <div class="form-group row">
@@ -72,32 +72,5 @@
 
 @endsection
 @section('js')
-    <script>
-        function addAjax() {
-            let form = $("#ajax-form");
-            let form_data = $("#ajax-form").serialize();
-            $.ajaxSetup({
-              headers : {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              }
-            });
-            $.ajax({
-                type    : 'POST',
-                url     : '{{ route('kategoriler.store') }}',
-                data    : form_data,
-                success : function () {
-                    swal({
-                       title  : 'Kategori eklendi.',
-                        text  : 'Lütfen Bekleyin...',
-                        type  : 'success',
-                        timer : 2000,
-                        showConfirmButton: false
-                    });
-                    document.getElementById('ajax-form').reset();
-                }
-            });
-            return false;
-        }
-    </script>
-
+    <script src="/js/addAjax.js"></script>
 @endsection

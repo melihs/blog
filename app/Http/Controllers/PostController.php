@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Traits\Image;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -45,7 +46,7 @@ class PostController extends Controller
         $post =new Post();
         $post->fill($validated);
         $post->user_id = Auth::user()->id;
-        $post->slug = str_slug($request->title);
+        $post->slug = Str::slug($request->title);
         $this->setImagePath($post,'image');
         $post->save();
         alert()->success('Başarılı', 'içerik kaydedildi')->autoClose('2000');
@@ -79,7 +80,7 @@ class PostController extends Controller
         $post->fill($validated);
         $user = $post->user_id;
         $post->user_id = $user;
-        $post->slug = str_slug($request->title);
+        $post->slug = Str::slug($request->title);
         $this->setImagePath($post,'image');
         $post->save();
         alert()->success('Başarılı', 'içerik güncellendi')->autoClose('2000');

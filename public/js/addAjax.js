@@ -1,7 +1,6 @@
 function addAjax(url,alertMsg) {
     let form = $(".ajax-form");
     let form_data = $(".ajax-form").serialize();
-    console.log(form_data);
     $.ajaxSetup({
         headers : {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

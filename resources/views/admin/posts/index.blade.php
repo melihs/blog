@@ -73,7 +73,18 @@
 @endsection
 @section('js')
     <script src="/admin/assets/extra-libs/DataTables/datatables.min.js"></script>
-    <script src="/js/datatables-option.js"></script>
-    <script> $('#zero_config').DataTable(); </script>
+    <script>
+        $(function () {
+            $('#zero_config').DataTable(
+                {
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
+                    },
+                    "lengthMenu": [25, 50, 75, 100, 125],
+                    "pageLength": 25,
+                    "order": [[ 1, "asc" ]],
+                }
+            )})
+    </script>
     <script src="https://cdn.datatables.net/scroller/1.5.1/js/dataTables.scroller.min.js"></script>
 @endsection

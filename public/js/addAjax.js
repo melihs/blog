@@ -1,6 +1,6 @@
 function addAjax(url,alertMsg) {
-    let form = $(".ajax-form");
-    let form_data = $(".ajax-form").serialize();
+    let form = $("#ajax-form");
+    let form_data = $("#ajax-form").serialize();
     $.ajaxSetup({
         headers : {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -26,7 +26,7 @@ function addAjax(url,alertMsg) {
                 timer : 2000,
                 showConfirmButton: false
             });
-            document.getElementsByClassName('ajax-form').reset();
+            document.getElementById('ajax-form').reset();
         }
     });
     return false;
